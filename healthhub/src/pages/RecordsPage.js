@@ -1,7 +1,24 @@
+import React from "react";
+import { useParams } from 'react-router-dom';
+import '../styles/pages/RecordsPage.css'
+import Header from "../components/Header";
+
 function RecordsPage() {
+    const {username} = useParams();
+
     return (
       <div className="RecordsPage">
-        RecordsPage
+        <div className="recordspage_header">
+          <Header Tab={'Records'}/>
+        </div>
+        <div className="recordspage_content">
+          <div className="recordspage_profile">
+          프로필 세션
+          </div>
+          <div className="recordspage_RecordsSession">
+          {/* 구현한 RecordsSession 여기에 넣으면 됩니다. */}
+          </div>
+        </div>
       </div>
     );
   }
