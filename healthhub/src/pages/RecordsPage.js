@@ -2,6 +2,7 @@ import React from "react";
 import { useParams } from 'react-router-dom';
 import '../styles/pages/RecordsPage.css'
 import Header from "../components/Header";
+import ProfileSession from "../sessions/ProfileSession";
 
 function RecordsPage() {
     const {username} = useParams();
@@ -13,7 +14,7 @@ function RecordsPage() {
         </div>
         <div className="recordspage_content">
           <div className="recordspage_profile">
-          프로필 세션
+            <ProfileSession username={username}/>
           </div>
           <div className="recordspage_RecordsSession">
           {/* 구현한 RecordsSession 여기에 넣으면 됩니다. */}

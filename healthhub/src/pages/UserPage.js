@@ -2,6 +2,8 @@ import React from "react";
 import { useParams } from 'react-router-dom';
 import '../styles/pages/UserPage.css'
 import Header from "../components/Header";
+import UserSession from '../sessions/UserSession';
+import ProfileSession from "../sessions/ProfileSession";
 
 function UserPage() {
     const {username} = useParams();
@@ -13,10 +15,10 @@ function UserPage() {
         </div>
         <div className="userpage_content">
           <div className="userpage_profile">
-          프로필 세션
+            <ProfileSession username={username}/>
           </div>
           <div className="userpage_UserSession">
-          {/* 구현한 UserSession 여기에 넣으면 됩니다. */}
+            <UserSession/>
           </div>
         </div>
       </div>

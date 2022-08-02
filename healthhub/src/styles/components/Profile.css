@@ -1,0 +1,52 @@
+.Profile{
+    width: 250px;
+    height: 100%;
+}
+.Profile > img{
+    width: 100%;
+    border-radius: 125px;
+    margin-bottom: 20px;
+}
+.profile_username, .profile_follow, .profile_button_group{
+    margin: 5px 20px;
+}
+
+.profile_username{
+    color: #E3F5FE;
+    font-size: 40px;
+    font-weight: 500;
+}
+.profile_follow{
+    color: #66B3F9;
+    font-size: 18px;
+    font-weight: 400;
+    border: none;
+    background-color: transparent;
+}
+.profile_follow:hover{
+    color: #E3F5FE;
+    font-size: 18px;
+    font-weight: 400;
+    border: none;
+    background-color: transparent;
+}
+
+.profile_button_group{
+    margin-top: 10px;
+    font-size: 18px;
+    color: #66B3F9;
+}
+.profile_button_clicked{
+    font-size: 18px;
+    color: #E3F5FE;
+    font-weight: 400;
+    border: none;
+    background-color: transparent;
+}
+.profile_button{
+    font-size: 18px;
+    color: #66B3F9;
+    font-weight: 400;
+    border: none;
+    background-color: transparent;
+}
