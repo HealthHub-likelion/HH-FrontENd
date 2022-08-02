@@ -33,3 +33,28 @@
     margin: 0 0 0 10px;
     font-size: 18px;
 }
+
+@media only screen and (min-width: 900px) {
+    .menulist_button_box{
+        padding: 10px 15px;
+    }
+    .menulist_button_img{
+        height: 20px;
+    }
+    .menulist_button{
+        margin: 0 0 0 10px;
+        font-size: 18px;
+    }
+}
+@media only screen and (min-width: 450px) and (max-width: 899px) {
+    .menulist_button_box{
+        padding: 8px 6px;
+    }
+    .menulist_button_img{
+        height: 16px;
+    }
+    .menulist_button{
+        margin: 0 0 0 5px;
+        font-size: 15px;
+    }
+}
