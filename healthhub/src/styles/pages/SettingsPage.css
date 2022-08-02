@@ -20,7 +20,7 @@
     width: 300px;
     height: 100%;
 }
-.settingspage_UserSession{
+.settingspage_SettingsSession{
     flex-grow: 1;
     height: 100%;
     background-color: #061726;

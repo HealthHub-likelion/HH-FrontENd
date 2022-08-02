@@ -20,7 +20,7 @@
     width: 300px;
     height: 100%;
 }
-.followspage_UserSession{
+.followspage_FollowsSession{
     flex-grow: 1;
     height: 100%;
     background-color: #061726;
