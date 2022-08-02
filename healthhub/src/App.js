@@ -8,10 +8,16 @@ import RecordsPage from './pages/RecordsPage';
 import SettingsPage from './pages/SettingsPage';
 import SignupPage from './pages/SignupPage';
 import UserPage from './pages/UserPage';
+import { useMediaQuery } from 'react-responsive';
 
 function App() {
+  const validWidth = useMediaQuery({
+    query : "(min-width:450px)"
+  });
+
   return (
     <div className="App">
+      {validWidth&&
       <Routes>
         <Route exact path="/" element={<IndexPage/>}/>
         <Route path="/login" element={<LoginPage/>}/>
@@ -22,7 +28,8 @@ function App() {
         <Route path="/:username/records" element={<RecordsPage/>}/>
         <Route path="/:username/settings" element={<SettingsPage/>}/>
         <Route path="*" element={<div>404</div>}/>
-      </Routes>
+      </Routes>}
+      {validWidth||<div>해상도를 높여주세요.</div>}
     </div>
   );
 }
