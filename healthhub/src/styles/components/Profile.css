@@ -56,11 +56,17 @@
         font-size: 18px;
     }
     .profile_button_clicked{
-        font-size: 18px;
+        background-color: #061726;
+        padding: 6px;
+        margin: 3px;
+        border-radius: 5px;
+        font-size: 17px;
         font-weight: 400;
     }
     .profile_button{
-        font-size: 18px;
+        padding: 6px;
+        margin: 3px;
+        font-size: 17px;
         font-weight: 400;
     }
 }
