@@ -1,21 +1,6 @@
-import styled from "styled-components";
 import '../styles/pages/IndexPage.css';
 import { useNavigate } from 'react-router-dom';
-
-const Container = styled.div`
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(
-            rgba(6, 23, 38, 0.8),
-            rgba(6, 23, 38, 0.8),
-            rgba(6, 23, 38, 0.8)
-            ),
-        url(images/HH_bg.jpg);
-        background-size: cover;
-    `;
+import IndexContainer from "../components/background/indexBG";
 
 function IndexPage() {
     const navigate = useNavigate();
@@ -28,7 +13,7 @@ function IndexPage() {
     }
 
     return (
-        <Container>
+        <IndexContainer>
             <div className="IndexPage">
                 <div className="index_top">
                     <div className="index_top_title">
@@ -46,7 +31,7 @@ function IndexPage() {
                             onClick={()=>{moveSignupPage()}}>Signup</button>
                 </div>
             </div>
-        </Container>
+        </IndexContainer>
     );
   }
 
