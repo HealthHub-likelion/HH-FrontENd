@@ -21,7 +21,7 @@
 
 @media only screen and (min-width: 900px) {
     .recordspage_header{
-        height: 180px;
+        min-height: 180px;
     }
     .recordspage_content{
         flex-direction: row;
@@ -34,7 +34,7 @@
 
 @media only screen and (min-width: 450px) and (max-width: 899px) {
     .recordspage_header{
-        height: 100px;
+        min-height: 100px;
     }
     .recordspage_content{
         flex-direction: column;
