@@ -1,0 +1,15 @@
+.SignupPage{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.signup_form{
+    margin : auto;
+    width : 20%;
+}
+.signup_bottom{
+    margin : auto;
+    color : #E3F5FE;
+    font-size: 25px;
+}
