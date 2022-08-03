@@ -1,0 +1,29 @@
+.securityform_title{
+    font-size : 25px;
+    font-weight: 500;
+    color : #66B3F9;
+    border-bottom: 5px solid #264056;
+}
+.securityform_button{
+    float: right;
+    margin : 20px 20px 0 0;
+}
+.securityform_button_private{
+    height: 40px;
+    width: 90px;
+    border-radius: 10px;
+    background-color: #2E61D7;
+    font-size: 14px;
+    color: #E3F5FE;
+    cursor: pointer;
+}
+.securityform_button_public{
+    height: 40px;
+    width: 90px;
+    border-radius: 10px;
+    border-color: #E3F5FE;
+    background-color: #061726;
+    font-size: 14px;
+    color: #E3F5FE;
+    cursor: pointer;
+}
