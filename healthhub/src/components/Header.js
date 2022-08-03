@@ -2,7 +2,7 @@ import '../styles/components/Header.css'
 import MenuList from './MenuList';
 import { useNavigate } from 'react-router-dom';
 
-function Header({Tab}) {
+function Header({Tab, username}) {
     const navigate = useNavigate();
 
     const moveIndex = () =>{
@@ -23,7 +23,7 @@ function Header({Tab}) {
         </div>
         <div className='header_bottom'>
             <div className='header_MenuList'>
-                <MenuList Tab={Tab}/>
+                <MenuList Tab={Tab} username={username}/>
             </div>
         </div>
       </div>

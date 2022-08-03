@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/components/MenuList.css'
 
-function MenuList({Tab}) {
+function MenuList({Tab, username}) {
     const [buttonType] = useState(['My', 'Feeds', 'Records', 'Settings']);
     const [followPage] = useState(Tab === 'Follows'?true:false);
 
@@ -43,10 +43,10 @@ function MenuList({Tab}) {
     // 후에 닉네임 삽입 부분 수정 필요
     const movePage = (type) => {
       if(type === 'My'){
-        navigate(`/GHW`);
+        navigate(`/${username}`);
         return;
       }
-      navigate(`/GHW/${type}`);
+      navigate(`/${username}/${type}`);
     }
 
     const showButtonList = () =>{
