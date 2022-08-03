@@ -1,0 +1,14 @@
+.RecordSession{
+    height: 100%;
+}
+.wavesWindow{
+    border : 2px solid white;
+    color : #E3F5FE;
+}
+.wavesWindow_header{
+    border : 2px solid white;
+    width : 95%;
+    margin : auto;
+    display : flex;
+    justify-content: space-between;
+}
