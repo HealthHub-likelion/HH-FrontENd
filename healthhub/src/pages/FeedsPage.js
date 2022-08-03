@@ -10,7 +10,7 @@ function FeedsPage() {
     return (
       <div className="FeedsPage">
         <div className="feedspage_header">
-          <Header Tab={'Feeds'}/>
+          <Header Tab={'Feeds'} username={username}/>
         </div>
         <div className="feedspage_content">
           <div className="feedspage_profile">

@@ -10,7 +10,7 @@ function SettingsPage() {
     return (
       <div className="SettingsPage">
         <div className="settingspage_header">
-          <Header Tab={'Settings'}/>
+          <Header Tab={'Settings'} username={username}/>
         </div>
         <div className="settingspage_content">
           <div className="settingspage_profile">

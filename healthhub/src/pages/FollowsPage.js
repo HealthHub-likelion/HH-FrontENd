@@ -11,7 +11,7 @@ function FollowsPage() {
     return (
       <div className="FollowsPage">
         <div className="followspage_header">
-          <Header Tab={'Follows'}/>
+          <Header Tab={'Follows'} username={username}/>
         </div>
         <div className="followspage_content">
           <div className="followspage_profile">

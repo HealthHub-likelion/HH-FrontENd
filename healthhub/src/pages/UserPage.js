@@ -11,7 +11,7 @@ function UserPage() {
     return (
       <div className="UserPage">
         <div className="userpage_header">
-          <Header Tab={'My'}/>
+          <Header Tab={'My'} username={username}/>
         </div>
         <div className="userpage_content">
           <div className="userpage_profile">
