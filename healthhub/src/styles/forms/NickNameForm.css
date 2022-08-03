@@ -1,0 +1,28 @@
+.nicknameform_title{
+    font-size : 25px;
+    font-weight: 500;
+    color : #66B3F9;
+    border-bottom: 5px solid #264056;
+}
+.nicknameform_nickname{
+    float: right;
+    border-bottom: 2px solid #E3F5FE;
+    padding-bottom: 5px;
+    margin : 10px;
+}
+.nicknameform_nickname > input{
+    border : none;
+    background: transparent;
+    width : 240px;
+    color : #E3F5FE;
+    font-size: 20px;
+    padding-left: 10px;
+    margin: 20px 20px 0 0;
+}
+.nicknameform_nickname > button{
+    border : none;
+    background: transparent;
+    color : #E3F5FE;
+    font-size: 20px;
+    cursor: pointer;
+}
