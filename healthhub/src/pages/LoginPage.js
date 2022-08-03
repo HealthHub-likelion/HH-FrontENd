@@ -1,9 +1,23 @@
-function LoginPage() {
-    return (
-      <div className="LoginPage">
-        LoginPage
-      </div>
-    );
-  }
+import ProfileContainer from '../components/background/ProfileBG';
+import SignupHeader from '../components/SignupHeader';
+import LoginForm from '../forms/LoginForm';
+import '../styles/pages/LoginPage.css';
 
-  export default LoginPage;
+function LoginPage() {
+  return (
+    <ProfileContainer>
+      <div className="LoginPage">
+        <SignupHeader />
+        <div className="login_form">
+          <LoginForm />
+          안나오나
+        </div>
+        <div className="login_bottom">
+          <div>Sign Up</div>
+        </div>
+      </div>
+    </ProfileContainer>
+  );
+}
+
+export default LoginPage;
