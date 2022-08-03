@@ -1,22 +1,29 @@
 import React from "react";
-import IndexContainer from "../components/background/indexBG";
+import ProfileContainer from "../components/background/ProfileBG";
 import SignupForm from "../forms/SignupForm";
 import SignupHeader from "../components/SignupHeader";
 import '../styles/pages/SignupPage.css'
+import { useNavigate } from "react-router-dom";
 
 function SignupPage() {
+  const navigate = useNavigate();
+
+  const moveLoginPage = () =>{
+      navigate(`/login`);
+  }
+
     return (
-      <IndexContainer>
+      <ProfileContainer>
         <div className="SignupPage">
           <SignupHeader/>
           <div className="signup_form">
             <SignupForm/>
           </div>
           <div className="signup_bottom">
-            <div>Login</div>
+            <div onClick={()=>{moveLoginPage()}}>Login</div>
           </div>
         </div>
-      </IndexContainer>
+      </ProfileContainer>
     );
   }
 

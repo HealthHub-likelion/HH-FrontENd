@@ -72,7 +72,11 @@
     color : #66B3F9;
     font-size : 25px;
 }
-
+.signupForm_passwordAlert{
+    margin : auto;
+    font-size: 15px;
+    color :#FF9900;
+}
 @media only screen and (min-width: 900px) {
     .signupForm_nickname{
         width : 300px;
