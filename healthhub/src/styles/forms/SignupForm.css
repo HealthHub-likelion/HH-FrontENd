@@ -2,19 +2,23 @@
     display : flex;
     flex-direction: column;
     color : #E3F5FE;
+    margin : 100px 0 0 0 ;
+    font-size: 20px;
 }
 .signupForm_nickname{
     display: flex;
     justify-content: space-between;
     border-bottom: 2px solid #E3F5FE;
     padding-bottom: 5px;
+    margin : auto;
     margin-bottom : 10px;
 }
 .signupForm_nickname > input{
-    border: none;
+    border : none;
     background: transparent;
-    flex-grow: 1;
+    width : 240px;
     color : #E3F5FE;
+    font-size: 20px;
 }
 .signupForm_nickname > input:focus{
     outline:none;
@@ -24,6 +28,7 @@
     justify-content: space-between;
     border-bottom: 2px solid #E3F5FE;
     padding-bottom: 5px;
+    margin : auto;
     margin-bottom : 10px;
 }
 .signupForm_email > input{
@@ -31,6 +36,7 @@
     background: transparent;
     flex-grow: 1;
     color : #E3F5FE;
+    font-size: 20px;
 }
 .signupForm_email > input:focus{
     outline:none;
@@ -40,8 +46,10 @@
     background: transparent;
     border-bottom: 2px solid #E3F5FE;
     padding-bottom: 5px;
-    margin-bottom : 10px;
     color : #E3F5FE;
+    margin : auto;
+    margin-bottom : 10px;
+    font-size: 20px;
 }
 .singupForm_password:focus{
     outline:none;
@@ -51,8 +59,10 @@
     background: transparent;
     border-bottom: 2px solid #E3F5FE;
     padding-bottom: 5px;
-    margin-bottom : 10px;
     color : #E3F5FE;
+    margin : auto;
+    margin-bottom : 10px;
+    font-size: 20px;
 }
 .signupForm_doubleCheck:focus{
     outline:none;
@@ -61,4 +71,46 @@
     margin : 20px auto;
     color : #66B3F9;
     font-size : 25px;
+}
+
+@media only screen and (min-width: 900px) {
+    .signupForm_nickname{
+        width : 300px;
+    }
+    .signupForm_nickname > input{
+        width : 240px;
+    }
+    .signupForm_email{
+        width : 300px;
+    }
+    .signupForm_email > input{
+        width : 240px;
+    }
+    .singupForm_password{
+        width : 300px;
+    }
+    .signupForm_doubleCheck{
+        width : 300px;
+    }
+}
+
+@media only screen and (min-width: 450px) and (max-width: 899px) {
+    .signupForm_nickname{
+        width : 250px;
+    }
+    .signupForm_nickname > input{
+        width : 195px;
+    }
+    .signupForm_email{
+        width : 250px;
+    }
+    .signupForm_email > input{
+        width : 195px;
+    }
+    .singupForm_password{
+        width : 250px;
+    }
+    .signupForm_doubleCheck{
+        width : 250px;
+    }
 }

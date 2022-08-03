@@ -17,10 +17,12 @@ function SignupForm() {
                 <div>확인</div>
             </div>
             <input 
+                type = "password"
                 placeholder='password'
                 className='singupForm_password'
                 ></input>
             <input 
+                type = "password"
                 placeholder='password 중복 검사'
                 className='signupForm_doubleCheck'
                 ></input>
