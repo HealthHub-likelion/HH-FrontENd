@@ -5,8 +5,8 @@
     flex-direction: column;
 }
 .signup_form{
-    margin : auto;
-    width : 20%;
+    width : 100%;
+    height : 50%;
 }
 .signup_bottom{
     margin : auto;
