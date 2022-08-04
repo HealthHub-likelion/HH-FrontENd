@@ -73,10 +73,13 @@
     font-size : 25px;
 }
 .signupForm_passwordAlert{
-    margin : auto;
     font-size: 15px;
     color :#FF9900;
 }
+.signupForm_passwordAlertBox{
+    margin : auto;
+}
+
 @media only screen and (min-width: 900px) {
     .signupForm_nickname{
         width : 300px;
@@ -94,6 +97,9 @@
         width : 300px;
     }
     .signupForm_doubleCheck{
+        width : 300px;
+    }
+    .signupForm_passwordAlertBox{
         width : 300px;
     }
 }
@@ -115,6 +121,9 @@
         width : 250px;
     }
     .signupForm_doubleCheck{
+        width : 250px;
+    }
+    .signupForm_passwordAlertBox{
         width : 250px;
     }
 }
