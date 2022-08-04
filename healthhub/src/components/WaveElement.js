@@ -1,9 +1,13 @@
 import React from 'react';
 import '../styles/components/WaveElement.css'
+import ElementProfileBox from './ElementProfileBox';
+
+//나중에 이미지 존재 여부 확인하여 수정..
 const WaveElement = () => {
     return (
         <div className='WaveElement'>
             <div className='waveElement_container'>
+                <ElementProfileBox/>
                 <div className='waveElement_imgContainer'><img/></div>
                 <div className='waveElement_content'>
                     <div className='waveElement_content_fistLine'>
