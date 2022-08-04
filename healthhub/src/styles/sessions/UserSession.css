@@ -1,0 +1,29 @@
+.UserSession{
+    width: 100%;
+    height: 100%;
+    padding: 100px 0;
+}
+.usersession_readme, .usersession_routines, .usersession_waves{
+    width: 100%;
+}
+
+@media only screen and (min-width: 1200px){
+    .UserSession{
+        width: 800px;
+    }
+}
+@media only screen and (min-width: 900px) and (max-width: 1199px){
+    .UserSession{
+        width: 550px;
+    }
+}
+@media only screen and (min-width: 600px) and (max-width: 899px){
+    .UserSession{
+        width: 550px;
+    }
+}
+@media only screen and (min-width: 450px) and (max-width: 599px){
+    .UserSession{
+        width: 400px;
+    }
+}
