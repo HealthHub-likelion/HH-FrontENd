@@ -6,7 +6,7 @@ const ElementProfileBox = () => {
 
     const location = useLocation(); ///userPage/Records or Feeds
     const pageLocation = location.pathname.split("/")[2]; //Records or Feeds
-
+    
     return (
         <>
             {pageLocation === "Feeds" ?

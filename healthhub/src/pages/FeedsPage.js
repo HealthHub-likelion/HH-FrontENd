@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import '../styles/pages/FeedsPage.css'
 import Header from "../components/Header";
 import ProfileSession from "../sessions/ProfileSession";
-
+import FeedsSession from "../sessions/FeedsSession";
 function FeedsPage() {
     const {username} = useParams();
 
@@ -17,7 +17,7 @@ function FeedsPage() {
             <ProfileSession username={username}/>
           </div>
           <div className="feedspage_FeedsSession">
-          {/* 구현한 FeedsSession 여기에 넣으면 됩니다. */}
+            <FeedsSession/>
           </div>
         </div>
       </div>
