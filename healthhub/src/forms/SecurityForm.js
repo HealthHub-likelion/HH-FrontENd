@@ -1,6 +1,12 @@
 import '../styles/forms/SecurityForm.css';
 
-function SecurityForm() {
+function SecurityForm({ dataPrivate, setdataPrivate }) {
+    const setPrivate = () => {
+        return dataPrivate ? 'private_button_clicked' : 'private_button';
+    }
+    const setPublic = () => {
+        return dataPrivate ? 'public_button' : 'public_button_clicked';
+    }
 
     return (
         <div className="SecurityForm">
@@ -8,17 +14,10 @@ function SecurityForm() {
                 Security
             </div>
             <div className='securityform_button'>
-                <button
-                    type="button"
-                    // onClick={()=>}
-                    className="securityform_button_private"
-                >
+                <button className={setPrivate()} onClick={() => setdataPrivate(true)}>
                     private
                 </button>
-                <button
-                    type="button"
-                    // onClick={()=>}
-                    className="securityform_button_public">
+                <button className={setPublic()} onClick={() => setdataPrivate(false)}>
                     public
                 </button>
             </div>
