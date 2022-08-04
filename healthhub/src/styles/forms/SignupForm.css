@@ -11,7 +11,8 @@
     border-bottom: 2px solid #E3F5FE;
     padding-bottom: 5px;
     margin : auto;
-    margin-bottom : 10px;
+    margin-bottom : 20px;
+    padding : 0 5px;
 }
 .signupForm_nickname > input{
     border : none;
@@ -19,6 +20,7 @@
     width : 240px;
     color : #E3F5FE;
     font-size: 20px;
+    padding-bottom : 5px;
 }
 .signupForm_nickname > input:focus{
     outline:none;
@@ -29,7 +31,8 @@
     border-bottom: 2px solid #E3F5FE;
     padding-bottom: 5px;
     margin : auto;
-    margin-bottom : 10px;
+    margin-bottom : 15px;
+    padding : 0 5px;
 }
 .signupForm_email > input{
     border: none;
@@ -37,6 +40,7 @@
     flex-grow: 1;
     color : #E3F5FE;
     font-size: 20px;
+    padding-bottom : 5px;
 }
 .signupForm_email > input:focus{
     outline:none;
@@ -45,10 +49,11 @@
     border: none;
     background: transparent;
     border-bottom: 2px solid #E3F5FE;
+    padding : 0 5px;
     padding-bottom: 5px;
     color : #E3F5FE;
     margin : auto;
-    margin-bottom : 10px;
+    margin-bottom : 20px;
     font-size: 20px;
 }
 .singupForm_password:focus{
@@ -58,10 +63,11 @@
     border: none;
     background: transparent;
     border-bottom: 2px solid #E3F5FE;
+    padding : 0 5px;
     padding-bottom: 5px;
     color : #E3F5FE;
     margin : auto;
-    margin-bottom : 10px;
+    margin-bottom : 20px;
     font-size: 20px;
 }
 .signupForm_doubleCheck:focus{
@@ -82,48 +88,59 @@
 
 @media only screen and (min-width: 900px) {
     .signupForm_nickname{
-        width : 300px;
+        width : 350px;
     }
     .signupForm_nickname > input{
-        width : 240px;
+        width : 280px;
     }
     .signupForm_email{
-        width : 300px;
+        width : 350px;
     }
     .signupForm_email > input{
-        width : 240px;
+        width : 280px;
     }
     .singupForm_password{
-        width : 300px;
+        width : 350px;
     }
     .signupForm_doubleCheck{
-        width : 300px;
+        width : 350px;
     }
     .signupForm_passwordAlertBox{
-        width : 300px;
+        width : 350px;
     }
 }
 
 @media only screen and (min-width: 450px) and (max-width: 899px) {
+    .SignupForm{
+        font-size: 15px;
+    }
     .signupForm_nickname{
         width : 250px;
     }
     .signupForm_nickname > input{
         width : 195px;
+        font-size: 15px;
     }
     .signupForm_email{
         width : 250px;
     }
     .signupForm_email > input{
+        font-size: 15px;
         width : 195px;
     }
     .singupForm_password{
         width : 250px;
+        font-size: 15px;
     }
     .signupForm_doubleCheck{
         width : 250px;
+        font-size: 15px;
     }
     .signupForm_passwordAlertBox{
         width : 250px;
+        font-size: 15px;
+    }
+    .signupForm_signup{
+        font-size : 20px;
     }
 }
