@@ -4,7 +4,7 @@ import SecurityForm from "../forms/SecurityForm";
 import StatusForm from "../forms/StatusForm";
 import '../styles/sessions/SettingsSession.css';
 
-function SettingsSession({ username }) {
+function SettingsSession({ username, dataPrivate, setdataPrivate }) {
 
     return (
         <div className="SettingsSession">
@@ -15,7 +15,7 @@ function SettingsSession({ username }) {
                 <ProfileImageForm />
             </div>
             <div className="settingssession_security">
-                <SecurityForm />
+                <SecurityForm dataPrivate={dataPrivate} setdataPrivate={setdataPrivate} />
             </div>
             <div className="settingssession_status">
                 <StatusForm />
