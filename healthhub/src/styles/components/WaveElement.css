@@ -1,5 +1,5 @@
 .WaveElement{
-    width : 40%;
+    width : 400px;
     margin : auto;
     margin-top : 20px;
     padding : 5px 20px;
@@ -32,11 +32,17 @@
 }
 
 @media only screen and (min-width: 900px) {
+    .WaveElement{
+        width : 450px;
+    }
     .waveElement_imgContainer{
         height : 400px;
     }
 }
 @media only screen and (min-width: 450px) and (max-width: 899px) {
+    .WaveElement{
+        width : 300px;
+    }
     .waveElement_content{
         font-size : 14px;
     }
