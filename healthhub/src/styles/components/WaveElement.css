@@ -1,0 +1,46 @@
+.WaveElement{
+    width : 40%;
+    margin : auto;
+    margin-top : 20px;
+    padding : 5px 20px;
+}
+.waveElement_container{
+    border: 3px solid #264056;
+    border-radius: 10px;
+}
+.waveElement_imgContainer{
+    background-color: white;
+    border-radius: 10px;
+}
+.waveElement_content{
+    padding : 10px;
+}
+.waveElement_content_fistLine{
+    display : flex;
+    justify-content: space-between;
+    padding-bottom: 5px;
+}
+.waveElement_content_secondLine{
+    display : flex;
+    justify-content: space-between;
+}
+.waveElement_today{
+    color : #66B3F9;
+}
+.waveElement_date{
+    color : #2E61D7;
+}
+
+@media only screen and (min-width: 900px) {
+    .waveElement_imgContainer{
+        height : 400px;
+    }
+}
+@media only screen and (min-width: 450px) and (max-width: 899px) {
+    .waveElement_content{
+        font-size : 14px;
+    }
+    .waveElement_imgContainer{
+        height : 250px;
+    }
+}
