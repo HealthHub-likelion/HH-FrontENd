@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import '../styles/pages/FollowsPage.css'
 import Header from "../components/Header";
 import ProfileSession from "../sessions/ProfileSession";
+import FollowsSession from "../sessions/FollowsSession";
 
 function FollowsPage() {
     const {username} = useParams();
@@ -19,7 +20,8 @@ function FollowsPage() {
                             showFollowers={showFollowers} setShowFollowers={setShowFollowers}/>
           </div>
           <div className="followspage_FollowsSession">
-          {/* 구현한 FollowsSession 여기에 넣으면 됩니다. */}
+            <FollowsSession/>
+            <div>dpd</div>
           </div>
         </div>
       </div>
