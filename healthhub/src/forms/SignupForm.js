@@ -24,7 +24,7 @@ function SignupForm() {
                 setPasswordMatch(true);
             }
             else{
-                setAlertComment('*비밀번호가 일치하지 않습니다');
+                setAlertComment('* 비밀번호가 일치하지 않습니다!');
                 setPasswordMatch(false);
             }
         }
@@ -54,7 +54,9 @@ function SignupForm() {
                 className='signupForm_doubleCheck'
                 onChange={handlePassword2}
                 ></input>
-            <div className='signupForm_passwordAlert'>{alertComment}</div>
+            <div className='signupForm_passwordAlertBox'>
+                <div className='signupForm_passwordAlert'>{alertComment}</div>
+            </div>
             <div className='signupForm_signup'>Signup</div>
         </div>
     );
