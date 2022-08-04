@@ -17,6 +17,9 @@
     flex-grow: 1;
     height: 100%;
     background-color: #061726;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 @media only screen and (min-width: 900px) {
