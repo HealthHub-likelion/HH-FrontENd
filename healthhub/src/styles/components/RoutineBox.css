@@ -16,6 +16,16 @@
     border: 2px solid #264056;
     border-radius: 10px;
 }
+.routineBox:hover{
+    margin: 6px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border: 2px solid #E3F5FE;
+    border-radius: 10px;
+}
 .routineBox_top, .routineBox_left{
     display: flex;
     flex-direction: row;
@@ -53,6 +63,18 @@
     align-items: center;
     padding: 10px 20px;
     border: 2px solid #264056;
+    background-color: #264056;
+    border-radius: 10px;
+}
+.routineBox_plus:hover{
+    margin: 6px;
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+    border: 2px solid #E3F5FE;
     background-color: #264056;
     border-radius: 10px;
 }
