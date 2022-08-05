@@ -20,8 +20,8 @@ function FollowsPage() {
                             showFollowers={showFollowers} setShowFollowers={setShowFollowers}/>
           </div>
           <div className="followspage_FollowsSession">
-            <FollowsSession/>
-            <div>dpd</div>
+            <FollowsSession username={username}
+                            showFollowers={showFollowers} setShowFollowers={setShowFollowers}/>
           </div>
         </div>
       </div>

@@ -1,40 +1,73 @@
 import React, { useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom';
 import '../styles/sessions/FollowsSession.css'
 
 function FollowsSession() {
-    
-    const followList = ['구현우', '백승민', '오세찬', '임수연', 'Frontend'];
+  
+    /*팔로우 여부*/
+    const [isFollow, setIsFollow] = useState(true);
 
-    const [follow, setFollow] = useState();
-
-    const onUnFollow = () => {
-        setFollow(false);
+    const toggleFollow = () => {
+        setIsFollow(isFollow => !isFollow);
     }
 
-    const onFollow = () => {
-        setFollow(true);
+    /*프로필, 이름클릭시 해당 유저페이지로 이동*/
+    const nagative = useNavigate();
+
+    const onClickProfile = (id) => {
+      nagative(`/${id}`);
     }
 
-    function showList() {
-      const nameList = followList.map((name) => (
-        <div className='FollowElement'>
+    //임시 팔로우 데이터
+    const [data, setData] = useState([{
+      name: '구현우',
+      id: 'GHWooo',
+      src: 'https://avatars.githubusercontent.com/u/88186460?v=4',
+      followed: true
+    },
+    {
+      name: '콩대생',
+      id: 'Miniling',
+      src: 'https://avatars.githubusercontent.com/u/78603365?v=4',
+      followed: true
+    },
+    {
+      name: '오세찬',
+      id: 'ledraco',
+      src: 'https://avatars.githubusercontent.com/u/98178673?v=4',
+      followed: true
+    },
+    {
+      name: '수연',
+      id: 'so0y',
+      src: 'https://avatars.githubusercontent.com/u/83389222?v=4',
+      followed: true
+    }]);
+
+    function showList(){
+      const list = [];
+      for(let i = 0; i < data.length; i++){
+        list.push(
+          <div className='FollowElement'>
             <div className='followImg'>
-              <img className='profileImg'src='https://avatars.githubusercontent.com/u/83389222?v=4'/>
-            </div>
-            <div className='followName'>
-              {name}
-            </div>
-            <div className='isFollowBox'>
-                {follow ?
-                 <button className='followBtn' onClick={onUnFollow}>unfollow</button>
-                 : <button className='followBtn' onClick={onFollow}>follow</button>
-                }
-            </div>
-        </div>
-      ))
-      return nameList;
+              <img className='profileImg'src={data[i]['src']}
+              onClick={() => onClickProfile(data[i]['id'])}
+              />
+              </div>
+              <div className='followName'
+              onClick={() => onClickProfile(data[i]['id'])}
+              >
+              {data[i]['name']}
+              </div>
+              <div className='isFollowBox'>
+              <button className='followBtn' onClick={() => toggleFollow()}>{isFollow ? 'unfollow' : 'follow'}</button>
+              </div>
+          </div>
+        )
+      }
+      return list;
     }
-
+    
   return (
     <div className='FollowsSession'>
       {showList()}
