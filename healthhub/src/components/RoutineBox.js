@@ -1,6 +1,7 @@
 import '../styles/components/RoutineBox.css'
 import { useState } from 'react';
 import ShowRoutineModal from './modals/ShowRoutineModal';
+import CreateRoutineModal from './modals/CreateRoutineModal';
 
 function RoutineBox({routinesList}) {
     // ===== 임시 데이터 =====
@@ -63,6 +64,7 @@ function RoutineBox({routinesList}) {
     //===============
 
     const [showRoutine, setShowRoutine] = useState(false);
+    const [showCreate, setShowCreate] = useState(false);
 
     const clickRoutine =(state)=>{
         if(state === 'private'){
@@ -97,7 +99,7 @@ function RoutineBox({routinesList}) {
             )
         }
         list.push(
-            <div key={-1} className='routineBox_plus'><img alt='플러스' src='images/icons/HH_icon_plus.png'/></div>
+            <div key={-1} className='routineBox_plus' onClick={()=>{setShowCreate(true)}}><img alt='플러스' src='images/icons/HH_icon_plus.png'/></div>
         )
 
         return list;
@@ -111,6 +113,10 @@ function RoutineBox({routinesList}) {
                 show={showRoutine}
                 onHide={()=>{setShowRoutine(false)}}
                 exercises={exercises}
+            />
+            <CreateRoutineModal
+                show={showCreate}
+                onHide={()=>{setShowCreate(false)}}
             />
         </div>
     );
