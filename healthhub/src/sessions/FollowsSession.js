@@ -3,13 +3,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 import '../styles/sessions/FollowsSession.css'
 
 function FollowsSession() {
-  
-    /*팔로우 여부*/
-    const [isFollow, setIsFollow] = useState(true);
-
-    const toggleFollow = () => {
-        setIsFollow(isFollow => !isFollow);
-    }
 
     /*프로필, 이름클릭시 해당 유저페이지로 이동*/
     const nagative = useNavigate();
@@ -44,6 +37,16 @@ function FollowsSession() {
       followed: true
     }]);
 
+    const toggleFollow = (idx) => {
+      const followObject = data[idx];
+      followObject = {...data[idx], followed: !data[idx]['followed']};
+
+      const tempData = data;
+      tempData[idx] = followObject;
+      setData(tempData);
+  }
+
+    // console.log(isFollow)
     function showList(){
       const list = [];
       for(let i = 0; i < data.length; i++){
@@ -60,7 +63,10 @@ function FollowsSession() {
               {data[i]['name']}
               </div>
               <div className='isFollowBox'>
-              <button className='followBtn' onClick={() => toggleFollow()}>{isFollow ? 'unfollow' : 'follow'}</button>
+
+                <button className='followBtn' onClick={() => toggleFollow(i)}>
+                  {data[i]['followed']?'unfollow':'follow'}
+                </button>
               </div>
           </div>
         )
