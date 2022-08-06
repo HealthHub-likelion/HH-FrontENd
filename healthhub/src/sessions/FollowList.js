@@ -14,7 +14,7 @@ function FollowList({data, setData}) {
     const followObject = data[idx];
     followObject['followed'] = !data[idx]['followed'];
 
-    const tempData = data;
+    const tempData = data.slice();
     tempData[idx] = followObject;
     setData(tempData);
     }
