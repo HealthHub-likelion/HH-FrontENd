@@ -5,7 +5,7 @@ function ProfileImageForm() {
     return (
         <div className="ProfileImageForm">
             <div className="profileimageform_title">
-                Profile Image
+                <div>Profile Image</div>
             </div>
             <div className='profileimageform_button'>
                 <button

@@ -11,7 +11,7 @@ function SecurityForm({ dataPrivate, setdataPrivate }) {
     return (
         <div className="SecurityForm">
             <div className="securityform_title">
-                Security
+                <div>Security</div>
             </div>
             <div className='securityform_button'>
                 <button className={setPrivate()} onClick={() => setdataPrivate(true)}>
