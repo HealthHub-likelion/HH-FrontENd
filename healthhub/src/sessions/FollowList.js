@@ -25,7 +25,7 @@ function FollowList({data, setData, showFollowers, setShowFollowers, following, 
   
       const tempData2 = following.slice();
       tempData2[idx] = followingObject;
-      setData(tempData2);
+      setFollowing(tempData2);
       }
   
 
@@ -83,9 +83,9 @@ function FollowList({data, setData, showFollowers, setShowFollowers, following, 
       }
     
   return (
-    <>
-    {showList()}
-    </>
+    <div className='FollowsSession'>
+      {showList()}
+    </div>
   )
 }
 

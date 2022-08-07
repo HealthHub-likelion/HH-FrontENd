@@ -1,6 +1,4 @@
 import React, { useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom';
-import '../styles/sessions/FollowsSession.css'
 import FollowList from './FollowList';
 
 function FollowsSession({showFollowers, setShowFollowers, showFollowings, setShowFollowings}) {
