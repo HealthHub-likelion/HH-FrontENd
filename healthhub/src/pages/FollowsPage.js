@@ -8,6 +8,7 @@ import FollowsSession from "../sessions/FollowsSession";
 function FollowsPage() {
     const {username} = useParams();
     const [showFollowers, setShowFollowers] = useState(true);
+    // true => followers, false => followings
 
     return (
       <div className="FollowsPage">
@@ -21,7 +22,10 @@ function FollowsPage() {
           </div>
           <div className="followspage_FollowsSession">
             <FollowsSession username={username}
-                            showFollowers={showFollowers} setShowFollowers={setShowFollowers}/>
+                            showFollowers={showFollowers} setShowFollowers={setShowFollowers}
+                            // showFollowings={showFollowings} setShowFollowings={setShowFollowings}
+                            // data={data} setData={setData}
+                            />
           </div>
         </div>
       </div>
