@@ -1,8 +1,10 @@
 import '../../styles/components/modals/CreateRoutineModal.css'
 import { Modal } from 'react-bootstrap';
 import { useState } from 'react';
+import SearchExerciseModal from './SearchExerciseModal';
 
 function CreateRoutineModal(props) {
+    const [addExercise, setAddExercise] = useState(false);
     const [createState, setCreateState] = useState({
         create_name: '',
         create_isOpne: true,
@@ -31,6 +33,8 @@ function CreateRoutineModal(props) {
                         </div>
                     </div>
                     <div className='create_routine_body'>
+                    <button className='create_add_exercise' 
+                            onClick={()=>{setAddExercise(true); props.onHide();}}>운동 추가</button>
 
                     </div>
                     <div className='create_routine_footer'>
@@ -43,6 +47,12 @@ function CreateRoutineModal(props) {
                     </div>
                 </Modal.Body>
             </Modal>
+
+            <SearchExerciseModal
+                show={addExercise}
+                onHide={()=>{setAddExercise(false)}}
+                pre_modal='create'
+            />
         </div>
     );
 }

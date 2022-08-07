@@ -44,6 +44,17 @@
     max-height: 400px;
     overflow: scroll;
 }
+.create_add_exercise{
+    background-color: transparent;
+    width: 100%;
+    font-size: 16px;
+    padding: 3px 0;
+    border-radius: 7px;
+    border: 2px solid #2E61D7;
+    color: #2E61D7;
+    font-weight: 700;
+}
+
 
 .create_routine_footer{
     padding: 20px 20px 0 20px;
