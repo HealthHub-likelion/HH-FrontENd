@@ -12,9 +12,16 @@ function SignupForm() {
     const [password2,setPassword2] = useState('');
     const [passwordMatch,setPasswordMatch] = useState(false);
 
+
     const [nickName, setNickName] = useState('');
     const [email, setEamil] = useState('');
     
+    const [isValid,setIsValid] = useState({
+        nicknameValid : false,
+        emailValid : false,
+        passwordValid : false
+    })
+
     const handlePassword = (e) => {setPassword(e.target.value)}
     const handlePassword2 = (e) => {setPassword2(e.target.value)}
     const inputName = (e) =>{setNickName(e.target.value);}
@@ -71,6 +78,39 @@ function SignupForm() {
         .catch((err)=>{
             console.log(err);
         })
+    
+    function checkNickname(nickname){
+        //영문자로 시작하는 영문자 또는 숫자 3자 이상
+        const nickname_rule = /^[a-z]+[a-z0-9]{2}$/;
+        if(nickname_rule.test(nickname)){
+            setIsValid((prev)=>{
+                return{...prev, nicknameValid : true}
+            })
+            return true;
+        }
+        else{
+            setIsValid((prev)=>{
+                return{...prev, nicknameValid : false}
+            })
+            return false;
+        } 
+    }
+
+    function checkEmail(email){
+        const email_rule = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
+        if(email_rule.test(email)){
+            return true;
+        }
+        else return false;
+    }
+
+    function checkPassword(password){
+        //영어,숫자,특수문자 포함 8글자 이상 20글자 미만
+        const pwd_rule = /^(?=.*[a-zA-Z])((?=.*\d)(?=.*\W)).{8,20}$/;
+        if(pwd_rule.test(password)){
+            return true;
+        }
+        else return false;
     }
 
     return (
@@ -103,6 +143,7 @@ function SignupForm() {
             <div className='signupForm_signup' onClick={()=>{saveUser()}}>Signup</div>
         </div>
     );
+}
 }
 
     export default SignupForm;
