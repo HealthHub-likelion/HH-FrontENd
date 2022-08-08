@@ -1,7 +1,7 @@
 import '../../styles/components/modals/EditRoutineModal.css'
 import { Modal } from 'react-bootstrap';
 import { useState } from 'react';
-import SearchExerciseModal from './SearchExerciseModal';
+import SearchExerciseOffcanvas from '../offcanvases/SearchExerciseOffcanvas';
 
 function EditRoutineModal(props) {
     // ===== 임시데이터 =====
@@ -109,7 +109,7 @@ function EditRoutineModal(props) {
                 </Modal.Body>
             </Modal>
 
-            <SearchExerciseModal
+            <SearchExerciseOffcanvas
                 show={addExercise}
                 onHide={()=>{setAddExercise(false)}}
                 routine={dummydata}
