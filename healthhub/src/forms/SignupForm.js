@@ -78,6 +78,7 @@ function SignupForm() {
         .catch((err)=>{
             console.log(err);
         })
+    }
     
     function checkNickname(nickname){
         //영문자로 시작하는 영문자 또는 숫자 3자 이상
@@ -143,7 +144,6 @@ function SignupForm() {
             <div className='signupForm_signup' onClick={()=>{saveUser()}}>Signup</div>
         </div>
     );
-}
 }
 
     export default SignupForm;
