@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 30px;
+    padding: 5px 30px;
 }
 .search_exercise_title{
     font-size: 30px;
@@ -30,6 +30,26 @@
 .clickPart{
     background-color: #2E61D7;
     color: white;
+}
+.search_exercise_inputBox{
+    width: 99%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 3px;
+    padding: 8px 10px;
+    border: 1px solid #2E61D7;
+    border-radius: 5px;
+}
+.search_exercise_inputBox > input{
+    flex-grow: 1;
+    margin-right: 10px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+}
+.search_exercise_inputBox > img{
+    height: 25px;
 }
 
 .search_exercise_body{
@@ -110,4 +130,13 @@
 .search_footer_right{
     background-color: #2E61D7;
     color: white;
+}
+
+.emptyBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 18px;
+    color: gray;
 }

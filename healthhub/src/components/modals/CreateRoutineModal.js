@@ -1,7 +1,7 @@
 import '../../styles/components/modals/CreateRoutineModal.css'
 import { Modal } from 'react-bootstrap';
 import { useState } from 'react';
-import SearchExerciseModal from './SearchExerciseModal';
+import SearchExerciseOffcanvas from '../offcanvases/SearchExerciseOffcanvas';
 
 function CreateRoutineModal(props) {
     const [addExercise, setAddExercise] = useState(false);
@@ -48,7 +48,7 @@ function CreateRoutineModal(props) {
                 </Modal.Body>
             </Modal>
 
-            <SearchExerciseModal
+            <SearchExerciseOffcanvas
                 show={addExercise}
                 onHide={()=>{setAddExercise(false)}}
                 pre_modal='create'
