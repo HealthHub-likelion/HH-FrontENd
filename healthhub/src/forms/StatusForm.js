@@ -5,7 +5,7 @@ function StatusForm() {
     return (
         <div className="StatusForm">
             <div className="statusform_title">
-                Status
+                <div>Status</div>
             </div>
             <div className='statusform_button'>
                 <button

@@ -1,24 +1,9 @@
 import React, { useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom';
-import '../styles/sessions/FollowsSession.css'
+import FollowList from './FollowList';
 
-function FollowsSession() {
-  
-    /*팔로우 여부*/
-    const [isFollow, setIsFollow] = useState(true);
+function FollowsSession({showFollowers, setShowFollowers, showFollowings, setShowFollowings}) {
 
-    const toggleFollow = () => {
-        setIsFollow(isFollow => !isFollow);
-    }
-
-    /*프로필, 이름클릭시 해당 유저페이지로 이동*/
-    const nagative = useNavigate();
-
-    const onClickProfile = (id) => {
-      nagative(`/${id}`);
-    }
-
-    //임시 팔로우 데이터
+    //임시 팔로워 데이터
     const [data, setData] = useState([{
       name: '구현우',
       id: 'GHWooo',
@@ -44,33 +29,37 @@ function FollowsSession() {
       followed: true
     }]);
 
-    function showList(){
-      const list = [];
-      for(let i = 0; i < data.length; i++){
-        list.push(
-          <div className='FollowElement'>
-            <div className='followImg'>
-              <img className='profileImg'src={data[i]['src']}
-              onClick={() => onClickProfile(data[i]['id'])}
-              />
-              </div>
-              <div className='followName'
-              onClick={() => onClickProfile(data[i]['id'])}
-              >
-              {data[i]['name']}
-              </div>
-              <div className='isFollowBox'>
-              <button className='followBtn' onClick={() => toggleFollow()}>{isFollow ? 'unfollow' : 'follow'}</button>
-              </div>
-          </div>
-        )
-      }
-      return list;
+    //임시 팔로잉 데이터
+    const [following, setFollowing] = useState([{
+      name: 'Jeon_minGyu',
+      id: 'DrHagha',
+      src: 'https://avatars.githubusercontent.com/u/77195428?v=4'
+    },
+    {
+      name: 'Yong Hyun Jeon',
+      id: 'Raccooon98',
+      src: 'https://avatars.githubusercontent.com/u/101920006?v=4',
+      followed: false
+    },
+    {
+      name: '김성은',
+      id: 'star-sil',
+      src: 'https://avatars.githubusercontent.com/u/70811575?v=4',
+      followed: false
+    },{
+      name: '최영민',
+      id: 'youngmin1006',
+      src: 'https://avatars.githubusercontent.com/u/67896917?v=4',
+      followed: false
     }
+    ]);
+
+  
     
   return (
     <div className='FollowsSession'>
-      {showList()}
+      <FollowList data={data} setData={setData} showFollowers={showFollowers} setShowFollowers={setShowFollowers}
+      following={following} setFollowing={setFollowing}/>
     </div>
   )
 }

@@ -6,14 +6,14 @@ import WavesElement from '../components/elements/WavesElements';
 function UserSession() {
     return (
       <div className="UserSession">
+        <div className='usersession_waves'>
+          <WavesElement/>
+        </div>
         <div className='usersession_readme'>
           <ReadMeElement/>
         </div>
         <div className='usersession_routines'>
           <RoutinesElement/>
-        </div>
-        <div className='usersession_waves'>
-          <WavesElement/>
         </div>
       </div>
     );

@@ -1,17 +1,26 @@
 .securityform_title{
-    font-size : 25px;
-    font-weight: 500;
-    color : #66B3F9;
-    border-bottom: 5px solid #264056;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    border-bottom: 3px solid #264056;
+}
+.securityform_title > div{
+    color: #66B3F9;
+    font-weight: bold;
+    font-size: 25px;
 }
 .securityform_button{
     float: right;
     margin : 20px 20px 0 0;
+    border-radius: 7px;
+    overflow: hidden;
 }
 .private_button_clicked, .public_button_clicked{
     height: 40px;
     width: 90px;
-    border-radius: 10px;
+    border: none;
     background-color: #2E61D7;
     font-size: 14px;
     color: #E3F5FE;
@@ -19,7 +28,6 @@
 .public_button, .private_button{
     height: 40px;
     width: 90px;
-    border-radius: 10px;
     border-color: #E3F5FE;
     background-color: #061726;
     font-size: 14px;
