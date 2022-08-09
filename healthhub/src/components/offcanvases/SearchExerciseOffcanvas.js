@@ -1,6 +1,7 @@
 import '../../styles/components/offcanvases/SearchExerciseOffcanvas.css'
 import { Offcanvas } from 'react-bootstrap';
 import { useState } from 'react';
+import proxy from '../../security/Proxy.json'
 
 function SearchExerciseOffcanvas(props) {
     // ===== 임시 데이터 ===== 
@@ -119,7 +120,7 @@ function SearchExerciseOffcanvas(props) {
                             <div className='search_exercise_part'>
                                 {filterList[i]['part']}
                             </div>
-                            <img alt='정보' src='images/icons/HH_icon_info.png'/>
+                            <img alt='정보' src={`${proxy['proxy_url']}/media/images/icons/HH_icon_info.png`}/>
                         </div>
                     </div>
                 );
@@ -146,7 +147,7 @@ function SearchExerciseOffcanvas(props) {
                     <div className='search_exercise_inputBox'>
                         <input value={inputExercise} placeholder='운동명을 검색해보세요.'
                                 onChange={inputName}/>
-                        <img alt='검색' src='images/icons/HH_icon_search.png'/>
+                        <img alt='검색' src={`${proxy['proxy_url']}/media/images/icons/HH_icon_search.png`}/>
                     </div>
                 </Offcanvas.Header>
                 <Offcanvas.Body >

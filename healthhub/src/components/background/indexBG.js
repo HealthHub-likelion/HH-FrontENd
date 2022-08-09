@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import proxy from '../../security/Proxy.json'
 
 const IndexContainer = styled.div`
     position: absolute;
@@ -11,7 +12,7 @@ const IndexContainer = styled.div`
         rgba(6, 23, 38, 0.8),
         rgba(6, 23, 38, 0.8)
         ),
-    url(/images/HH_bg.jpg);
+    url(${proxy['proxy_url']}/media/images/HH_bg.jpg);
     background-size: cover;
 `;
 

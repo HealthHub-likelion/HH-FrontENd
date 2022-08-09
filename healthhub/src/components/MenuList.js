@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/components/MenuList.css'
+import proxy from '../security/Proxy.json'
 
 function MenuList({Tab, username}) {
     const [buttonType] = useState(['My', 'Feeds', 'Records', 'Settings']);
@@ -13,19 +14,19 @@ function MenuList({Tab, username}) {
 
       switch(type){
         case 'My':
-          if(Tab === 'My') returnSrc = '/images/icons/HH_icon_my_clicked.png';
-          else returnSrc = '/images/icons/HH_icon_my.png';
+          if(Tab === 'My') returnSrc = `${proxy['proxy_url']}/media/images/icons/HH_icon_my_clicked.png`;
+          else returnSrc = `${proxy['proxy_url']}/media/images/icons/HH_icon_my.png`;
           break;
         case 'Feeds':
-          if(Tab === 'Feeds') returnSrc = '/images/icons/HH_icon_feed_clicked.png';
-          else returnSrc = '/images/icons/HH_icon_feed.png';
+          if(Tab === 'Feeds') returnSrc = `${proxy['proxy_url']}/media/images/icons/HH_icon_feed_clicked.png`;
+          else returnSrc = `${proxy['proxy_url']}/media/images/icons/HH_icon_feed.png`;
           break;
         case 'Records':
-          returnSrc = '/images/icons/HH_icon_record.png';
+          returnSrc = `${proxy['proxy_url']}/media/images/icons/HH_icon_record.png`;
           break;
         case 'Settings':
-          if(Tab === 'Settings') returnSrc = '/images/icons/HH_icon_setting_clicked.png';
-          else returnSrc = '/images/icons/HH_icon_setting.png';
+          if(Tab === 'Settings') returnSrc = `${proxy['proxy_url']}/media/images/icons/HH_icon_setting_clicked.png`;
+          else returnSrc = `${proxy['proxy_url']}/media/images/icons/HH_icon_setting.png`;
           break;
         default:
           returnSrc = null;

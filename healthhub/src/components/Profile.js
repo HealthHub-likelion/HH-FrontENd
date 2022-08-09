@@ -1,5 +1,6 @@
 import '../styles/components/Profile.css'
 import { useNavigate } from 'react-router-dom';
+import proxy from '../security/Proxy.json'
 
 function Profile({username, Tab, showFollowers, setShowFollowers}) {
     const navigate = useNavigate();
@@ -13,7 +14,7 @@ function Profile({username, Tab, showFollowers, setShowFollowers}) {
 
     return (
       <div className="Profile">
-        <img src='/images/HH_logo.jpg' alt='프로필 이미지'/>
+        <img src={`${proxy['proxy_url']}/media/images/HH_logo.jpg`} alt='프로필 이미지'/>
         <div className='profile_username'>{username}</div>
         {Tab === 'Follows'
         ? 

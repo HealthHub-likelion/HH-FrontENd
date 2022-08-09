@@ -2,6 +2,7 @@ import '../../styles/components/modals/ShowRoutineModal.css';
 import {Modal} from 'react-bootstrap';
 import EditRoutineModal from './EditRoutineModal';
 import { useState } from 'react';
+import proxy from '../../security/Proxy.json'
 
 function ShowRoutineModal(props) {
     const [showEdit, setShowEdit] = useState(false);
@@ -61,7 +62,7 @@ function ShowRoutineModal(props) {
                         <div>
                             등
                         </div>
-                        <img alt='취소' src='images/icons/HH_icon_close_black.png' onClick={props.onHide}/>
+                        <img alt='취소' src={`${proxy['proxy_url']}/media/images/icons/HH_icon_close_black.png`} onClick={props.onHide}/>
                     </div>
                     <div className='show_routine_body'>
                         {showExercises()}
