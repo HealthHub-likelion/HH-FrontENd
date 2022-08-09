@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import '../../styles/components/elements/ReadMeElement.css'
 import ReadmeText from '../ReadmeText';
+import proxy from '../../security/Proxy.json'
 
 function ReadMeElement() {
     const textareaRef = useRef();
@@ -42,7 +43,7 @@ function ReadMeElement() {
                     <div onClick={()=>{cancelUpdate()}}>취소</div>
                     <div onClick={()=>{saveUpdate()}}>작성</div>
                 </div>
-                :<img src='images/icons/HH_icon_write.png' alt='수정' onClick={()=>{showUpdate()}}/>
+                :<img src={`${proxy['proxy_url']}/media/images/icons/HH_icon_write.png`} alt='수정' onClick={()=>{showUpdate()}}/>
                 }
             </div>
             <div className='ReadmeText'>

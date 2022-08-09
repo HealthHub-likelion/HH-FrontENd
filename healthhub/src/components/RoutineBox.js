@@ -2,6 +2,7 @@ import '../styles/components/RoutineBox.css'
 import { useState } from 'react';
 import ShowRoutineModal from './modals/ShowRoutineModal';
 import CreateRoutineModal from './modals/CreateRoutineModal';
+import proxy from '../security/Proxy.json'
 
 function RoutineBox({routinesList}) {
     // ===== 임시 데이터 =====
@@ -86,7 +87,7 @@ function RoutineBox({routinesList}) {
                                 {routinesList[i]['routine_name']}
                             </div>
                             {routinesList[i]['state']==='private'
-                            &&<img alt='공개여부' src='images/icons/HH_icon_security.png'/>}
+                            &&<img alt='공개여부' src={`${proxy['proxy_url']}/media/images/icons/HH_icon_security.png`}/>}
                         </div>
                         <div className='routineBox_right'>
                             {routinesList[i]['record_count']} records
@@ -99,7 +100,7 @@ function RoutineBox({routinesList}) {
             )
         }
         list.push(
-            <div key={-1} className='routineBox_plus' onClick={()=>{setShowCreate(true)}}><img alt='플러스' src='images/icons/HH_icon_plus.png'/></div>
+            <div key={-1} className='routineBox_plus' onClick={()=>{setShowCreate(true)}}><img alt='플러스' src={`${proxy['proxy_url']}/media/images/icons/HH_icon_plus.png`}/></div>
         )
 
         return list;
