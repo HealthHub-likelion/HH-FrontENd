@@ -37,6 +37,11 @@
     .waveElement_imgContainer{
         height : 400px;
     }
+    .waveElement_img{
+        display : block;
+        width : 100%;
+        height : 400px;
+    }
 }
 @media only screen and (min-width: 450px) and (max-width: 899px) {
     .WaveElement{
@@ -46,6 +51,11 @@
         font-size : 14px;
     }
     .waveElement_imgContainer{
+        height : 350px;
+    }
+    .waveElement_img{
+        display : block;
+        width : 100%;
         height : 350px;
     }
 }

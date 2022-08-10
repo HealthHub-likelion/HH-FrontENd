@@ -12,7 +12,6 @@ function SignupForm() {
     const [password2,setPassword2] = useState('');
     const [passwordMatch,setPasswordMatch] = useState(false);
 
-
     const [nickName, setNickName] = useState('');
     const [email, setEamil] = useState('');
     
@@ -42,44 +41,47 @@ function SignupForm() {
                 setPasswordMatch(false);
             }
         }
-    },[password,password2])
+    },[password,password2]);
+
+    useEffect(()=>{
+        checkPassword(password);
+    },[password])
+    
+    function checkPassword(password){
+        //영어,숫자,특수문자 포함 8글자 이상 20글자 미만
+        const pwd_rule = /^(?=.*[a-zA-Z])((?=.*\d)(?=.*\W)).{8,20}$/;
+        if(pwd_rule.test(password)){
+            setIsValid((prev)=>{
+                return{...prev, passwordValid : true}
+            })
+            return true;
+        }
+        else{
+            setIsValid((prev)=>{
+                return{...prev, passwordValid : false}
+            })
+            return false;
+        }
+    }
 
     const axiosNickName = () =>{
-        axios.post(`${proxy['proxy_url']}/accounts/member/`, {
-            name: nickName
-        })
-        .then((res)=>{
-            console.log(res);
-        })
-        .catch((err)=>{
-            console.log(err);
-        })
+        if(checkNickname(nickName)){
+            axios.post(`${proxy['proxy_url']}/accounts/member/`, {
+                name: nickName
+            })
+            .then((res)=>{
+                console.log(res);
+                console.log('닉네임 체크!')
+            })
+            .catch((err)=>{
+                console.log(err);
+            })
+        }
+        else{
+            alert('닉네임은 영문자로 시작하는 영문자 또는 숫자 3자 이상입니다.');
+        }
     }
-    const axiosEmail = () =>{
-        axios.post(`${proxy['proxy_url']}/accounts/member/`, {
-            email: email
-        }).
-        then((res)=>{
-            console.log(res);
-        })
-        .catch((err)=>{
-            console.log(err);
-        })
-    }
-    const saveUser = () =>{
-        axios.post(`${proxy['proxy_url']}/accounts/`, {
-            name: nickName,
-            email: email,
-            password: password2
-        }).
-        then((res)=>{
-            console.log(res);
-        })
-        .catch((err)=>{
-            console.log(err);
-        })
-    }
-    
+
     function checkNickname(nickname){
         //영문자로 시작하는 영문자 또는 숫자 3자 이상
         const nickname_rule = /^[a-z]+[a-z0-9]{2}$/;
@@ -87,6 +89,7 @@ function SignupForm() {
             setIsValid((prev)=>{
                 return{...prev, nicknameValid : true}
             })
+            console.log(isValid)
             return true;
         }
         else{
@@ -96,22 +99,58 @@ function SignupForm() {
             return false;
         } 
     }
+    
+    const axiosEmail = () =>{
+        if(checkEmail(email)){
+            axios.post(`${proxy['proxy_url']}/accounts/member/`, {
+                email: email
+            }).
+            then((res)=>{
+                console.log(res);
+                console.log('이메일 체크!');
+            })
+            .catch((err)=>{
+                console.log(err);
+            })
+        }
+        else{
+            alert('이메일 형식을 지켜주세요.')
+        }
+    }
 
     function checkEmail(email){
         const email_rule = /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/;
         if(email_rule.test(email)){
+            setIsValid((prev)=>{
+                return{...prev, emailValid : true}
+            })
             return true;
         }
-        else return false;
+        else{
+            setIsValid((prev)=>{
+                return{...prev, emailValid : false}
+            })
+            return false;
+        }
     }
 
-    function checkPassword(password){
-        //영어,숫자,특수문자 포함 8글자 이상 20글자 미만
-        const pwd_rule = /^(?=.*[a-zA-Z])((?=.*\d)(?=.*\W)).{8,20}$/;
-        if(pwd_rule.test(password)){
-            return true;
+    const saveUser = () =>{
+        if(isValid.emailValid === true && isValid.nicknameValid === true && isValid.passwordValid === true && passwordMatch === true){
+            axios.post(`${proxy['proxy_url']}/accounts/`, {
+                name: nickName,
+                email: email,
+                password: password2
+            }).
+            then((res)=>{
+                console.log(res);
+            })
+            .catch((err)=>{
+                console.log(err);
+            })
         }
-        else return false;
+        else{
+            alert('형식을 확인해주세요.');
+        }
     }
 
     return (

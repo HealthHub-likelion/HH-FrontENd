@@ -7,9 +7,7 @@
     line-height: 30px;
     font-size : 15px;
 }
-.waveElement_profileImg{
-    border : 1px solid white;
-    background-color: white;
+.waveElement_profileImgBox{
     width : 30px;
     height: 30px;
     border-radius: 100px;
