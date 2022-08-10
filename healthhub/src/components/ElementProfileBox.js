@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/components/ElementProfileBox.css'
 import { useLocation } from 'react-router-dom';
 
-const ElementProfileBox = () => {
+const ElementProfileBox = ({member_nickname, member_img}) => {
 
     const location = useLocation(); ///userPage/Records or Feeds
     const pageLocation = location.pathname.split("/")[2]; //Records or Feeds
@@ -11,8 +11,8 @@ const ElementProfileBox = () => {
         <>
             {pageLocation === "Feeds" ?
                 <div className='ElementProfileBox'>
-                    <div className='waveElement_profileImg'><img/></div>
-                    <div className='waveElement_profileName'>SHIN</div>
+                    <div className='waveElement_profileImg'><img src = {member_img}/></div>
+                    <div className='waveElement_profileName'>{member_nickname}</div>
                 </div>
             :null
             }

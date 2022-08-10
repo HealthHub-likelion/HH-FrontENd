@@ -4,6 +4,7 @@ import '../styles/pages/FeedsPage.css'
 import Header from "../components/Header";
 import ProfileSession from "../sessions/ProfileSession";
 import FeedsSession from "../sessions/FeedsSession";
+
 function FeedsPage() {
     const {username} = useParams();
 
