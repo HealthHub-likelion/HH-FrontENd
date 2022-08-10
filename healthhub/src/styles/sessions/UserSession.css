@@ -1,11 +1,21 @@
 .UserSession{
     width: 100%;
     height: 100%;
-    padding: 100px 0;
+    max-height: 800px;
+    overflow: scroll;
+    -ms-overflow-style: none;
+    scrollbar-width: none; 
+    margin: 50px 0;
 }
-.usersession_readme, .usersession_routines, .usersession_waves{
-    margin-bottom: 50px;
+.UserSession::-webkit-scrollbar{
+    display: none;
+}
+.usersession_readme, .usersession_routines{
     width: 100%;
+    margin: 50px 0;
+}
+.usersession_waves{
+    margin-bottom: 150px;
 }
 
 @media only screen and (min-width: 1200px){
