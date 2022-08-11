@@ -1,6 +1,12 @@
 import '../styles/forms/ProfileImageForm.css';
 
 function ProfileImageForm() {
+    const [imgBase64, setImgBase64] = useState([]); // 파일 base64
+    const [imgFile, setImgFile] = useState(null);	//파일	
+
+    const uploadImage = () => {
+
+    }
 
     return (
         <div className="ProfileImageForm">
