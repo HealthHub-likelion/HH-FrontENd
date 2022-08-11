@@ -9,8 +9,10 @@ function Header({Tab, username}) {
     const navigate = useNavigate();
 
     const moveIndex = () =>{
-      // 후에 토큰 삭제 부분 추가 필요
       if(window.confirm('로그아웃 하시겠습니까?')){
+        localStorage.removeItem('HH_token');
+        localStorage.removeItem('HH_member_id');
+        localStorage.removeItem('HH_name');
         navigate(`/`);
       }
     }
@@ -20,22 +22,17 @@ function Header({Tab, username}) {
 
     const searchName = (e) =>{
       setInputName(e.target.value);
+      if(inputName!==''){
+        setShowDropDown(true);
+      }
     }
 
     useEffect(()=>{
       const searchBox = document.querySelector('.header_top_search_input');
-
-      searchBox.addEventListener('click', ()=>{
-        setShowDropDown(true);
-      })
       searchBox.addEventListener('blur', ()=>{
         setShowDropDown(false);
       })
-    })
-
-    useEffect(()=>{
-      if(inputName !== '') setShowDropDown(true);
-    },[inputName])
+    },[])
 
     return (
       <div className="Header">
@@ -48,7 +45,7 @@ function Header({Tab, username}) {
                 </div>
                 {showDropDown && 
                 <div className='header_top_search_dropdown'>
-                
+                  
                 </div>}
                 <button onClick={()=>{moveIndex()}} >LogOut</button>
                 <div className='header_logo_left'>Health</div>
