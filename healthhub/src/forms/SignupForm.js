@@ -8,13 +8,13 @@ function SignupForm() {
     const navigate = useNavigate();
 
     const [alertComment,setAlertComment] = useState('');
+    const [alertComment2,setAlertComment2] = useState('');
     const [password,setPassword] = useState('');
     const [password2,setPassword2] = useState('');
     const [passwordMatch,setPasswordMatch] = useState(false);
 
     const [nickName, setNickName] = useState('');
     const [email, setEamil] = useState('');
-    
     const [isValid,setIsValid] = useState({
         nicknameValid : false,
         emailValid : false,
@@ -45,6 +45,17 @@ function SignupForm() {
 
     useEffect(()=>{
         checkPassword(password);
+        if(password.length == 0){
+            setAlertComment2('');
+        }
+        else{
+            if(isValid.passwordValid){
+                setAlertComment('');
+            }
+            else{
+                setAlertComment2('* 영어,숫자,특수문자 포함 8글자 이상');
+            }
+        }
     },[password])
     
     function checkPassword(password){
@@ -60,6 +71,7 @@ function SignupForm() {
             setIsValid((prev)=>{
                 return{...prev, passwordValid : false}
             })
+            setAlertComment2('영어,숫자,특수문자 포함 8글자 이상');
             return false;
         }
     }
@@ -147,6 +159,7 @@ function SignupForm() {
             .catch((err)=>{
                 console.log(err);
             })
+            navigate(`/login`);
         }
         else{
             alert('형식을 확인해주세요.');
@@ -171,6 +184,9 @@ function SignupForm() {
                 className='singupForm_password'
                 onChange={handlePassword}
                 ></input>
+            <div className='signupForm_passwordAlertBox'>
+                <div className='signupForm_passwordAlert'>{alertComment2}</div>
+            </div>
             <input 
                 type = "password"
                 placeholder='password 중복 검사'

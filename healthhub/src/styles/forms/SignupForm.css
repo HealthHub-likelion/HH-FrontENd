@@ -53,7 +53,7 @@
     padding-bottom: 5px;
     color : #E3F5FE;
     margin : auto;
-    margin-bottom : 20px;
+    margin-bottom : 10px;
     font-size: 20px;
 }
 .singupForm_password:focus{
@@ -67,7 +67,7 @@
     padding-bottom: 5px;
     color : #E3F5FE;
     margin : auto;
-    margin-bottom : 20px;
+    margin-bottom : 10px;
     font-size: 20px;
 }
 .signupForm_doubleCheck:focus{
@@ -84,6 +84,7 @@
 }
 .signupForm_passwordAlertBox{
     margin : auto;
+    padding-bottom : 5px;
 }
 
 @media only screen and (min-width: 900px) {

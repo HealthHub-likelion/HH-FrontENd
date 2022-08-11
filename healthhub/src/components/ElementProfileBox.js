@@ -7,8 +7,6 @@ const ElementProfileBox = ({member_nickname, member_img}) => {
 
     const location = useLocation(); ///userPage/Records or Feeds
     const pageLocation = location.pathname.split("/")[2]; //Records or Feeds
-    
-    console.log(member_img);
 
     return (
         <>
@@ -17,7 +15,7 @@ const ElementProfileBox = ({member_nickname, member_img}) => {
                     <div className='waveElement_profileImgBox'>
                         <img 
                             className='waveElement_profileImgBox'
-                            src = {`${proxy['proxy_url']}/${member_img}`}/>
+                            src = {`${proxy['proxy_url']}${member_img}`}/>
                     </div>
                     <div className='waveElement_profileName'>{member_nickname}</div>
                 </div>

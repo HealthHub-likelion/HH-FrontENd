@@ -4,7 +4,6 @@ import ElementProfileBox from './ElementProfileBox';
 import proxy from '../security/Proxy.json';
 
 const WaveElement = ({record_img, create_time, routine_name, comment,member_nickname,member_img}) => {
-    console.log(member_img);
     return (
         <div className='WaveElement'>
             <div className='waveElement_container'>
@@ -13,7 +12,8 @@ const WaveElement = ({record_img, create_time, routine_name, comment,member_nick
                     <div className='waveElement_imgContainer'>
                         <img
                             className='waveElement_img'
-                            src = {`${proxy['proxy_url']}/${record_img}`}/>
+                            src = {`${proxy['proxy_url']}${record_img}`}
+                            alt = "records_Img"/>
                     </div> : null
                 }
                 <div className='waveElement_content'>

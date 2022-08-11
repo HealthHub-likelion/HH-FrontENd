@@ -17,7 +17,7 @@ function RecordSession() {
             }
         })
         .then((res)=>{
-            //console.log(res);
+            console.log(res);
             setMyList(res.data);
         })
         .catch((err)=>{
@@ -31,13 +31,29 @@ function RecordSession() {
 
     function getDate(create_time){
         return create_time.substr(0,10);
+    }
 
+    function getConsecutive(){
+        let count = 1;
+        let today = new Date();
+        let getToday = new Date(today.toISOString().substring(0,10) + " 00:00:00");
+        myList.map((e)=>{
+            if(Math.ceil((new Date().getTime() - new Date(e.record_create_time.substring(0,10) + " 00:00:00").getTime())/(1000 * 3600 * 24)) === 1){
+                today.setDate(today.getDate()-1);
+                getToday = new Date(today.toISOString().substring(0,10) + " 00:00:00");
+                count += 1;
+            }
+            else{
+                return count;
+            }
+        })
+        return count;
     }
 
     return (
         <div className = 'RecordSession'>
             <div className='recordSession_recordsState'>
-                <RecordsState/>
+                <RecordsState entireWave = {myList.length} getConsecutive = {getConsecutive()}/>
             </div>
             <div className='recordSession_wavesWindow'>
                 <div className='wavesWindow_header'>
