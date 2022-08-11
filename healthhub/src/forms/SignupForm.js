@@ -50,7 +50,7 @@ function SignupForm() {
         }
         else{
             if(isValid.passwordValid){
-                setAlertComment('');
+                setAlertComment2('');
             }
             else{
                 setAlertComment2('* 영어,숫자,특수문자 포함 8글자 이상');
@@ -59,8 +59,8 @@ function SignupForm() {
     },[password])
     
     function checkPassword(password){
-        //영어,숫자,특수문자 포함 8글자 이상 20글자 미만
-        const pwd_rule = /^(?=.*[a-zA-Z])((?=.*\d)(?=.*\W)).{8,20}$/;
+        //영어,숫자,특수문자 포함 8글자 이상
+        const pwd_rule = /^(?=.*[a-zA-Z])((?=.*\d)(?=.*\W)).{7,20}$/;
         if(pwd_rule.test(password)){
             setIsValid((prev)=>{
                 return{...prev, passwordValid : true}
