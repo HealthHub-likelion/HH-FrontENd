@@ -1,9 +1,12 @@
 import '../styles/components/Profile.css'
 import { useNavigate } from 'react-router-dom';
 import proxy from '../security/Proxy.json'
+import CreateRecordModal from './modals/CreateRecordModal';
+import { useState } from 'react';
 
 function Profile({username, Tab, showFollowers, setShowFollowers}) {
     const navigate = useNavigate();
+    const [showAddRecord, setShowAddRecord] = useState(false);
 
     const setFollowersClass = () => {
       return showFollowers?'profile_button_clicked':'profile_button';
@@ -24,7 +27,14 @@ function Profile({username, Tab, showFollowers, setShowFollowers}) {
           </div>
         : 
           <button className='profile_follow' onClick={()=>{navigate(`/${username}/follow`)}}>0 followers / 0 following</button>}
-        
+        <div className='profile_add_record_box'>
+          <button className='profile_add_record' onClick={()=>{setShowAddRecord(true)}}>Add Record</button>
+        </div>
+
+        <CreateRecordModal
+          show={showAddRecord}
+          onHide={()=>{setShowAddRecord(false)}}
+        />
       </div>
     );
   }
