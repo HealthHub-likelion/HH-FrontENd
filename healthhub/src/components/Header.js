@@ -2,11 +2,13 @@ import '../styles/components/Header.css'
 import MenuList from './MenuList';
 import { useNavigate } from 'react-router-dom';
 import proxy from '../security/Proxy.json'
+import axios from 'axios';
 import { useEffect, useRef, useState } from 'react';
 
 function Header({Tab, username}) {
     const inputRef = useRef();
     const navigate = useNavigate();
+    const token = localStorage.getItem('HH_token');
 
     const moveIndex = () =>{
       if(window.confirm('로그아웃 하시겠습니까?')){
@@ -19,6 +21,7 @@ function Header({Tab, username}) {
 
     const [inputName, setInputName] = useState('');
     const [showDropDown, setShowDropDown] = useState(false);
+    const [userList,setUserList] = useState('');
 
     const searchName = (e) =>{
       setInputName(e.target.value);
@@ -33,6 +36,22 @@ function Header({Tab, username}) {
         setShowDropDown(false);
       })
     },[])
+
+    useEffect(()=>{
+      axios.post(`${proxy['proxy_url']}/accounts/membersearchbynickname`,{
+        nickname : 'test',
+        headers:{
+            Authorization : token
+        }
+    })
+    .then((res)=>{
+      console.log(res);
+      setUserList(res.data);
+    })
+    .catch((err)=>{
+      console.log(err);
+    })
+    },[inputName]);
 
     return (
       <div className="Header">
