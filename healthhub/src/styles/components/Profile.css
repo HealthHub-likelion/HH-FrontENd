@@ -50,6 +50,27 @@
     color: #E3F5FE;
 }
 
+.profile_userstate_box{
+    display: flex;
+    align-items: center;
+}
+.profileBtn_unfollow, .profileBtn_following{
+    font-size: 18px;
+    border: 1.5px solid #2E61D7;
+    font-weight: 500;
+    margin-top: 8px;
+    padding: 3px 15px;
+    border-radius: 8px;
+}
+.profileBtn_unfollow{
+    background-color: transparent;
+    color: #2E61D7;
+}
+.profileBtn_following{
+    background-color: #2E61D7;
+    color: white;
+}
+
 @media only screen and (min-width: 900px) {
     .Profile{
         width: 250px;
