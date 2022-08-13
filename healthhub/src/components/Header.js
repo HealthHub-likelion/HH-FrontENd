@@ -45,8 +45,8 @@ function Header({Tab, username}) {
         }
     })
     .then((res)=>{
-      console.log(res);
-      setUserList(res.data);
+      // console.log(res);
+      // setUserList(res.data);
     })
     .catch((err)=>{
       console.log(err);

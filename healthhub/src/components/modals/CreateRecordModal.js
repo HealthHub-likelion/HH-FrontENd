@@ -67,8 +67,6 @@ function CreateRecordModal(props) {
         setAddRecordData({...addRecordData, comment: e.target.value});
     }
 
-    console.log(addRecordData);
-
     return (
         <div className="CreateRecordModal">
             <Modal
