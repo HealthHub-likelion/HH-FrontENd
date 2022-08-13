@@ -3,7 +3,11 @@ import Wave from '../Wave';
 import { useEffect, useState } from 'react';
 
 function WavesElement({userData}) {
-    const [recordTimeList] = useState(userData.recordTimeList);
+    const [recordTimeList, setRecordTimeList] = useState([]);
+
+    useEffect(()=>{
+        setRecordTimeList(userData.recordTimeList);
+    },[userData.recordTimeList])
 
     const [waveLevel, setWaveLevel] = useState(0);
     let wave_level = 0;
