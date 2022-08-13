@@ -10,12 +10,16 @@ function Header({Tab, username}) {
     const navigate = useNavigate();
     const token = localStorage.getItem('HH_token');
 
-    const moveIndex = () =>{
-      if(window.confirm('로그아웃 하시겠습니까?')){
-        localStorage.removeItem('HH_token');
-        localStorage.removeItem('HH_member_id');
-        localStorage.removeItem('HH_name');
-        navigate(`/`);
+    const moveIndex = (state) =>{
+      if(state==='logout'){
+        if(window.confirm('로그아웃 하시겠습니까?')){
+          localStorage.removeItem('HH_token');
+          localStorage.removeItem('HH_member_id');
+          navigate(`/`);
+        }
+      }
+      else{
+        navigate(`/login`);
       }
     }
 
@@ -43,14 +47,14 @@ function Header({Tab, username}) {
         headers:{
             Authorization : token
         }
-    })
-    .then((res)=>{
-      // console.log(res);
-      // setUserList(res.data);
-    })
-    .catch((err)=>{
-      console.log(err);
-    })
+      })
+      .then((res)=>{
+        // console.log(res);
+        // setUserList(res.data);
+      })
+      .catch((err)=>{
+        console.log(err);
+      })
     },[inputName]);
 
     return (
@@ -66,7 +70,11 @@ function Header({Tab, username}) {
                 <div className='header_top_search_dropdown'>
                   
                 </div>}
-                <button onClick={()=>{moveIndex()}} >LogOut</button>
+                {
+                  localStorage.getItem('HH_token')
+                  ?<button onClick={()=>{moveIndex('logout')}} >LogOut</button>
+                  :<button onClick={()=>{moveIndex('login')}} >Login</button>
+                }
                 <div className='header_logo_left'>Health</div>
                 <div className='header_logo_right'>Hub</div>
             </div>
