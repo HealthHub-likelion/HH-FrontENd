@@ -2,10 +2,8 @@ import '../../styles/components/elements/WavesElement.css'
 import Wave from '../Wave';
 import { useEffect, useState } from 'react';
 
-function WavesElement() {
-    // ===== 임시 데이터 =====
-    const [dummyDate] = useState(['2022-07-10', '2022-07-12', '2022-07-13', '2022-07-14', '2022-07-17', '2022-07-20', '2022-07-28', '2022-07-29', '2022-08-02', '2022-08-08'])
-    // ===============
+function WavesElement({userData}) {
+    const [recordTimeList] = useState(userData.recordTimeList);
 
     const [waveLevel, setWaveLevel] = useState(0);
     let wave_level = 0;
@@ -34,18 +32,20 @@ function WavesElement() {
             const dateCount = new Date(date.getFullYear(), date.getMonth(), date.getDate() - i);
             const compareDate = normalizationDate(dateCount);
 
-            if(dummyDate.includes(compareDate)){
-                if(consecutiveLevel < 3)consecutiveLevel += 1;
-                decreaseCount = 0;
-                wave_level += 1;
-            }
-            else{
-                consecutiveLevel = 0;
-                decreaseCount += 1;
-
-                if(decreaseCount >= 7){
-                    if(wave_level > 0) wave_level -= 1;
+            if(recordTimeList){
+                if(recordTimeList.includes(compareDate)){
+                    if(consecutiveLevel < 3)consecutiveLevel += 1;
                     decreaseCount = 0;
+                    wave_level += 1;
+                }
+                else{
+                    consecutiveLevel = 0;
+                    decreaseCount += 1;
+    
+                    if(decreaseCount >= 7){
+                        if(wave_level > 0) wave_level -= 1;
+                        decreaseCount = 0;
+                    }
                 }
             }
 

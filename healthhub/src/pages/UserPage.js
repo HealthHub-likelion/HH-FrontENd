@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from 'react-router-dom';
+import React, { useState } from "react";
+import { useParams } from 'react-router-dom';
 import '../styles/pages/UserPage.css'
 import Header from "../components/Header";
 import UserSession from '../sessions/UserSession';
@@ -9,8 +9,6 @@ import InitialData from "../components/InitialData";
 function UserPage() {
     const {username} = useParams();
     const [userData, setUserData] = useState({});
-
-    const navigate = useNavigate();
     
     return (
       <div className="UserPage">
@@ -22,7 +20,7 @@ function UserPage() {
             <ProfileSession username={username} userData={userData}/>
           </div>
           <div className="userpage_UserSession">
-            <UserSession/>
+            <UserSession userData={userData} setUserData={setUserData}/>
           </div>
         </div>
 
