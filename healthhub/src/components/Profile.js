@@ -29,9 +29,8 @@ function Profile({username, Tab, showFollowers, setShowFollowers, userData}) {
         <img src={`${proxy['proxy_url']}/media/images/HH_logo.jpg`} alt='프로필 이미지'/>
         <div className='profile_userstate_box'>
           <div className='profile_username'>{username}</div>
-          {userData.isFollow===null||
-            userData.isFollow
-            ?<button className='profileBtn_unfollow'>unfollow</button>:<button className='profileBtn_following'>following</button>
+          {userData.isFollow!==null&&(userData.isFollow
+            ?<button className='profileBtn_unfollow'>unfollow</button>:<button className='profileBtn_following'>following</button>)
           }
         </div>
         {Tab === 'Follows'

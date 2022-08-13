@@ -1,14 +1,19 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import '../../styles/components/elements/ReadMeElement.css'
 import ReadmeText from '../ReadmeText';
 import proxy from '../../security/Proxy.json'
+import axios from 'axios';
 
-function ReadMeElement() {
+function ReadMeElement({userData, setUserData}) {
     const textareaRef = useRef();
 
     const [readmeContent, setReadmeContent] = useState('');
     const [compareContent, setCompareContent] = useState('');
     const [readmeUpdate, setReadmeUpdate] = useState(false);
+
+    useEffect(()=>{
+        setReadmeContent(userData.readMe);
+    },[userData.readMe])
 
     const cancelUpdate = () =>{
         setReadmeContent(compareContent);
@@ -22,7 +27,21 @@ function ReadMeElement() {
         }
         else{
             if(window.confirm('작성하시겠습니까?')){
-                setReadmeUpdate(false)
+                setReadmeUpdate(false);
+
+                axios.post(`${proxy['proxy_url']}/accounts/updatereadme`,{
+                    readMe: readmeContent
+                },{
+                    headers:{
+                        Authorization: localStorage.getItem('HH_token')
+                    }
+                })
+                .then((res)=>{
+                    setUserData({...userData, readMe:readmeContent});
+                })
+                .catch((err)=>{
+                    console.log(err);
+                })
             }
         }
     }
@@ -50,7 +69,8 @@ function ReadMeElement() {
                 <ReadmeText readmeContent={readmeContent}
                             setReadmeContent={setReadmeContent} 
                             update={readmeUpdate}
-                            textareaRef={textareaRef}/>
+                            textareaRef={textareaRef}
+                            userData={userData}/>
             </div>
         </div>
     );
