@@ -1,6 +1,9 @@
 import '../styles/pages/IndexPage.css';
 import { useNavigate } from 'react-router-dom';
 import IndexContainer from "../components/background/indexBG";
+import { useEffect } from 'react';
+import axios from 'axios';
+import proxy from '../security/Proxy.json';
 
 function IndexPage() {
     const navigate = useNavigate();
@@ -11,6 +14,22 @@ function IndexPage() {
     const moveSignupPage = () =>{
         navigate(`/signup`);
     }
+
+    useEffect(()=>{
+        if(localStorage.getItem('HH_token')){
+            axios.get(`${proxy['proxy_url']}/accounts/member/session`, {
+                headers:{
+                    Authorization: localStorage.getItem('HH_token')
+                }
+            })
+            .then((res)=>{
+                navigate(`/${res.data.name}`);
+            })
+            .catch((err)=>{
+                console.log(err);
+            })
+        }
+    },[]);
 
     return (
         <IndexContainer>
