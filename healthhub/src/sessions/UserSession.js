@@ -3,17 +3,17 @@ import ReadMeElement from '../components/elements/ReadMeElement';
 import RoutinesElement from '../components/elements/RoutinesElement';
 import WavesElement from '../components/elements/WavesElements';
 
-function UserSession() {
+function UserSession({userData, setUserData}) {
     return (
       <div className="UserSession">
         <div className='usersession_waves'>
-          <WavesElement/>
+          <WavesElement userData={userData}/>
         </div>
         <div className='usersession_readme'>
-          <ReadMeElement/>
+          <ReadMeElement userData={userData} setUserData={setUserData}/>
         </div>
         <div className='usersession_routines'>
-          <RoutinesElement/>
+          <RoutinesElement userData={userData} setUserData={setUserData}/>
         </div>
       </div>
     );
