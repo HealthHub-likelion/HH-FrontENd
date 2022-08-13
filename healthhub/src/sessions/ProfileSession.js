@@ -4,7 +4,7 @@ import Profile from '../components/Profile';
 import { useMediaQuery } from 'react-responsive';
 import SliceContainer from '../components/background/SliceBG';
 
-function ProfileSession({username, Tab, showFollowers, setShowFollowers}) {
+function ProfileSession({username, Tab, showFollowers, setShowFollowers, userData}) {
     const largeScreen = useMediaQuery({
         query : "(min-width:900px)"
     });
@@ -16,7 +16,8 @@ function ProfileSession({username, Tab, showFollowers, setShowFollowers}) {
                 <div className="ProfileSession">
                     <div className="profilesession_profile">
                         <Profile username={username} Tab={Tab}
-                                showFollowers={showFollowers} setShowFollowers={setShowFollowers}/>
+                                showFollowers={showFollowers} setShowFollowers={setShowFollowers}
+                                userData={userData}/>
                     </div>
                 </div>
             </ProfileContainer>
@@ -25,7 +26,8 @@ function ProfileSession({username, Tab, showFollowers, setShowFollowers}) {
                 <div className="ProfileSession">
                     <div className="profilesession_profile">
                         <Profile username={username} Tab={Tab}
-                                showFollowers={showFollowers} setShowFollowers={setShowFollowers}/>
+                                showFollowers={showFollowers} setShowFollowers={setShowFollowers}
+                                userData={userData}/>
                     </div>
                 </div>
             </SliceContainer>
