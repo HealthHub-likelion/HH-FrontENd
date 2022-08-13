@@ -1,8 +1,13 @@
-import React from 'react'
-import { useNavigate} from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import proxy from '../security/Proxy.json'
 import '../styles/sessions/FollowsSession.css'
 
-function FollowList({data, setData, showFollowers, setShowFollowers, following, setFollowing}) {
+function FollowList({ showFollowers, setShowFollowers, 
+  follower, setFollower, following, setFollowing
+}) {
+// reFollow, setReqFollow, reqUnfollow, setReqFollow
 
     const nagative = useNavigate();
 
@@ -11,15 +16,17 @@ function FollowList({data, setData, showFollowers, setShowFollowers, following, 
     }
     
     const toggleFollow = (idx) => {
-    const followObject = data[idx];
-    followObject['followed'] = !data[idx]['followed'];
+    // axiosReqFollower();
+    const followObject = follower[idx];
+    followObject['followed'] = !follower[idx]['followed'];
 
-    const tempData1 = data.slice();
+    const tempData1 = follower.slice();
     tempData1[idx] = followObject;
-    setData(tempData1);
+    setFollower(tempData1);
     }
 
     const toggleFollowing = (idx) => {
+      // axiosReqUnFollow();
       const followingObject = following[idx];
       followingObject['followed'] = !following[idx]['followed'];
   
@@ -31,31 +38,35 @@ function FollowList({data, setData, showFollowers, setShowFollowers, following, 
 
     function showList(){
         const list = [];
-        if(showFollowers === true){
-            for(let i = 0; i < data.length; i++){
+        {console.log(follower['Member']);}
+        // {console.log(follower['Member']);} //데이터 확인
+        // {console.log(follower['Member'].length);} //데이터 확인 ['Member']
+        // {console.log(following);} //데이터 확인
+        // if(showFollowers === true){
+            for(let i = 0; i < follower.length; i++){
                 list.push(
                   <div className='FollowElement' key={i}>
                     <div className='followImg'>
-                      <img className='profileImg'src={data[i]['src']}
-                      onClick={() => onClickProfile(data[i]['id'])}
+                      <img className='profileImg'src={follower[i]['img']}
+                      onClick={() => onClickProfile(follower[i]['name'])}
                       />
                       </div>
                       <div className='followName'
-                      onClick={() => onClickProfile(data[i]['id'])}
+                      onClick={() => onClickProfile(follower[i]['name'])}
                       >
-                      {data[i]['name']}
+                      {follower[i]['name']}
                       </div>
-                      <div className='isFollowBox'>
-          
+                      {/* <div className='isFollowBox'>
                         <button className='followBtn' onClick={() => toggleFollow(i)}>
-                          {data[i]['followed'] ?'unfollow':'follow'}
+                          {follower[i]['followed'] ?'unfollow':'follow'}
                         </button>
-                      </div>
+                      </div> */}
                   </div>
                 )
-              }
-        }
-        else {
+              // }
+          }
+        
+        // else {
           for(let i = 0; i < following.length; i++){
             list.push(
               <div className='FollowElement' key={i}>
@@ -78,7 +89,7 @@ function FollowList({data, setData, showFollowers, setShowFollowers, following, 
               </div>
             )
           }
-        }
+        // }
         return list;
       }
     

@@ -1,65 +1,63 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios';
+import proxy from '../security/Proxy.json'
 import FollowList from './FollowList';
 
-function FollowsSession({showFollowers, setShowFollowers, showFollowings, setShowFollowings}) {
+function FollowsSession({username, showFollowers, setShowFollowers, follower, setFollower, following, setFollowing}) {
+  // const [reqFollow, setReqFollow] = useState([]); //팔로우 요청
+  // const [reqUnfollow, setReqUnfollow] = useState([]); //언팔로우 요청
 
-    //임시 팔로워 데이터
-    const [data, setData] = useState([{
-      name: '구현우',
-      id: 'GHWooo',
-      src: 'https://avatars.githubusercontent.com/u/88186460?v=4',
-      followed: true
-    },
-    {
-      name: '콩대생',
-      id: 'Miniling',
-      src: 'https://avatars.githubusercontent.com/u/78603365?v=4',
-      followed: true
-    },
-    {
-      name: '오세찬',
-      id: 'ledraco',
-      src: 'https://avatars.githubusercontent.com/u/98178673?v=4',
-      followed: true
-    },
-    {
-      name: '수연',
-      id: 'so0y',
-      src: 'https://avatars.githubusercontent.com/u/83389222?v=4',
-      followed: true
-    }]);
+  // console.log(reqFollow);
 
-    //임시 팔로잉 데이터
-    const [following, setFollowing] = useState([{
-      name: 'Jeon_minGyu',
-      id: 'DrHagha',
-      src: 'https://avatars.githubusercontent.com/u/77195428?v=4'
-    },
-    {
-      name: 'Yong Hyun Jeon',
-      id: 'Raccooon98',
-      src: 'https://avatars.githubusercontent.com/u/101920006?v=4',
-      followed: false
-    },
-    {
-      name: '김성은',
-      id: 'star-sil',
-      src: 'https://avatars.githubusercontent.com/u/70811575?v=4',
-      followed: false
-    },{
-      name: '최영민',
-      id: 'youngmin1006',
-      src: 'https://avatars.githubusercontent.com/u/67896917?v=4',
-      followed: false
-    }
-    ]);
+  //팔로우 요청
+  // const axiosReqFollower = () => {
+  //   axios.post(`${proxy['proxy_url']}/accounts/member/follow`,{
+  //     name: "",
+  //     // followed: 'follow'
+  //   },{
+  //       headers:{
+  //           Authorization: token 
+  //       }
+  //   })
+  //   .then((res)=>{
+  //       console.log(res);
+  //       setReqFollow(res.data)
+  //   })
+  //   .catch((err)=>{
+  //       console.log(err);
+  //   })
+  // }
 
-  
-    
+  //언팔로우 요청
+  // const axiosReqUnFollow = () => {
+  //   axios.delete(`${proxy['proxy_url']}/accounts/member/follow`, {
+  //     name: ""
+  //     // followed : 'unfollow'
+  //   })
+  //   .then((res)=>{
+  //       console.log(res);
+  //       setReqUnfollow(res.data)
+  //   })
+  //   .catch((err)=>{
+  //       console.log(err);
+  //   })
+  // }
+
+  // useEffect(()=> {
+    // axiosReqFollower();
+    // axiosReqUnFollow();
+  // }, [])
+
+
   return (
     <div className='FollowsSession'>
-      <FollowList data={data} setData={setData} showFollowers={showFollowers} setShowFollowers={setShowFollowers}
-      following={following} setFollowing={setFollowing}/>
+      <FollowList //data={data} setData={setData} 
+      showFollowers={showFollowers} setShowFollowers={setShowFollowers}
+      follower={follower} setFollower={setFollower}
+      following={following} setFollowing={setFollowing}
+      // reqFollow={reqFollow} setReqFollow={setReqFollow} //팔로우 요청
+      // reqUnfollow={reqUnfollow} setReqUnfollow={setReqUnfollow} //언팔로우 요청
+      />
     </div>
   )
 }
