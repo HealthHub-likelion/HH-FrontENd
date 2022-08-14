@@ -8,6 +8,7 @@ function RoutineBox({  userData }) {
     const [showRoutine, setShowRoutine] = useState(false);
     const [showCreate, setShowCreate] = useState(false);
     const [proceedCreate, setProceedCreate] = useState(false);
+    const [clickRoutineId, setClickRoutineId] = useState(-1);
 
     useEffect(()=>{
         if(proceedCreate){
@@ -29,11 +30,12 @@ function RoutineBox({  userData }) {
         setShowCreate(true);
     }
 
-    const clickRoutine =(state)=>{
-        if(!state){
+    const clickRoutine =(state, index)=>{
+        if(!state && userData.isFollow!==null){
             alert('잠겨있는 루틴입니다.');
             return;
         }
+        setClickRoutineId(userData.routine[index].routineId);
         setShowRoutine(true);
     }
 
@@ -44,7 +46,7 @@ function RoutineBox({  userData }) {
         if(userData.routine){
             for(let i = 0; i < userData.routine.length; i++){
                 list.push(
-                    <div key={i} className='routineBox' onClick={()=>{clickRoutine(userData.routine[i]['routineOpen'])}}>
+                    <div key={i} className='routineBox' onClick={()=>{clickRoutine(userData.routine[i]['routineOpen'], i)}}>
                         <div className='routineBox_top'>
                             <div className='routineBox_left'>
                                 <div className='routineBox_title'>
@@ -78,6 +80,8 @@ function RoutineBox({  userData }) {
             <ShowRoutineModal 
                 show={showRoutine}
                 onHide={()=>{setShowRoutine(false)}}
+                userData={userData}
+                clickRoutineId={clickRoutineId}
             />
             <CreateRoutineModal
                 show={showCreate}
