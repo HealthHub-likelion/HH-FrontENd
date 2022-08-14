@@ -13,7 +13,7 @@ function UserSession({userData, setUserData}) {
           <ReadMeElement userData={userData} setUserData={setUserData}/>
         </div>
         <div className='usersession_routines'>
-          <RoutinesElement userData={userData}/>
+          <RoutinesElement userData={userData} setUserData={setUserData}/>
         </div>
       </div>
     );

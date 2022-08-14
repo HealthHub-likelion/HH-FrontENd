@@ -2,29 +2,7 @@ import { useState } from 'react';
 import '../../styles/components/elements/RoutinesElement.css'
 import RoutineBox from '../RoutineBox';
 
-function RoutinesElement() {
-    // ===== 임시 데이터 =====
-    const [routinesList] = useState([
-        {
-            routine_name: '가슴',
-            state: 'private',
-            record_count: '6',
-            latest_date: '22.07.30'
-        },
-        {
-            routine_name: '등',
-            state: 'public',
-            record_count: '8',
-            latest_date: '22.07.25'
-        },
-        {
-            routine_name: '하체',
-            state: 'private',
-            record_count: '7',
-            latest_date: '22.07.23'
-        }
-    ])
-    // ===============
+function RoutinesElement({userData}) {
 
     return (
         <div className="RoutinesElement">
@@ -32,7 +10,7 @@ function RoutinesElement() {
                 Routines
             </div>
             <div className='routines_body'>
-                <RoutineBox routinesList={routinesList}/>
+                <RoutineBox userData={userData}/>
             </div>
         </div>
     );

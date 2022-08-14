@@ -4,10 +4,12 @@ import '../styles/pages/SettingsPage.css'
 import Header from "../components/Header";
 import ProfileSession from "../sessions/ProfileSession";
 import SettingsSession from "../sessions/SettingsSession";
+import InitialData from "../components/InitialData";
 
 function SettingsPage() {
   const { username } = useParams();
   const [dataPrivate, setdataPrivate] = useState(true);
+  const [userData, setUserData] = useState({});
 
   return (
     <div className="SettingsPage">
@@ -16,12 +18,17 @@ function SettingsPage() {
       </div>
       <div className="settingspage_content">
         <div className="settingspage_profile">
-          <ProfileSession username={username} />
+          <ProfileSession username={username} userData={userData}/>
         </div>
         <div className="settingspage_SettingsSession">
           <SettingsSession username={username} dataPrivate={dataPrivate} setdataPrivate={setdataPrivate} />
         </div>
       </div>
+
+      <InitialData 
+          username={username}
+          setUserData={setUserData}
+        />
     </div>
   );
 }

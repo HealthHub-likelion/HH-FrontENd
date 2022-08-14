@@ -22,14 +22,14 @@ function EditRoutineModal(props) {
                 <div key={k} className='edit_exercise_set_box'>
                     <div>{k+1}</div>
                     <div>
-                        <input placeholder={set[k]['kg']}/>
+                        <input type='number' placeholder={set[k]['kg']}/>
                     </div>
                     <div>X</div>
                     <div>
-                        <input placeholder={set[k]['rep']}/>
+                        <input type='number' placeholder={set[k]['rep']}/>
                     </div>
                     <div>
-                        <button>삭제</button>
+                        {k!==0&&<button>삭제</button>}
                     </div>
                 </div>
             );

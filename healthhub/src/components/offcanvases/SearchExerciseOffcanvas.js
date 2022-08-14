@@ -1,57 +1,27 @@
 import '../../styles/components/offcanvases/SearchExerciseOffcanvas.css'
 import { Offcanvas } from 'react-bootstrap';
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import proxy from '../../security/Proxy.json'
+import axios from 'axios';
 
-function SearchExerciseOffcanvas(props) {
-    // ===== 임시 데이터 ===== 
-    const [exerciseCategory] = useState([
-        {
-            ko_name: "케이블 크로스 오버",
-            en_name: "Cable Crossover",
-            part: "가슴"
-        },
-        {
-            ko_name: "스트레칭",
-            en_name: "Stretching",
-            part: "기타"
-        },
-        {
-            ko_name: "박스 점프",
-            en_name: "Box Jump",
-            part: "다리"
-        },
-        {
-            ko_name: "백 익스텐션",
-            en_name: "Back Extension",
-            part: "등"
-        },
-        {
-            ko_name: "아놀드 프레스",
-            en_name: "Arnold Press",
-            part: "어깨"
-        },
-        {
-            ko_name: "배틀 로프",
-            en_name: "Battle Ropes",
-            part: "유산소"
-        },
-        {
-            ko_name: "버피",
-            en_name: "Burpee",
-            part: "전신"
-        },
-        {
-            ko_name: "케이블 크런치",
-            en_name: "Cable Crunch",
-            part: "코어"
-        },
-        {
-            ko_name: "벤치 딥",
-            en_name: "Bench Dip",
-            part: "팔"
-        },
-    ])
+function SearchExerciseOffcanvas({show, onHide, pre_modal, setProceedCreate, setSaveExercise}) {
+    const inputExRef = useRef();
+
+    const [exerciseCategory, setExerciseCategory] = useState([])
+
+    useEffect(()=>{
+        axios.get(`${proxy['proxy_url']}/exercise/list/`,{
+            headers:{
+                Authorization: localStorage.getItem('HH_token')
+            }
+        })
+        .then((res)=>{
+            setExerciseCategory(res.data);
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+    },[])
 
     const [partList] = useState(['전체', '가슴', '등', '다리', '어깨', '팔', '유산소', '전신', '코어', '기타'])
     const [clickedPart, setClickedPart] = useState('전체');
@@ -106,8 +76,8 @@ function SearchExerciseOffcanvas(props) {
         if(filterList.length > 0){
             for(let i = 0; i < filterList.length; i++){
                 showExercise.push(
-                    <div key={i} className={selectEcercise===filterList[i]['en_name']?'select_exercise_box':'search_exercise_box'}
-                        onClick={()=>{setSeletEcercise(filterList[i]['en_name'])}}>
+                    <div key={i} className={selectEcercise===filterList[i]['ko_name']?'select_exercise_box':'search_exercise_box'}
+                        onClick={()=>{setSeletEcercise(filterList[i]['ko_name'])}}>
                         <div>
                             <div className='search_exercise_en'>
                                 {filterList[i]['en_name']}
@@ -138,14 +108,39 @@ function SearchExerciseOffcanvas(props) {
         return showExercise;
     }
 
+    const proceedCancle = () =>{
+        setSeletEcercise('');
+        setInputExercise('');
+        onHide();
+        setProceedCreate(true);
+    }
+    const proceedCheck = () =>{
+        if(selectEcercise===''){
+            inputExRef.current.focus();
+            return;
+        }
+
+        setSaveExercise({
+            ko_name: selectEcercise,
+            set_list:[{
+                count: 0,
+                weight: 0
+            }]
+        })
+        setSeletEcercise('');
+        setInputExercise('');
+        onHide();
+        setProceedCreate(true);
+    }
+
     return (
         <div className="SearchExerciseOffcanvas">
-            <Offcanvas {...props} placement='end' className='search_exercise_offcanvas'>
+            <Offcanvas show={show} onHide={onHide} placement='end' className='search_exercise_offcanvas'>
                 <Offcanvas.Header className='search_exercise_header'>
                     <Offcanvas.Title className='search_exercise_title'>Exercises</Offcanvas.Title>
                     <div>{showPart}</div>
                     <div className='search_exercise_inputBox'>
-                        <input value={inputExercise} placeholder='운동명을 검색해보세요.'
+                        <input ref={inputExRef} value={inputExercise} placeholder='운동명을 검색해보세요.'
                                 onChange={inputName}/>
                         <img alt='검색' src={`${proxy['proxy_url']}/media/images/icons/HH_icon_search.png`}/>
                     </div>
@@ -153,8 +148,8 @@ function SearchExerciseOffcanvas(props) {
                 <Offcanvas.Body >
                     <div className='search_exercise_body'>{showExercise()}</div>
                     <div className='search_exercise_footer'>
-                        <button className='search_footer_cancel'>취소</button>
-                        <button className='search_footer_right'>확인</button>
+                        <button className='search_footer_cancel' onClick={()=>{proceedCancle()}}>취소</button>
+                        <button className='search_footer_right' onClick={()=>{proceedCheck()}}>확인</button>
                     </div>
                 </Offcanvas.Body>
             </Offcanvas>

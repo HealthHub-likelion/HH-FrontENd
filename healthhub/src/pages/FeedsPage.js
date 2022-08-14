@@ -1,12 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { useParams } from 'react-router-dom';
 import '../styles/pages/FeedsPage.css'
 import Header from "../components/Header";
 import ProfileSession from "../sessions/ProfileSession";
 import FeedsSession from "../sessions/FeedsSession";
+import InitialData from "../components/InitialData";
 
 function FeedsPage() {
     const {username} = useParams();
+    const [userData, setUserData] = useState({});
 
     return (
       <div className="FeedsPage">
@@ -15,12 +17,17 @@ function FeedsPage() {
         </div>
         <div className="feedspage_content">
           <div className="feedspage_profile">
-            <ProfileSession username={username}/>
+            <ProfileSession username={username} userData={userData}/>
           </div>
           <div className="feedspage_FeedsSession">
             <FeedsSession/>
           </div>
         </div>
+
+        <InitialData 
+          username={username}
+          setUserData={setUserData}
+        />
       </div>
     );
   }
