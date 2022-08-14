@@ -1,62 +1,56 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import proxy from '../security/Proxy.json'
 import FollowList from './FollowList';
 
-function FollowsSession({username, showFollowers, setShowFollowers, follower, setFollower, following, setFollowing}) {
-  // const [reqFollow, setReqFollow] = useState([]); //팔로우 요청
-  // const [reqUnfollow, setReqUnfollow] = useState([]); //언팔로우 요청
+function FollowsSession({username, showFollowers, setShowFollowers}) {
 
-  // console.log(reqFollow);
+    const [follower, setFollower] = useState([]);
+    const [following, setFollowing] = useState([]);
+    const token = localStorage.getItem('HH_token');
 
-  //팔로우 요청
-  // const axiosReqFollower = () => {
-  //   axios.post(`${proxy['proxy_url']}/accounts/member/follow`,{
-  //     name: "",
-  //     // followed: 'follow'
-  //   },{
-  //       headers:{
-  //           Authorization: token 
-  //       }
-  //   })
-  //   .then((res)=>{
-  //       console.log(res);
-  //       setReqFollow(res.data)
-  //   })
-  //   .catch((err)=>{
-  //       console.log(err);
-  //   })
-  // }
+    const axiosFollower = () => {
+      axios.get(`${proxy['proxy_url']}/accounts/member/follow?who=follower`, {
+        headers : {
+          Authorization: token
+        }
+      })
+      .then((res) => {
+        console.log(res);
+        setFollower(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+    }
 
-  //언팔로우 요청
-  // const axiosReqUnFollow = () => {
-  //   axios.delete(`${proxy['proxy_url']}/accounts/member/follow`, {
-  //     name: ""
-  //     // followed : 'unfollow'
-  //   })
-  //   .then((res)=>{
-  //       console.log(res);
-  //       setReqUnfollow(res.data)
-  //   })
-  //   .catch((err)=>{
-  //       console.log(err);
-  //   })
-  // }
+    const axiosFollowing = () => {
+      axios.get(`${proxy['proxy_url']}/accounts/member/follow?who=following`, {
+        headers : {
+          Authorization: token
+        }
+      })
+      .then((res) => {
+        console.log(res);
+        setFollowing(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+    } 
 
-  // useEffect(()=> {
-    // axiosReqFollower();
-    // axiosReqUnFollow();
-  // }, [])
-
+    useEffect(() => {
+      axiosFollower();
+      axiosFollowing();
+    }, []);
 
   return (
     <div className='FollowsSession'>
-      <FollowList //data={data} setData={setData} 
-      showFollowers={showFollowers} setShowFollowers={setShowFollowers}
+      <FollowList
       follower={follower} setFollower={setFollower}
       following={following} setFollowing={setFollowing}
-      // reqFollow={reqFollow} setReqFollow={setReqFollow} //팔로우 요청
-      // reqUnfollow={reqUnfollow} setReqUnfollow={setReqUnfollow} //언팔로우 요청
+      showFollowers={showFollowers} setShowFollowers={setShowFollowers}
       />
     </div>
   )
