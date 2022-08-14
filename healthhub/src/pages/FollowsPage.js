@@ -6,9 +6,11 @@ import axios from 'axios';
 import proxy from '../security/Proxy.json'
 import ProfileSession from "../sessions/ProfileSession";
 import FollowsSession from "../sessions/FollowsSession";
+import InitialData from "../components/InitialData";
 
 function FollowsPage() {
     const {username} = useParams();
+    const [userData, setUserData] = useState({});
     const [showFollowers, setShowFollowers] = useState(true);
     // true => followers, false => followings
     const [follower, setFollower] = useState([]); //팔로워 목록
@@ -66,7 +68,8 @@ function FollowsPage() {
         <div className="followspage_content">
           <div className="followspage_profile">
             <ProfileSession username={username} Tab={'Follows'} 
-                            showFollowers={showFollowers} setShowFollowers={setShowFollowers}/>
+                            showFollowers={showFollowers} setShowFollowers={setShowFollowers}
+                            userData={userData}/>
           </div>
           <div className="followspage_FollowsSession">
             <FollowsSession username={username}
@@ -78,6 +81,11 @@ function FollowsPage() {
                             />
           </div>
         </div>
+
+        <InitialData 
+          username={username}
+          setUserData={setUserData}
+        />
       </div>
     );
   }

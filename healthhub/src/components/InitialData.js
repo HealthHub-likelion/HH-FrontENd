@@ -10,20 +10,20 @@ function InitialData({username, setUserData}) {
           headers:{
               Authorization: token
           }
-      })
-      .then((res)=>{
-        const data = res.data;
+        })
+        .then((res)=>{
+          const data = res.data;
 
-        if(data.isFollow === null){
-          localStorage.setItem('HH_member_id', data.id);
-        }
-        setUserData(data);
-      })
-      .catch((err)=>{
-        console.log(err);
-        // 후에 사용자를 못찾았다는 경고 페이지 생성
-        // navigate(`/`);
-      })
+          if(data.isFollow === null){
+            localStorage.setItem('HH_member_id', data.id);
+          }
+          setUserData(data);
+        })
+        .catch((err)=>{
+          console.log(err);
+          // 후에 사용자를 못찾았다는 경고 페이지 생성
+          // navigate(`/`);
+        })
       }, [])
 }
 
