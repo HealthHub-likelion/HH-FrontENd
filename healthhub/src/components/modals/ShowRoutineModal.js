@@ -48,24 +48,26 @@ function ShowRoutineModal({show, onHide, clickRoutineId, userData}) {
         const exercises = routineContent.re_routine;
         const exercise_list = [];
         
-        for(let i = 0; i < exercises.length; i++){
-            exercise_list.push(
-                <div key={i} className='exercise_box'>
-                    <div className='exercise_title'>
-                        <div className='exercise_title_en'>{exercises[i]['exercise_en_name']}</div>
-                        <div className='exercise_title_kr'>{exercises[i]['exercise_ko_name']}</div>
+        if(exercises){
+            for(let i = 0; i < exercises.length; i++){
+                exercise_list.push(
+                    <div key={i} className='exercise_box'>
+                        <div className='exercise_title'>
+                            <div className='exercise_title_en'>{exercises[i]['exercise_en_name']}</div>
+                            <div className='exercise_title_kr'>{exercises[i]['exercise_ko_name']}</div>
+                        </div>
+                        <div className='exercise_column'>
+                            <div>세트</div>
+                            <div>kg</div>
+                            <div></div>
+                            <div>렙</div>
+                        </div>
+                        <div>
+                            {showRep(exercises[i]['set_exercise'])}
+                        </div>
                     </div>
-                    <div className='exercise_column'>
-                        <div>세트</div>
-                        <div>kg</div>
-                        <div></div>
-                        <div>렙</div>
-                    </div>
-                    <div>
-                        {showRep(exercises[i]['set_exercise'])}
-                    </div>
-                </div>
-            );
+                );
+            }
         }
         return exercise_list;
     }
