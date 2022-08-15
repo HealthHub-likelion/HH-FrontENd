@@ -2,7 +2,7 @@ import { useState } from 'react';
 import '../../styles/components/elements/RoutinesElement.css'
 import RoutineBox from '../RoutineBox';
 
-function RoutinesElement({userData}) {
+function RoutinesElement({userData, setUserData}) {
 
     return (
         <div className="RoutinesElement">
@@ -10,7 +10,7 @@ function RoutinesElement({userData}) {
                 Routines
             </div>
             <div className='routines_body'>
-                <RoutineBox userData={userData}/>
+                <RoutineBox userData={userData} setUserData={setUserData}/>
             </div>
         </div>
     );
