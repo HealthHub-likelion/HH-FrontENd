@@ -5,27 +5,39 @@ import { useEffect, useState } from 'react';
 import proxy from '../../security/Proxy.json'
 import axios from 'axios';
 
-function ShowRoutineModal({show, onHide, clickRoutineId, userData}) {
+function ShowRoutineModal({show, onHide, clickRoutineId, userData, setUserData}) {
     const [showEdit, setShowEdit] = useState(false);
     const [routineContent, setRoutineContent] = useState({});
+    const [proceedEdit, setProceedEdit] = useState(false);
+    const [addExercise, setAddExercise] = useState(false);
 
     useEffect(()=>{
-        if(clickRoutineId!==-1){
+        if(!addExercise&&proceedEdit){
+            setShowEdit(true);
+        }
+    },[addExercise]);
+
+    useEffect(()=>{
+        if(clickRoutineId!==-1 && !proceedEdit){
             axios.get(`${proxy['proxy_url']}/exercise/routine/${clickRoutineId}/`, {
                 headers:{
                     Authorization: localStorage.getItem('HH_token')
                 }
             })
             .then((res)=>{
-                console.log(res.data);
                 setRoutineContent(res.data);
             })
             .catch((err)=>{
                 console.log(err);
             })
         }
-    },[clickRoutineId]);
+    },[clickRoutineId, showEdit]);
 
+    const editBtnClick=()=>{
+        setProceedEdit(false);
+        setShowEdit(true); 
+        onHide();
+    }
 
     const showRep = (set) =>{
         const set_list = [];
@@ -96,18 +108,23 @@ function ShowRoutineModal({show, onHide, clickRoutineId, userData}) {
                         {showExercises()}
                     </div>
                     <div className='show_routine_footer'>
-                        <button onClick={()=>{setShowEdit(true); onHide();}}>
-                            편집
-                        </button>
+                        {userData.isFollow===null&&
+                        <button onClick={()=>{editBtnClick()}}>편집</button>}
                     </div>
                 </Modal.Body>
             </Modal>
 
-            {/* <EditRoutineModal
+            <EditRoutineModal
                 show={showEdit}
                 onHide={()=>{setShowEdit(false)}}
-                exercises={props.exercises}
-            /> */}
+                exercises={routineContent}
+                proceedEdit={proceedEdit}
+                setProceedEdit={setProceedEdit}
+                userData={userData}
+                setUserData={setUserData}
+                addExercise={addExercise}
+                setAddExercise={setAddExercise}
+            />
         </div>
     );
 }

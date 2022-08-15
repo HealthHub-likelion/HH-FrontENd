@@ -4,7 +4,7 @@ import ShowRoutineModal from './modals/ShowRoutineModal';
 import CreateRoutineModal from './modals/CreateRoutineModal';
 import proxy from '../security/Proxy.json'
 
-function RoutineBox({  userData }) {
+function RoutineBox({ userData, setUserData }) {
     const [showRoutine, setShowRoutine] = useState(false);
     const [showCreate, setShowCreate] = useState(false);
     const [proceedCreate, setProceedCreate] = useState(false);
@@ -82,6 +82,7 @@ function RoutineBox({  userData }) {
                 onHide={()=>{setShowRoutine(false)}}
                 userData={userData}
                 clickRoutineId={clickRoutineId}
+                setUserData={setUserData}
             />
             <CreateRoutineModal
                 show={showCreate}

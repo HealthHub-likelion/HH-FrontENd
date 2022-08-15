@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 import proxy from '../../security/Proxy.json'
 import axios from 'axios';
 
-function SearchExerciseOffcanvas({show, onHide, pre_modal, setProceedCreate, setSaveExercise}) {
+function SearchExerciseOffcanvas({show, onHide, pre_modal, setProceedCreate, setProceedEdit, setSaveExercise}) {
     const inputExRef = useRef();
 
     const [exerciseCategory, setExerciseCategory] = useState([])
@@ -76,8 +76,8 @@ function SearchExerciseOffcanvas({show, onHide, pre_modal, setProceedCreate, set
         if(filterList.length > 0){
             for(let i = 0; i < filterList.length; i++){
                 showExercise.push(
-                    <div key={i} className={selectEcercise===filterList[i]['ko_name']?'select_exercise_box':'search_exercise_box'}
-                        onClick={()=>{setSeletEcercise(filterList[i]['ko_name'])}}>
+                    <div key={i} className={selectEcercise[0]===filterList[i]['ko_name']?'select_exercise_box':'search_exercise_box'}
+                        onClick={()=>{setSeletEcercise([filterList[i]['ko_name'], filterList[i]['en_name']])}}>
                         <div>
                             <div className='search_exercise_en'>
                                 {filterList[i]['en_name']}
@@ -112,7 +112,7 @@ function SearchExerciseOffcanvas({show, onHide, pre_modal, setProceedCreate, set
         setSeletEcercise('');
         setInputExercise('');
         onHide();
-        setProceedCreate(true);
+        pre_modal==='create'?setProceedCreate(true):setProceedEdit(true);
     }
     const proceedCheck = () =>{
         if(selectEcercise===''){
@@ -120,17 +120,32 @@ function SearchExerciseOffcanvas({show, onHide, pre_modal, setProceedCreate, set
             return;
         }
 
-        setSaveExercise({
-            ko_name: selectEcercise,
-            set_list:[{
-                count: 0,
-                weight: 0
-            }]
-        })
         setSeletEcercise('');
         setInputExercise('');
+
+        if(pre_modal==='create'){
+            setProceedCreate(true);
+            setSaveExercise({
+                ko_name: selectEcercise[0],
+                set_list:[{
+                    count: 0,
+                    weight: 0
+                }]
+            })
+        }
+        else{
+            setProceedEdit(true);
+            setSaveExercise({
+                exercise_ko_name: selectEcercise[0],
+                exercise_en_name: selectEcercise[1],
+                set_exercise:[{
+                    count: 0,
+                    weight: 0
+                }]
+            })
+        }
+        
         onHide();
-        setProceedCreate(true);
     }
 
     return (
