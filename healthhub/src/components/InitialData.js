@@ -16,6 +16,7 @@ function InitialData({username, setUserData}) {
 
           if(data.isFollow === null){
             localStorage.setItem('HH_member_id', data.id);
+            localStorage.setItem('HH_name', data.name);
           }
           setUserData(data);
         })

@@ -51,19 +51,30 @@ function ReadMeElement({userData, setUserData}) {
         setReadmeUpdate(true);
     }
 
+    const showCreateBtn = () =>{
+        const createBtn = [];
+
+        if(userData['isFollow']===null){
+            createBtn.push(
+                readmeUpdate?
+                <div key='udtBtn' className='update_buttongroup'>
+                    <div onClick={()=>{cancelUpdate()}}>취소</div>
+                    <div onClick={()=>{saveUpdate()}}>작성</div>
+                </div>
+                :<img key='udtImg' src={`${proxy['proxy_url']}/media/images/icons/HH_icon_write.png`} alt='수정' onClick={()=>{showUpdate()}}/>
+            );
+        }
+
+        return createBtn;
+    }
+
     return (
         <div className="ReadMeElement">
             <div className='readme_header'>
                 <div className='readme_header_title'>
                     README
                 </div>
-                {readmeUpdate?
-                <div className='update_buttongroup'>
-                    <div onClick={()=>{cancelUpdate()}}>취소</div>
-                    <div onClick={()=>{saveUpdate()}}>작성</div>
-                </div>
-                :<img src={`${proxy['proxy_url']}/media/images/icons/HH_icon_write.png`} alt='수정' onClick={()=>{showUpdate()}}/>
-                }
+                {showCreateBtn()}
             </div>
             <div className='ReadmeText'>
                 <ReadmeText readmeContent={readmeContent}

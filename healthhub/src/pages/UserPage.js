@@ -13,11 +13,11 @@ function UserPage() {
     return (
       <div className="UserPage">
         <div className="userpage_header">
-          <Header Tab={'My'} username={username}/>
+          <Header Tab={'My'} username={username} userData={userData}/>
         </div>
         <div className="userpage_content">
           <div className="userpage_profile">
-            <ProfileSession username={username} userData={userData}/>
+            <ProfileSession username={username} userData={userData} setUserData={setUserData}/>
           </div>
           <div className="userpage_UserSession">
             <UserSession userData={userData} setUserData={setUserData}/>

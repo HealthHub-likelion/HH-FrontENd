@@ -39,6 +39,24 @@ function ShowRoutineModal({show, onHide, clickRoutineId, userData, setUserData})
         onHide();
     }
 
+    const forkRoutine=()=>{
+        // 33번 시트 500에러
+        // axios.post(`${proxy['proxy_url']}/exercise/routine/${routineContent['id']}/fork/`,{
+        //     routineId: routineContent['id']
+        // }, 
+        // {
+        //     headers:{
+        //         Authorization: localStorage.getItem['HH_token']
+        //     }
+        // })
+        // .then((res)=>{
+        //     console.log(res);
+        // })
+        // .catch((err)=>{
+        //     console.log(err);
+        // })
+    }
+
     const showRep = (set) =>{
         const set_list = [];
 
@@ -99,7 +117,7 @@ function ShowRoutineModal({show, onHide, clickRoutineId, userData, setUserData})
                         </div>
                         <div>
                             {userData.isFollow!==null&&
-                                <button><img className='fork_img' alt='fork' src={`${proxy['proxy_url']}/media/images/HH_icon_fork.png`}/>Fork</button>
+                                <button onClick={()=>{forkRoutine()}}><img className='fork_img' alt='fork' src={`${proxy['proxy_url']}/media/images/HH_icon_fork.png`}/>Fork</button>
                             }
                             <img alt='취소' src={`${proxy['proxy_url']}/media/images/icons/HH_icon_close_black.png`} onClick={onHide}/>
                         </div>
