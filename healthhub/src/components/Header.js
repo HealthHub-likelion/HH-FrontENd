@@ -5,7 +5,7 @@ import proxy from '../security/Proxy.json'
 import axios from 'axios';
 import { useEffect, useRef, useState } from 'react';
 
-function Header({Tab, username}) {
+function Header({Tab, username, userData}) {
     const inputRef = useRef();
     const navigate = useNavigate();
     const token = localStorage.getItem('HH_token');
@@ -15,6 +15,7 @@ function Header({Tab, username}) {
         if(window.confirm('로그아웃 하시겠습니까?')){
           localStorage.removeItem('HH_token');
           localStorage.removeItem('HH_member_id');
+          localStorage.removeItem('HH_name');
           navigate(`/`);
         }
       }
@@ -71,7 +72,7 @@ function Header({Tab, username}) {
                   
                 </div>}
                 {
-                  localStorage.getItem('HH_token')
+                  localStorage.getItem('HH_token')&&localStorage.getItem('HH_name')&&localStorage.getItem('HH_member_id')
                   ?<button onClick={()=>{moveIndex('logout')}} >LogOut</button>
                   :<button onClick={()=>{moveIndex('login')}} >Login</button>
                 }
@@ -81,7 +82,7 @@ function Header({Tab, username}) {
         </div>
         <div className='header_bottom'>
             <div className='header_MenuList'>
-                <MenuList Tab={Tab} username={username}/>
+                <MenuList Tab={Tab} username={username} userData={userData}/>
             </div>
         </div>
       </div>
