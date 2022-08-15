@@ -47,7 +47,7 @@ function MenuList({Tab, username, userData}) {
         window.location.reload();
         return;
       }
-      else{
+      else if(type === 'My' && !localStorage.getItem('HH_name')){
         if(window.confirm('로그인되어 있지 않습니다.\n로그인 화면으로 이동하시겠습니까?')){
           navigate(`/`);
           return;
