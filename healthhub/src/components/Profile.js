@@ -3,8 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import proxy from '../security/Proxy.json'
 import CreateRecordModal from './modals/CreateRecordModal';
 import { useState } from 'react';
+import axios from 'axios';
 
-function Profile({username, Tab, showFollowers, setShowFollowers, userData}) {
+function Profile({username, Tab, showFollowers, setShowFollowers, userData, setUserData}) {
     const navigate = useNavigate();
     const [showAddRecord, setShowAddRecord] = useState(false);
 
@@ -24,13 +25,45 @@ function Profile({username, Tab, showFollowers, setShowFollowers, userData}) {
       return <div className='profile_follow'>{userData.followerCount} followers / {userData.followingCount} following</div>;
     }
 
+    const userUnFollow = () =>{
+      axios.delete(`${proxy['proxy_url']}/accounts/member/follow`,{
+        name: username
+      }, {
+        headers:{
+            Authorization: localStorage.getItem('HH_token')
+        }
+      })
+      .then((res)=>{
+        setUserData({...userData, isFollow:false});
+      })
+      .catch((err)=>{
+        console.log(err);
+      })
+    }
+    const userFollowing = () =>{
+      axios.post(`${proxy['proxy_url']}/accounts/member/follow`,{
+        name: username
+      }, {
+        headers:{
+            Authorization: localStorage.getItem('HH_token')
+        }
+      })
+      .then((res)=>{
+        setUserData({...userData, isFollow:true});
+      })
+      .catch((err)=>{
+        console.log(err);
+      })
+    }
+
     return (
       <div className="Profile">
         <img src={`${proxy['proxy_url']}/media/images/HH_logo.jpg`} alt='프로필 이미지'/>
         <div className='profile_userstate_box'>
           <div className='profile_username'>{username}</div>
           {userData.isFollow!==null&&(userData.isFollow
-            ?<button className='profileBtn_unfollow'>unfollow</button>:<button className='profileBtn_following'>following</button>)
+            ?<button className='profileBtn_unfollow' onClick={()=>{userUnFollow()}}>unfollow</button>
+            :<button className='profileBtn_following' onClick={()=>{userFollowing()}}>following</button>)
           }
         </div>
         {Tab === 'Follows'

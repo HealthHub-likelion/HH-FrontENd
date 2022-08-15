@@ -17,7 +17,7 @@ function UserPage() {
         </div>
         <div className="userpage_content">
           <div className="userpage_profile">
-            <ProfileSession username={username} userData={userData}/>
+            <ProfileSession username={username} userData={userData} setUserData={setUserData}/>
           </div>
           <div className="userpage_UserSession">
             <UserSession userData={userData} setUserData={setUserData}/>
