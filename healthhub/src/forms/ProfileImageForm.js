@@ -1,12 +1,36 @@
 import { useState } from 'react';
+import axios from 'axios';
+import proxy from '../security/Proxy.json';
+import ProfileImageModal from '../components/modals/ProfileImageModal';
 import '../styles/forms/ProfileImageForm.css';
 
 function ProfileImageForm() {
-    const [imgBase64, setImgBase64] = useState([]); // 파일 base64
-    const [imgFile, setImgFile] = useState(null);	//파일	
+    const [showUploadProfile, setShowUploadProfile] = useState(false);
 
-    const uploadImage = () => {
+    const token = localStorage.getItem('HH_token');
 
+    const deleteProfileImage = () => {
+        // 계정 삭제
+        axios.delete(`${proxy['proxy_url']}/accounts/profileimage/delete`, {
+            // 헤더 부분
+            headers: {
+                Authorization: token
+            }
+        })
+            .then((res) => {
+                // 잘 불러와졌을때
+                console.log(res);
+            })
+            .catch((err) => {
+                // 오류 나왓을 때
+                console.log(err);
+            })
+    }
+
+    const deleteConfirm = () => {
+        if (window.confirm('사진을 삭제하시겠습니까?')) {
+            deleteProfileImage();
+        }
     }
 
     return (
@@ -17,17 +41,21 @@ function ProfileImageForm() {
             <div className='profileimageform_button'>
                 <button
                     type="button"
-                    // onClick={()=>}
+                    onClick={() => { setShowUploadProfile(true) }}
                     className="profileimageform_button_upload"
                 >
                     프로필 사진 업로드
                 </button>
                 <button
                     type="button"
-                    // onClick={()=>}
+                    onClick={() => { deleteConfirm() }}
                     className="profileimageform_button_delete">
                     사진 삭제
                 </button>
+                <ProfileImageModal
+                    show={showUploadProfile}
+                    onHide={() => { setShowUploadProfile(false) }}
+                />
             </div>
         </div>
     )
