@@ -66,9 +66,9 @@ function RoutineBox({ userData, setUserData }) {
                 )
             }
         }
-        list.push(
-            <div key={-1} className='routineBox_plus' onClick={()=>{showCreateModal()}}><img alt='플러스' src={`${proxy['proxy_url']}/media/images/icons/HH_icon_plus.png`}/></div>
-        )
+        if(userData['isFollow']===null){
+            list.push(<div key={-1} className='routineBox_plus' onClick={()=>{showCreateModal()}}><img alt='플러스' src={`${proxy['proxy_url']}/media/images/icons/HH_icon_plus.png`}/></div>)
+        }
 
         return list;
     }

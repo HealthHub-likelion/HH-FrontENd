@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import '../styles/components/MenuList.css'
 import proxy from '../security/Proxy.json'
 
-function MenuList({Tab, username}) {
+function MenuList({Tab, username, userData}) {
     const [buttonType] = useState(['My', 'Feeds', 'Records', 'Settings']);
     const [followPage] = useState(Tab === 'Follows'?true:false);
 
@@ -14,7 +14,7 @@ function MenuList({Tab, username}) {
 
       switch(type){
         case 'My':
-          if(Tab === 'My') returnSrc = `${proxy['proxy_url']}/media/images/icons/HH_icon_my_clicked.png`;
+          if(Tab === 'My' && userData['isFollow']===null) returnSrc = `${proxy['proxy_url']}/media/images/icons/HH_icon_my_clicked.png`;
           else returnSrc = `${proxy['proxy_url']}/media/images/icons/HH_icon_my.png`;
           break;
         case 'Feeds':
@@ -35,19 +35,25 @@ function MenuList({Tab, username}) {
       return returnSrc;
     }
     const selectColor = (type) =>{
-      return type === Tab?'#66B3F9':'#E3F5FE';
+      return type === Tab && userData['isFollow']===null?'#66B3F9':'#E3F5FE';
     }
     const selectBorder = (type) =>{
-      return type === Tab?'3px solid #66B3F9':'';
+      return type === Tab && userData['isFollow']===null?'3px solid #66B3F9':'';
     }
 
-    // 후에 닉네임 삽입 부분 수정 필요
     const movePage = (type) => {
-      if(type === 'My'){
-        navigate(`/${username}`);
+      if(type === 'My' && localStorage.getItem('HH_name')){
+        navigate(`/${localStorage.getItem('HH_name')}`);
+        window.location.reload();
         return;
       }
-      navigate(`/${username}/${type}`);
+      else{
+        if(window.confirm('로그인되어 있지 않습니다.\n로그인 화면으로 이동하시겠습니까?')){
+          navigate(`/`);
+          return;
+        }
+      }
+      navigate(`/${localStorage.getItem('HH_name')}/${type}`);
     }
 
     const showButtonList = () =>{
@@ -55,7 +61,7 @@ function MenuList({Tab, username}) {
       let start_index;
       let end_index;
       
-      if(followPage){
+      if(followPage || userData.isFollow !== null){
         start_index = 0;
         end_index = 1;
       }
