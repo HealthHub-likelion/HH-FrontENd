@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import proxy from '../security/Proxy.json'
 import FollowList from './FollowList';
 
-function FollowsSession({username, showFollowers, setShowFollowers}) {
+function FollowsSession({showFollowers}) {
 
-    const [follower, setFollower] = useState([]);
-    const [following, setFollowing] = useState([]);
+    const [follower, setFollower] = useState([]); //팔로워 목록
+    const [following, setFollowing] = useState([]); //팔로잉 목록
     const token = localStorage.getItem('HH_token');
 
+    //팔로워 목록
     const axiosFollower = () => {
       axios.get(`${proxy['proxy_url']}/accounts/member/follow?who=follower`, {
         headers : {
@@ -25,6 +25,7 @@ function FollowsSession({username, showFollowers, setShowFollowers}) {
       })
     }
 
+    //팔로잉 목록
     const axiosFollowing = () => {
       axios.get(`${proxy['proxy_url']}/accounts/member/follow?who=following`, {
         headers : {
@@ -48,9 +49,11 @@ function FollowsSession({username, showFollowers, setShowFollowers}) {
   return (
     <div className='FollowsSession'>
       <FollowList
-      follower={follower} setFollower={setFollower}
-      following={following} setFollowing={setFollowing}
-      showFollowers={showFollowers} setShowFollowers={setShowFollowers}
+      follower={follower}
+      setFollower={setFollower}
+      following={following}
+      setFollowing={setFollowing}
+      showFollowers={showFollowers}
       />
     </div>
   )
