@@ -10,79 +10,85 @@ function FollowList({follower, setFollower, following, setFollowing, showFollowe
   const nagative = useNavigate();
   const onClickProfile = (id) => {
     nagative(`/${id}`);
-    // axiosreqFollow();
   }
 
+  //팔로우, 언팔로우 토글
   const toggleFollower = (idx) => {
+    if(follower['Member'][idx]['isFollow'] === true){ // 버튼 unfollow -> follow
+      axoisreqUnFollow(follower['Member'][idx]['name']);
+    } else{ // 버튼 follow -> follow
+      axiosreqFollow(follower['Member'][idx]['name']);
+    }
+    
     const followerObject = follower['Member'][idx];
     followerObject['isFollow'] = !follower['Member'][idx]['isFollow'];
 
     const tempData1 = follower['Member'].slice();
     tempData1[idx] = followerObject;
-    setFollower(tempData1);
-    // axiosreqFollow();
+    setFollower({Member: tempData1});
+  }
+
+  const toggleFollowing = (idx) => {
+    if(following['Member'][idx]['isFollow'] === true){
+      axoisreqUnFollow(following['Member'][idx]['name']);
+    } else{
+      axiosreqFollow(following['Member'][idx]['name']);
     }
 
-  const isFollower = Object.keys(follower).length > 0;
-  const isFollowing = Object.keys(following).length > 0;
+    const followingObject = following['Member'][idx];
+    followingObject['isFollow'] = !following['Member'][idx]['isFollow'];
+
+    const tempData2 = following['Member'].slice();
+    tempData2[idx] = followingObject;
+    setFollowing({Member: tempData2});
+  }
 
   const token = localStorage.getItem('HH_token');
 
-//   const axiosreqFollow = () =>{
-//     axios.post(`${proxy['proxy_url']}/accounts/member/follow/`, {
-//       //바디 부분
-//       name: "nickname"
-//     }, {
-//     headers: {
-//       Authorization: token
-//       }
+  const axiosreqFollow = (userName) =>{
+    axios.post(`${proxy['proxy_url']}/accounts/member/follow`, {
+      //바디 부분
+      name: userName
+    }, {
+    headers: {
+      Authorization: token
+      }
 
-//     }).then((res)=>{
-//         console.log(res);
-//     })
-//     .catch((err)=>{
-//         console.log(err);
-//     })
-// }
+    }).then((res)=>{
+        console.log(res);
+    })
+    .catch((err)=>{
+        console.log(err);
+    })
+}
 
-//   const data = {
-//     name: "nickname"
-//   }
+  const axoisreqUnFollow = (userName) => {
+    axios.post(`${proxy['proxy_url']}/accounts/member/unfollow`, {
+      //바디 부분
+      name: userName
+    }, {
+    headers: {
+      Authorization: token
+      }
+    })
+    .then((res) => {
+      console.log(res);
 
-//   const axoisreqUnFollow = () => {
-//     axios.delete(`${proxy['proxy_url']}/accounts/member/follow`, {
-//       data,
-//       headers: {
-//       Authorization: token
-//       }
-//     })
-//     .then((res) => {
-//       console.log(res);
-
-//     }).catch((err) => {
-//       console.log(err);
-//     })
-//   }
-
-//   useEffect(() => {
-//     axiosreqFollow();
-//     axoisreqUnFollow();
-//   }, []);
+    }).catch((err) => {
+      console.log(err);
+    })
+  }
 
   function followerList() {
     const list = [];
-    console.log(isFollower)
     if(showFollowers === true){
-      // if(!isFollower){
-      //   return;
-      // }
       if(follower['Member']) {
         for(let i = 0; i < follower['Member'].length; i++){
         list.push(
           <div className="FollowElement" key={i}>
             <div className="followImg">
               <img className="profileImg"
-              src={follower['Member'][i]['img']}
+              src={`${proxy['proxy_url']}`+follower['Member'][i]['img']}
               onClick={() => onClickProfile(follower['Member'][i]['name'])}>
               </img>
             </div>
@@ -94,7 +100,6 @@ function FollowList({follower, setFollower, following, setFollowing, showFollowe
               <button className='followBtn' onClick={() => toggleFollower(i)}>
               {follower['Member'][i]['isFollow'] ?'unfollow':'follow'}
               </button>
-              {/* {console.log(follower['Member'][i]['isFollow'])} */}
             </div>
           </div>
         )
@@ -103,15 +108,14 @@ function FollowList({follower, setFollower, following, setFollowing, showFollowe
             
     }
     else{
-      if(!isFollowing){
-        return;
-      }
-      for(let i = 0; i < following['Member'].length; i++){
+      if(following['Member']) {
+        // console.log(following['Member']);
+        for(let i = 0; i < following['Member'].length; i++){
         list.push(
           <div className="FollowElement" key={i}>
             <div className="followImg">
               <img className="profileImg"
-              src={following['Member'][i]['img']}
+              src={`${proxy['proxy_url']}`+following['Member'][i]['img']}
               onClick={() => onClickProfile(following['Member'][i]['name'])}>
               </img>
             </div>
@@ -119,9 +123,15 @@ function FollowList({follower, setFollower, following, setFollowing, showFollowe
             onClick={() => onClickProfile(following['Member'][i]['name'])}>
             {following['Member'][i]['name']}
             </div>
+            <div className='isFollowBox'>
+              <button className='followBtn' onClick={() => toggleFollowing(i)}>
+              {following['Member'][i]['isFollow'] ?'unfollow':'follow'}
+              </button>
+            </div>
           </div>
-        )
-      } 
+          )
+        }
+      }
     }
     return list;
   }
