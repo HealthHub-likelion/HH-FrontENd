@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react'
 import axios from 'axios';
 import proxy from '../security/Proxy.json'
 import { useNavigate } from 'react-router-dom';
 import '../styles/sessions/FollowsSession.css'
 
-function FollowList({follower, setFollower, following, setFollowing, showFollowers}) {
+function FollowList({follower, setFollower, following, setFollowing, showFollowers, userData}) {
 
   //페이지 이동
   const nagative = useNavigate();
@@ -96,11 +95,13 @@ function FollowList({follower, setFollower, following, setFollowing, showFollowe
             onClick={() => onClickProfile(follower['Member'][i]['name'])}>
             {follower['Member'][i]['name']}
             </div>
-            <div className='isFollowBox'>
+            {userData['isFollow'] === null
+            ? <div className='isFollowBox'>
               <button className='followBtn' onClick={() => toggleFollower(i)}>
               {follower['Member'][i]['isFollow'] ?'unfollow':'follow'}
               </button>
             </div>
+            : <></>}
           </div>
         )
       }  
@@ -109,7 +110,6 @@ function FollowList({follower, setFollower, following, setFollowing, showFollowe
     }
     else{
       if(following['Member']) {
-        // console.log(following['Member']);
         for(let i = 0; i < following['Member'].length; i++){
         list.push(
           <div className="FollowElement" key={i}>
@@ -123,11 +123,13 @@ function FollowList({follower, setFollower, following, setFollowing, showFollowe
             onClick={() => onClickProfile(following['Member'][i]['name'])}>
             {following['Member'][i]['name']}
             </div>
-            <div className='isFollowBox'>
+            {userData['isFollow'] === null
+            ? <div className='isFollowBox'>
               <button className='followBtn' onClick={() => toggleFollowing(i)}>
               {following['Member'][i]['isFollow'] ?'unfollow':'follow'}
               </button>
             </div>
+            : <></>}
           </div>
           )
         }
