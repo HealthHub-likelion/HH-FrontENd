@@ -4,13 +4,16 @@
     display: flex;
     flex-direction: column;
 }
-
 .index_top{
     height: 70%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.index_header_userSearch{
+    display : flex;
+    justify-content: flex-end;
 }
 .index_top_title{
     display: flex;
