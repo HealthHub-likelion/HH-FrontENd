@@ -23,7 +23,8 @@ function FollowsPage() {
                             userData={userData}/>
           </div>
           <div className="followspage_FollowsSession">
-            <FollowsSession showFollowers={showFollowers}/>
+            <FollowsSession showFollowers={showFollowers}
+                            userData={userData}/>
           </div>
         </div>
 
