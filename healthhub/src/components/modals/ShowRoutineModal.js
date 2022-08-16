@@ -40,21 +40,19 @@ function ShowRoutineModal({show, onHide, clickRoutineId, userData, setUserData})
     }
 
     const forkRoutine=()=>{
-        // 33번 시트 500에러
-        // axios.post(`${proxy['proxy_url']}/exercise/routine/${routineContent['id']}/fork/`,{
-        //     routineId: routineContent['id']
-        // }, 
-        // {
-        //     headers:{
-        //         Authorization: localStorage.getItem['HH_token']
-        //     }
-        // })
-        // .then((res)=>{
-        //     console.log(res);
-        // })
-        // .catch((err)=>{
-        //     console.log(err);
-        // })
+        if(window.confirm('루틴을 저장하시겠습니까?')){
+            axios.post(`${proxy['proxy_url']}/exercise/routine/${routineContent['id']}/fork/`,{},
+            {
+                headers:{
+                    Authorization: localStorage.getItem('HH_token')
+                }
+            })
+            .then((res)=>{
+            })
+            .catch((err)=>{
+                console.log(err);
+            })
+        }
     }
 
     const showRep = (set) =>{
