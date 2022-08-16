@@ -4,14 +4,14 @@ import proxy from '../security/Proxy.json';
 import ProfileImageModal from '../components/modals/ProfileImageModal';
 import '../styles/forms/ProfileImageForm.css';
 
-function ProfileImageForm() {
+function ProfileImageForm({ userData }) {
     const [showUploadProfile, setShowUploadProfile] = useState(false);
 
     const token = localStorage.getItem('HH_token');
 
     const deleteProfileImage = () => {
-        // 계정 삭제
-        axios.delete(`${proxy['proxy_url']}/accounts/profileimage/delete`, {
+        // 프로필 이미지 삭제
+        axios.post(`${proxy['proxy_url']}/accounts/profileimage/delete`, {
             // 헤더 부분
             headers: {
                 Authorization: token
@@ -28,8 +28,13 @@ function ProfileImageForm() {
     }
 
     const deleteConfirm = () => {
-        if (window.confirm('사진을 삭제하시겠습니까?')) {
-            deleteProfileImage();
+        if (userData['img'] == '/media/images/HH_logo.jpg') {
+            alert('등록된 이미지가 없습니다.')
+        }
+        else {
+            if (window.confirm('사진을 삭제하시겠습니까?')) {
+                deleteProfileImage();
+            }
         }
     }
 
@@ -55,6 +60,7 @@ function ProfileImageForm() {
                 <ProfileImageModal
                     show={showUploadProfile}
                     onHide={() => { setShowUploadProfile(false) }}
+                    userdata={userData}
                 />
             </div>
         </div>

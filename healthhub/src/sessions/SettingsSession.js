@@ -4,15 +4,15 @@ import SecurityForm from "../forms/SecurityForm";
 import StatusForm from "../forms/StatusForm";
 import '../styles/sessions/SettingsSession.css';
 
-function SettingsSession({ username, dataPrivate, setdataPrivate }) {
+function SettingsSession({ username, dataPrivate, setdataPrivate, userData }) {
 
     return (
         <div className="SettingsSession">
             <div className="settingssession_nickname">
-                <NickNameForm username={username} />
+                <NickNameForm username={username} userData={userData} />
             </div>
             <div className="settingssession_profileimage">
-                <ProfileImageForm />
+                <ProfileImageForm userData={userData} />
             </div>
             <div className="settingssession_security">
                 <SecurityForm dataPrivate={dataPrivate} setdataPrivate={setdataPrivate} />
