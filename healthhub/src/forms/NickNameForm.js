@@ -1,3 +1,6 @@
+import axios from 'axios';
+import proxy from '../security/Proxy.json';
+import { useNavigate } from 'react-router';
 import { useRef, useState } from 'react';
 import '../styles/forms/NickNameForm.css';
 
@@ -6,6 +9,36 @@ function NickNameForm({ username }) {
 
     const [nicknameContent, setNickNameContent] = useState('');
 
+    const token = localStorage.getItem('HH_token');
+    const memberID = localStorage.getItem('HH_member_id');
+
+    const navigate = useNavigate();
+
+    const nicknameUpdate = () => {
+        const nickname = nicknameContent
+
+        axios.post(`${proxy['proxy_url']}/accounts/member/${memberID}/`, {
+            // 바디 부분
+            nickname: nickname
+        }, {
+            // 헤더 부분
+            headers: {
+                Authorization: token
+            }
+        })
+            .then((res) => {
+                // 잘 불러와졌을때
+                console.log('post', res.data);
+                alert('닉네임이 변경되었습니다!');
+                navigate(`/${nickname}`);
+            })
+            .catch((err) => {
+                // 오류 나왓을 때
+                console.log(err);
+                alert('서비스 에러!!!');
+            })
+    }
+
     const saveUpdate = () => {
         if (nicknameContent === '') {
             textareaRef.current.focus();
@@ -13,7 +46,7 @@ function NickNameForm({ username }) {
         }
         else {
             if (window.confirm('변경하시겠습니까?')) {
-                window.location.replace(`/${nicknameContent}/Settings`);
+                nicknameUpdate();
             }
         }
     }
