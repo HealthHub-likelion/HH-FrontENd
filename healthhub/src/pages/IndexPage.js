@@ -4,6 +4,7 @@ import IndexContainer from "../components/background/indexBG";
 import { useEffect } from 'react';
 import axios from 'axios';
 import proxy from '../security/Proxy.json';
+import SearchUser from '../components/SearchUser';
 
 function IndexPage() {
     const navigate = useNavigate();
@@ -34,6 +35,9 @@ function IndexPage() {
     return (
         <IndexContainer>
             <div className="IndexPage">
+                <div className = "index_header_userSearch">
+                    <SearchUser/>
+                </div>
                 <div className="index_top">
                     <div className="index_top_title">
                         <div className="index_top_title_right">Health</div>
@@ -52,6 +56,6 @@ function IndexPage() {
             </div>
         </IndexContainer>
     );
-  }
+}
 
-  export default IndexPage;
+    export default IndexPage;
