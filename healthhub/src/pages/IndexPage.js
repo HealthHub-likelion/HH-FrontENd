@@ -32,6 +32,14 @@ function IndexPage() {
         }
     },[]);
 
+    const clickLogo = () =>{
+        if(localStorage.getItem('HH_name')){
+            navigate(`/${localStorage.getItem('HH_name')}`);
+            return
+        }
+        navigate(`/`);
+    }
+
     return (
         <IndexContainer>
             <div className="IndexPage">
@@ -39,7 +47,7 @@ function IndexPage() {
                     <SearchUser/>
                 </div>
                 <div className="index_top">
-                    <div className="index_top_title">
+                    <div className="index_top_title" onClick={()=>{clickLogo()}}>
                         <div className="index_top_title_right">Health</div>
                         <div className="index_top_title_left">Hub</div>
                     </div>

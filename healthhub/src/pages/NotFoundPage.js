@@ -46,6 +46,14 @@ const NotFoundPage = () => {
     })
     },[inputName]);
 
+    const clickLogo = () =>{
+        if(localStorage.getItem('HH_name')){
+            navigate(`/${localStorage.getItem('HH_name')}`);
+            return
+        }
+        navigate(`/`);
+    }
+
     return (
         <ProfileContainer>
             <div className="NotFoundPage">
@@ -60,7 +68,7 @@ const NotFoundPage = () => {
                         <div className='notFound_top_search_dropdown'>                  
                             
                         </div>}
-                        <div className='notFound_box'>
+                        <div className='notFound_box' onClick={()=>{clickLogo()}}>
                             <div className='notFound_logo_left'>Health</div>
                             <div className='notFound_logo_right'>Hub</div>
                         </div>

@@ -58,6 +58,14 @@ function Header({Tab, username, userData}) {
       })
     },[inputName]);
 
+    const clickLogo = () =>{
+      if(localStorage.getItem('HH_name')){
+        navigate(`/${localStorage.getItem('HH_name')}`);
+        return
+      }
+      navigate(`/`);
+    }
+
     return (
       <div className="Header">
         <div className='header_top'>
@@ -76,8 +84,8 @@ function Header({Tab, username, userData}) {
                   ?<button onClick={()=>{moveIndex('logout')}} >LogOut</button>
                   :<button onClick={()=>{moveIndex('login')}} >Login</button>
                 }
-                <div className='header_logo_left'>Health</div>
-                <div className='header_logo_right'>Hub</div>
+                <div className='header_logo_left' onClick={()=>{clickLogo()}}>Health</div>
+                <div className='header_logo_right' onClick={()=>{clickLogo()}}>Hub</div>
             </div>
         </div>
         <div className='header_bottom'>
