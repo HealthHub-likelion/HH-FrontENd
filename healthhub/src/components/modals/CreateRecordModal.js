@@ -2,8 +2,9 @@ import '../../styles/components/modals/CreateRecordModal.css'
 import { Modal } from 'react-bootstrap';
 import { useState } from 'react';
 import UploadImage from '../UploadImage';
+import SelectRoutineBox from '../SelectRoutineBox';
 
-function CreateRecordModal(props) {
+function CreateRecordModal({show, onHide, userData, setUserData}) {
     const date = new Date();
     const tenMinAgo = new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours(), date.getMinutes()-10);
     const oneHourTenMinAgo = new Date(tenMinAgo.getFullYear(), tenMinAgo.getMonth(), tenMinAgo.getDate(), tenMinAgo.getHours()-1, tenMinAgo.getMinutes());
@@ -16,7 +17,7 @@ function CreateRecordModal(props) {
     const [addRecordData, setAddRecordData] = useState({
         start_time: {
             year: oneHourTenMinAgo.getFullYear(),
-            month: regularNumber(oneHourTenMinAgo.getMonth()),
+            month: regularNumber(oneHourTenMinAgo.getMonth()+1),
             date: regularNumber(oneHourTenMinAgo.getDate()),
             hour: regularNumber(oneHourTenMinAgo.getHours()),
             minute: regularNumber(oneHourTenMinAgo.getMinutes()),
@@ -24,7 +25,7 @@ function CreateRecordModal(props) {
         },
         end_time: {
             year: tenMinAgo.getFullYear(),
-            month: regularNumber(tenMinAgo.getMonth()),
+            month: regularNumber(tenMinAgo.getMonth()+1),
             date: regularNumber(tenMinAgo.getDate()),
             hour: regularNumber(tenMinAgo.getHours()),
             minute: regularNumber(tenMinAgo.getMinutes()),
@@ -34,6 +35,8 @@ function CreateRecordModal(props) {
         img: null,
         comment: ''
     })
+
+    console.log(addRecordData);
 
     const checkDay = (state) => {
         if(state){
@@ -70,7 +73,8 @@ function CreateRecordModal(props) {
     return (
         <div className="CreateRecordModal">
             <Modal
-            {...props}
+            show={show}
+            onHide={onHide}
             aria-labelledby="contained-modal-title-vcenter"
             centered
             >
@@ -115,7 +119,9 @@ function CreateRecordModal(props) {
                             <div className='create_record_title'>
                                 <div>today's routine</div><></>
                             </div>
-                            <div className='create_record_sub_body'></div>
+                            <div className='create_record_sub_body'>
+                                <SelectRoutineBox userData={userData} setUserData={setUserData} addRecordData={addRecordData} setAddRecordData={setAddRecordData}/>
+                            </div>
                         </div>
                         <div className='create_record_image'>
                             <div className='create_record_title'>
