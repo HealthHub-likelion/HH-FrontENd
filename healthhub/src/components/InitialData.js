@@ -1,8 +1,12 @@
 import axios from 'axios';
 import proxy from '../security/Proxy.json'
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function InitialData({username, setUserData}) {
+
+  const navigate = useNavigate();
+  
     useEffect(()=>{
         const token = localStorage.getItem('HH_token')?localStorage.getItem('HH_token'):''
   
@@ -23,7 +27,7 @@ function InitialData({username, setUserData}) {
         .catch((err)=>{
           console.log(err);
           // 후에 사용자를 못찾았다는 경고 페이지 생성
-          // navigate(`/`);
+          navigate(`/NotFoundPage`);
         })
       }, [])
 }
