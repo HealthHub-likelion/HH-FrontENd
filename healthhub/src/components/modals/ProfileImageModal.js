@@ -6,7 +6,7 @@ import { useState } from 'react';
 import UploadProfile from '../UploadProfile';
 
 function ProfileImageModal(props) {
-    const [imageSrc, setImageSrc] = useState('');   // 미리보기 데이터
+    const [imageSrc, setImageSrc] = useState('');   // 미리보기 데이터(base 64)
     const [profileImg, setProfileImg] = useState({
         img: null,
     }); // 프로필 사진 데이터
@@ -14,13 +14,21 @@ function ProfileImageModal(props) {
     const token = localStorage.getItem('HH_token');
 
     const uploadProfileImage = () => {
+        // 1. formData 생성 후 데이터 append
+        let form_data = new FormData();
+        form_data.append("images", profileImg['img']);
+        // 나머지 데이터들은 다 JSON으로 맞춰주기
+        form_data.append("data", JSON.stringify(imageSrc));
+
+        // 2. axios로 전송
         axios.post(`${proxy['proxy_url']}/accounts/profileimage/upload`, {
             // 바디 부분
-            img: profileImg.img[0].name
+            img: form_data
         }, {
             // 헤더 부분
             headers: {
-                Authorization: token
+                Authorization: token,
+                'content-type': 'multipart/form-data'
             }
         })
             .then((res) => {
@@ -33,6 +41,7 @@ function ProfileImageModal(props) {
             })
 
         props.onHide()
+        console.log(props.userdata)
     }
 
     const removeImage = () => {

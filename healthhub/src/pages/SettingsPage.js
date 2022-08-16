@@ -18,17 +18,17 @@ function SettingsPage() {
       </div>
       <div className="settingspage_content">
         <div className="settingspage_profile">
-          <ProfileSession username={username} userData={userData}/>
+          <ProfileSession username={username} userData={userData} />
         </div>
         <div className="settingspage_SettingsSession">
-          <SettingsSession username={username} dataPrivate={dataPrivate} setdataPrivate={setdataPrivate} />
+          <SettingsSession username={username} dataPrivate={dataPrivate} setdataPrivate={setdataPrivate} userData={userData} />
         </div>
       </div>
 
-      <InitialData 
-          username={username}
-          setUserData={setUserData}
-        />
+      <InitialData
+        username={username}
+        setUserData={setUserData}
+      />
     </div>
   );
 }

@@ -24,6 +24,8 @@ function SecurityForm({ dataPrivate, setdataPrivate }) {
                 // 오류 나왓을 때
                 console.log(err);
             })
+
+        getState();
     }
 
     const getState = () => {
@@ -47,13 +49,9 @@ function SecurityForm({ dataPrivate, setdataPrivate }) {
 
     /* 버튼 활성화 변경 */
     const setPrivate = () => {
-        switchSecurity(false)
-        getState()
         return dataPrivate ? 'private_button_clicked' : 'private_button';
     }
     const setPublic = () => {
-        switchSecurity(true)
-        getState()
         return dataPrivate ? 'public_button' : 'public_button_clicked';
     }
 
@@ -63,10 +61,10 @@ function SecurityForm({ dataPrivate, setdataPrivate }) {
                 <div>Security</div>
             </div>
             <div className='securityform_button'>
-                <button className={setPrivate()} onClick={() => setdataPrivate(true)}>
+                <button className={setPrivate()} onClick={() => { setdataPrivate(true); switchSecurity(false); }}>
                     private
                 </button>
-                <button className={setPublic()} onClick={() => setdataPrivate(false)}>
+                <button className={setPublic()} onClick={() => { setdataPrivate(false); switchSecurity(true); }}>
                     public
                 </button>
             </div>
