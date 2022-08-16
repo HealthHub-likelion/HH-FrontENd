@@ -8,6 +8,7 @@ import RecordsPage from './pages/RecordsPage';
 import SettingsPage from './pages/SettingsPage';
 import SignupPage from './pages/SignupPage';
 import UserPage from './pages/UserPage';
+import NotFoundPage from './pages/NotFoundPage';
 import { useMediaQuery } from 'react-responsive';
 
 function App() {
@@ -22,12 +23,13 @@ function App() {
         <Route exact path="/" element={<IndexPage/>}/>
         <Route path="/login" element={<LoginPage/>}/>
         <Route path="/signup" element={<SignupPage/>}/>
+        <Route path="/NotFoundPage" element={<NotFoundPage/>}/>
         <Route path="/:username" element={<UserPage/>}/>
         <Route path="/:username/feeds" element={<FeedsPage/>}/>
         <Route path="/:username/follow" element={<FollowsPage/>}/>
         <Route path="/:username/records" element={<RecordsPage/>}/>
         <Route path="/:username/settings" element={<SettingsPage/>}/>
-        <Route path="*" element={<div>404</div>}/>
+        <Route path="*" element={<NotFoundPage/>}/>
       </Routes>}
       {validWidth||<div>해상도를 높여주세요.</div>}
     </div>
