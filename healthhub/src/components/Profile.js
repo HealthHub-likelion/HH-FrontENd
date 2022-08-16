@@ -26,20 +26,22 @@ function Profile({username, Tab, showFollowers, setShowFollowers, userData, setU
     }
 
     const userUnFollow = () =>{
-      // axios.delete(`${proxy['proxy_url']}/accounts/member/follow`,{
-      //   headers:{
-      //       Authorization: localStorage.getItem('HH_token')
-      //   }
-      // })
-      // .then((res)=>{
-      //   setUserData({...userData, isFollow:false});
-      // })
-      // .catch((err)=>{
-      //   console.log(err);
-      // })
+      axios.post(`${proxy['proxy_url']}/accounts/member/unfollow`,{
+        name: username
+      },{
+        headers:{
+            Authorization: localStorage.getItem('HH_token')
+        }
+      })
+      .then((res)=>{
+        setUserData({...userData, isFollow:false});
+      })
+      .catch((err)=>{
+        console.log(err);
+      })
     }
     const userFollowing = () =>{
-      axios.post(`${proxy['proxy_url']}/accounts/member/follow/`,{
+      axios.post(`${proxy['proxy_url']}/accounts/member/follow`,{
         name: username
       }, {
         headers:{
