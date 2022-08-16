@@ -26,22 +26,20 @@ function Profile({username, Tab, showFollowers, setShowFollowers, userData, setU
     }
 
     const userUnFollow = () =>{
-      axios.delete(`${proxy['proxy_url']}/accounts/member/follow`,{
-        name: username
-      }, {
-        headers:{
-            Authorization: localStorage.getItem('HH_token')
-        }
-      })
-      .then((res)=>{
-        setUserData({...userData, isFollow:false});
-      })
-      .catch((err)=>{
-        console.log(err);
-      })
+      // axios.delete(`${proxy['proxy_url']}/accounts/member/follow`,{
+      //   headers:{
+      //       Authorization: localStorage.getItem('HH_token')
+      //   }
+      // })
+      // .then((res)=>{
+      //   setUserData({...userData, isFollow:false});
+      // })
+      // .catch((err)=>{
+      //   console.log(err);
+      // })
     }
     const userFollowing = () =>{
-      axios.post(`${proxy['proxy_url']}/accounts/member/follow`,{
+      axios.post(`${proxy['proxy_url']}/accounts/member/follow/`,{
         name: username
       }, {
         headers:{
@@ -82,6 +80,8 @@ function Profile({username, Tab, showFollowers, setShowFollowers, userData, setU
         <CreateRecordModal
           show={showAddRecord}
           onHide={()=>{setShowAddRecord(false)}}
+          userData={userData}
+          setUserData={setUserData}
         />
       </div>
     );
