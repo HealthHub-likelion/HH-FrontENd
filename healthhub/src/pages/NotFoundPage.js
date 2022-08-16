@@ -68,7 +68,7 @@ const NotFoundPage = () => {
                 </div>
                 <div className="NotFoundContainer">
                         <div className="NotFound_404">404</div>
-                        <div className="NotFound_alert">Not Found User</div>
+                        <div className="NotFound_alert">User Not Found</div>
                 </div>
             </div>
         </ProfileContainer>
