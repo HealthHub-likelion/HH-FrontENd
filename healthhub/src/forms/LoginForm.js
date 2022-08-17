@@ -39,7 +39,7 @@ function LoginForm() {
             </div>
             <input
                 type="password"
-                placeholder='password'
+                placeholder='비밀번호'
                 className='loginform_password'
                 value={loginState['password']}
                 onChange={savePwd}

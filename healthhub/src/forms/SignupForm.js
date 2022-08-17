@@ -82,7 +82,7 @@ function SignupForm() {
             })
             .then((res)=>{
                 // console.log(res);
-                // console.log('닉네임 체크!')
+                console.log('가능한 닉네임입니다.')
             })
             .catch((err)=>{
                 // console.log(err);
@@ -118,7 +118,7 @@ function SignupForm() {
             }).
             then((res)=>{
                 // console.log(res);
-                // console.log('이메일 체크!');
+                console.log('가능한 이메일입니다.');
             })
             .catch((err)=>{
                 // console.log(err);
@@ -179,7 +179,7 @@ function SignupForm() {
             </div>
             <input 
                 type = "password"
-                placeholder='password'
+                placeholder='비밀번호'
                 className='singupForm_password'
                 onChange={handlePassword}
                 ></input>
@@ -188,7 +188,7 @@ function SignupForm() {
             </div>
             <input 
                 type = "password"
-                placeholder='password 중복 검사'
+                placeholder='비밀번호 중복 검사'
                 className='signupForm_doubleCheck'
                 onChange={handlePassword2}
                 ></input>
