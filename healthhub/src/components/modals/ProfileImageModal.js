@@ -14,26 +14,19 @@ function ProfileImageModal(props) {
     const uploadProfileImage = async () => {
         // 1. formData 생성 후 데이터 append
         let form_data = new FormData();
-        form_data.append("images", profileImg);
-        console.log('f', form_data)
-        // 나머지 데이터들은 다 JSON으로 맞춰주기
-        // form_data.append("data", JSON.stringify(imageSrc));
-        console.log(profileImg[0]['name'])
+        form_data.append("img", profileImg[0]);
 
         // 2. axios로 전송
-        await axios.post(`${proxy['proxy_url']}/accounts/profileimage/upload`, {
-            // 바디 부분
-            img: `images/${profileImg[0]['name']}`
-        }, {
+        await axios.post(`${proxy['proxy_url']}/accounts/profileimage/upload`, form_data, {
             // 헤더 부분
             headers: {
-                Authorization: token,
-                'content-type': 'multipart/form-data'
+                Authorization: token
             }
         })
             .then((res) => {
                 // 잘 불러와졌을때
                 console.log(res);
+                // img 경로 추가시 수정할 부분
             })
             .catch((err) => {
                 // 오류 나왓을 때
