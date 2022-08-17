@@ -1,5 +1,4 @@
 import axios from 'axios';
-import proxy from '../security/Proxy.json';
 import '../styles/forms/SecurityForm.css';
 
 function SecurityForm({ isOpen, setIsOpen }) {
@@ -7,7 +6,7 @@ function SecurityForm({ isOpen, setIsOpen }) {
 
     /* Security Patch */
     const switchSecurity = (security) => {
-        axios.patch(`${proxy['proxy_url']}/accounts/member/`, {
+        axios.patch(`${process.env.REACT_APP_PROXY}/accounts/member/`, {
             // 바디 부분
             isOpen: security
         }, {
@@ -29,7 +28,7 @@ function SecurityForm({ isOpen, setIsOpen }) {
 
     const getState = () => {
         // 변경 확인
-        axios.get(`${proxy['proxy_url']}/accounts/getsettingoption`, {
+        axios.get(`${process.env.REACT_APP_PROXY}/accounts/getsettingoption`, {
             // 헤더 부분
             headers: {
                 Authorization: token

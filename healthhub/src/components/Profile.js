@@ -1,6 +1,5 @@
 import '../styles/components/Profile.css'
 import { useNavigate } from 'react-router-dom';
-import proxy from '../security/Proxy.json'
 import CreateRecordModal from './modals/CreateRecordModal';
 import { useState } from 'react';
 import axios from 'axios';
@@ -26,7 +25,7 @@ function Profile({username, Tab, showFollowers, setShowFollowers, userData, setU
     }
 
     const userUnFollow = () =>{
-      axios.post(`${proxy['proxy_url']}/accounts/member/unfollow`,{
+      axios.post(`${process.env.REACT_APP_PROXY}/accounts/member/unfollow`,{
         name: username
       },{
         headers:{
@@ -41,7 +40,7 @@ function Profile({username, Tab, showFollowers, setShowFollowers, userData, setU
       })
     }
     const userFollowing = () =>{
-      axios.post(`${proxy['proxy_url']}/accounts/member/follow`,{
+      axios.post(`${process.env.REACT_APP_PROXY}/accounts/member/follow`,{
         name: username
       }, {
         headers:{
@@ -58,7 +57,7 @@ function Profile({username, Tab, showFollowers, setShowFollowers, userData, setU
 
     return (
       <div className="Profile">
-        <img src={`${proxy['proxy_url']}${userData['img']}`} alt='프로필 이미지'/>
+        <img src={`${process.env.REACT_APP_PROXY}${userData['img']}`} alt='프로필 이미지'/>
         <div className='profile_userstate_box'>
           <div className='profile_username'>{username}</div>
           {userData.isFollow!==null&&(userData.isFollow

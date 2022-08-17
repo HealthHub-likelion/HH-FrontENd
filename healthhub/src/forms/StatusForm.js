@@ -1,5 +1,4 @@
 import axios from 'axios';
-import proxy from '../security/Proxy.json';
 import { useNavigate } from 'react-router-dom';
 import '../styles/forms/StatusForm.css';
 
@@ -10,7 +9,7 @@ function StatusForm() {
 
     const deleteAccount = () => {
         // 계정 삭제
-        axios.delete(`${proxy['proxy_url']}/accounts/member/`, {
+        axios.delete(`${process.env.REACT_APP_PROXY}/accounts/member/`, {
             // 헤더 부분
             headers: {
                 Authorization: token

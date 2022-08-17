@@ -1,7 +1,6 @@
 import '../styles/sessions/RecordSession.css';
 import RecordsState from '../components/RecordsState';
 import WaveElement from '../components/WaveElement';
-import proxy from '../security/Proxy.json';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
@@ -12,7 +11,7 @@ function RecordSession() {
     const token = localStorage.getItem('HH_token');
 
     const axiosRecords = () =>{
-        axios.get(`${proxy['proxy_url']}/record/mylist/`,{
+        axios.get(`${process.env.REACT_APP_PROXY}/record/mylist/`,{
             headers:{
                 Authorization : token
             }

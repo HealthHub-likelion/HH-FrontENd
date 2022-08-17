@@ -3,7 +3,6 @@ import { Modal } from 'react-bootstrap';
 import { useEffect, useState } from 'react';
 import SearchExerciseOffcanvas from '../offcanvases/SearchExerciseOffcanvas';
 import axios from 'axios';
-import proxy from '../../security/Proxy.json';
 
 function EditRoutineModal({show, onHide, exercises, proceedEdit, setProceedEdit, userData, setUserData, addExercise, setAddExercise}) {
     const [editContent, setEditContent] = useState({});
@@ -37,7 +36,7 @@ function EditRoutineModal({show, onHide, exercises, proceedEdit, setProceedEdit,
                 exerciseList.push(exerciseObject);
             }
 
-            axios.post(`${proxy['proxy_url']}/exercise/routine/${editContent['id']}/`,{
+            axios.post(`${process.env.REACT_APP_PROXY}/exercise/routine/${editContent['id']}/`,{
                 routineName:editContent['routineName'],
                 isOpen:editContent['isOpen']?'True':'False',
                 ExerciseList:exerciseList
@@ -56,7 +55,7 @@ function EditRoutineModal({show, onHide, exercises, proceedEdit, setProceedEdit,
     }
     const deleteRoutine = () =>{
         if(window.confirm('루틴을 삭제하시겠습니까?')){
-            axios.delete(`${proxy['proxy_url']}/exercise/routine/${exercises['id']}/detail/`, {
+            axios.delete(`${process.env.REACT_APP_PROXY}/exercise/routine/${exercises['id']}/detail/`, {
                 headers:{
                     Authorization: localStorage.getItem('HH_token')
                 }

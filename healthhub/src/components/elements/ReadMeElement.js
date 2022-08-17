@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import '../../styles/components/elements/ReadMeElement.css'
 import ReadmeText from '../ReadmeText';
-import proxy from '../../security/Proxy.json'
 import axios from 'axios';
 
 function ReadMeElement({userData, setUserData}) {
@@ -29,7 +28,7 @@ function ReadMeElement({userData, setUserData}) {
             if(window.confirm('작성하시겠습니까?')){
                 setReadmeUpdate(false);
 
-                axios.post(`${proxy['proxy_url']}/accounts/updatereadme`,{
+                axios.post(`${process.env.REACT_APP_PROXY}/accounts/updatereadme`,{
                     readMe: readmeContent
                 },{
                     headers:{
@@ -61,7 +60,7 @@ function ReadMeElement({userData, setUserData}) {
                     <div onClick={()=>{cancelUpdate()}}>취소</div>
                     <div onClick={()=>{saveUpdate()}}>작성</div>
                 </div>
-                :<img key='udtImg' src={`${proxy['proxy_url']}/media/images/icons/HH_icon_write.png`} alt='수정' onClick={()=>{showUpdate()}}/>
+                :<img key='udtImg' src={`${process.env.REACT_APP_PROXY}/media/images/icons/HH_icon_write.png`} alt='수정' onClick={()=>{showUpdate()}}/>
             );
         }
 

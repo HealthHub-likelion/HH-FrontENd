@@ -2,7 +2,6 @@ import '../styles/forms/SignupForm.css'
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import proxy from '../security/Proxy.json';
 
 function SignupForm() {
     const navigate = useNavigate();
@@ -78,7 +77,7 @@ function SignupForm() {
 
     const axiosNickName = () =>{
         if(checkNickname(nickName)){
-            axios.post(`${proxy['proxy_url']}/accounts/member/`, {
+            axios.post(`${process.env.REACT_APP_PROXY}/accounts/member/`, {
                 name: nickName
             })
             .then((res)=>{
@@ -114,7 +113,7 @@ function SignupForm() {
     
     const axiosEmail = () =>{
         if(checkEmail(email)){
-            axios.post(`${proxy['proxy_url']}/accounts/member/`, {
+            axios.post(`${process.env.REACT_APP_PROXY}/accounts/member/`, {
                 email: email
             }).
             then((res)=>{
@@ -148,7 +147,7 @@ function SignupForm() {
 
     const saveUser = () =>{
         if(isValid.emailValid === true && isValid.nicknameValid === true && isValid.passwordValid === true && passwordMatch === true){
-            axios.post(`${proxy['proxy_url']}/accounts/`, {
+            axios.post(`${process.env.REACT_APP_PROXY}/accounts/`, {
                 name: nickName,
                 email: email,
                 password: password2

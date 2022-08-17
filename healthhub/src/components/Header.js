@@ -1,7 +1,6 @@
 import '../styles/components/Header.css'
 import MenuList from './MenuList';
 import { useNavigate } from 'react-router-dom';
-import proxy from '../security/Proxy.json'
 import axios from 'axios';
 import { useEffect, useRef, useState } from 'react';
 
@@ -43,7 +42,7 @@ function Header({Tab, username, userData}) {
     },[])
 
     useEffect(()=>{
-      axios.post(`${proxy['proxy_url']}/accounts/membersearchbynickname`,{
+      axios.post(`${process.env.REACT_APP_PROXY}/accounts/membersearchbynickname`,{
         nickname : 'test',
         headers:{
             Authorization : token
@@ -73,7 +72,7 @@ function Header({Tab, username, userData}) {
                 <div className='header_top_searchBox'>
                   <input className='header_top_search_input' ref={inputRef} 
                           value={inputName} onChange={searchName} placeholder='user name'/>
-                  <img alt='검색' src={`${proxy['proxy_url']}/media/images/HH_icon_search_name.png`}/>
+                  <img alt='검색' src={`${process.env.REACT_APP_PROXY}/media/images/HH_icon_search_name.png`}/>
                 </div>
                 {showDropDown && 
                 <div className='header_top_search_dropdown'>

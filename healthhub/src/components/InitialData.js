@@ -1,16 +1,14 @@
 import axios from 'axios';
-import proxy from '../security/Proxy.json'
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function InitialData({username, setUserData}) {
-
   const navigate = useNavigate();
   
     useEffect(()=>{
         const token = localStorage.getItem('HH_token')?localStorage.getItem('HH_token'):''
   
-        axios.get(`${proxy['proxy_url']}/accounts/member/?name=${username}`, {
+        axios.get(`${process.env.REACT_APP_PROXY}/accounts/member/?name=${username}`, {
           headers:{
               Authorization: token
           }
