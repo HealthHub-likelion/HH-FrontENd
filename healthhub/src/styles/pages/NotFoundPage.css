@@ -56,6 +56,7 @@
     top: 56px;
     margin-left: 5px;
     z-index: 2;
+    color : white;
 }
 .notFound_box{
     display: flex;
@@ -72,7 +73,28 @@
     margin-left: 3px;
     font-size: 18px;
 }
-
+.notFound_userList{
+    display : flex;
+    height : 40px;
+    border-bottom: 2px solid #264056;
+}
+.notFound_userImgContainer{
+    width : 25px;
+    height : 25px;
+    margin : auto 10px;
+}
+.notFound_userImg{
+    display : block;
+    width : 100%;
+    height : 25px;
+    border-radius: 15px;
+    border : none;
+}
+.notFound_userName{
+    margin : auto 10px;
+    margin-left : 5px;
+    font-size: 20px;
+}
 @media only screen and (min-width: 900px) {
     .NotFound_404{
         font-size: 125px;

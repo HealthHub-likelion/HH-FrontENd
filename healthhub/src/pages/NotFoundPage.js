@@ -8,41 +8,49 @@ import { useNavigate } from "react-router-dom";
 
 const NotFoundPage = () => {
 
-    const inputRef = useRef();
     const navigate = useNavigate();
+
+    const inputRef = useRef();
     const token = localStorage.getItem('HH_token');
 
     const [inputName, setInputName] = useState('');
     const [showDropDown, setShowDropDown] = useState(false);
-    const [userList,setUserList] = useState('');
+    const [userList,setUserList] = useState([]);
 
     const searchName = (e) =>{
         setInputName(e.target.value);
-        if(inputName!==''){
-            setShowDropDown(true);
-        }
     }
 
     useEffect(()=>{
-        const searchBox = document.querySelector('.notFound_top_search_input');
-        searchBox.addEventListener('blur', ()=>{
-        setShowDropDown(false);
+        if(inputName!==''){
+            setShowDropDown(true);
+        }
+        else setShowDropDown(false);
     })
-    },[])
+    
+    
 
     useEffect(()=>{
-        axios.post(`${proxy['proxy_url']}/accounts/membersearchbynickname`,{
-        nickname : 'test',
+    //     axios.post(`${proxy['proxy_url']}/accounts/membersearchbynickname`,{
+    //     nickname : inputName,
+    //     headers:{
+    //         Authorization : token
+    //     }
+    // })
+    axios.post(`${proxy['proxy_url']}/accounts/membersearchbynickname`,{
+        nickname : inputName
+    },{
         headers:{
-            Authorization : token
+            Authorization: token
         }
     })
     .then((res)=>{
-        //console.log(res);
-        // setUserList(res.data);
+        console.log(res);
+        setUserList([res.data]);
     })
     .catch((err)=>{
         console.log(err);
+        setUserList([]);
     })
     },[inputName]);
 
@@ -54,6 +62,23 @@ const NotFoundPage = () => {
         navigate(`/`);
     }
 
+    function moveToUser(userName){
+        navigate(`/${userName}`)
+    }
+
+    useEffect(()=>{
+        const container = document.querySelector('.notFound_top_search_dropdown');
+        const serarchInput = document.querySelector('.notFound_top_search_input');
+        document.addEventListener('mouseup', function(e) {
+            if (!container.contains(e.target)) {
+                container.style.display = 'none';
+            }
+            if (serarchInput.contains(e.target)) {
+                container.style.display = 'block';
+            }
+        });
+    },[])
+
     return (
         <ProfileContainer>
             <div className="NotFoundPage">
@@ -64,9 +89,24 @@ const NotFoundPage = () => {
                                 value={inputName} onChange={searchName} placeholder='user name'/>
                             <img alt='검색' src={`${proxy['proxy_url']}/media/images/HH_icon_search_name.png`}/>
                         </div>
-                        {showDropDown && 
-                        <div className='notFound_top_search_dropdown'>                  
-                            
+                        {showDropDown &&
+                        <div className='notFound_top_search_dropdown'>
+                            {   
+                                userList.map((e,i)=>{
+                                    return(
+                                        <div className="notFound_userList" key = {i}
+                                            onClick={()=>{moveToUser(e.Member.name)}}>  
+                                            <div className="notFound_userImgContainer">
+                                                <img
+                                                    className="notFound_userImg"
+                                                    src = {`${proxy['proxy_url']}/media/${e.Member.img}`}
+                                                    />
+                                            </div>
+                                            <div className="notFound_userName">{e.Member.name}</div>
+                                        </div>
+                                    )
+                                })
+                            }
                         </div>}
                         <div className='notFound_box' onClick={()=>{clickLogo()}}>
                             <div className='notFound_logo_left'>Health</div>
