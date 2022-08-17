@@ -27,16 +27,9 @@ const NotFoundPage = () => {
         }
         else setShowDropDown(false);
     })
-    
-    
 
     useEffect(()=>{
-    //     axios.post(`${proxy['proxy_url']}/accounts/membersearchbynickname`,{
-    //     nickname : inputName,
-    //     headers:{
-    //         Authorization : token
-    //     }
-    // })
+
     axios.post(`${proxy['proxy_url']}/accounts/membersearchbynickname`,{
         nickname : inputName
     },{
