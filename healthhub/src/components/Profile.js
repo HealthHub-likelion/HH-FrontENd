@@ -83,7 +83,6 @@ function Profile({username, Tab, showFollowers, setShowFollowers, userData, setU
           show={showAddRecord}
           onHide={()=>{setShowAddRecord(false)}}
           userData={userData}
-          setUserData={setUserData}
         />
       </div>
     );
