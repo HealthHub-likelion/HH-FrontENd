@@ -1,10 +1,12 @@
 import '../../styles/components/modals/CreateRecordModal.css'
 import { Modal } from 'react-bootstrap';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import UploadImage from '../UploadImage';
 import SelectRoutineBox from '../SelectRoutineBox';
+import axios from 'axios';
+import proxy from '../../security/Proxy.json';
 
-function CreateRecordModal({show, onHide, userData, setUserData}) {
+function CreateRecordModal({show, onHide, userData}) {
     const date = new Date();
     const tenMinAgo = new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours(), date.getMinutes()-10);
     const oneHourTenMinAgo = new Date(tenMinAgo.getFullYear(), tenMinAgo.getMonth(), tenMinAgo.getDate(), tenMinAgo.getHours()-1, tenMinAgo.getMinutes());
@@ -36,7 +38,29 @@ function CreateRecordModal({show, onHide, userData, setUserData}) {
         comment: ''
     })
 
-    console.log(addRecordData);
+    useEffect(()=>{
+        setAddRecordData({
+            start_time: {
+                year: oneHourTenMinAgo.getFullYear(),
+                month: regularNumber(oneHourTenMinAgo.getMonth()+1),
+                date: regularNumber(oneHourTenMinAgo.getDate()),
+                hour: regularNumber(oneHourTenMinAgo.getHours()),
+                minute: regularNumber(oneHourTenMinAgo.getMinutes()),
+                seconds: '00'
+            },
+            end_time: {
+                year: tenMinAgo.getFullYear(),
+                month: regularNumber(tenMinAgo.getMonth()+1),
+                date: regularNumber(tenMinAgo.getDate()),
+                hour: regularNumber(tenMinAgo.getHours()),
+                minute: regularNumber(tenMinAgo.getMinutes()),
+                seconds: '00'
+            },
+            routine_id: '',
+            img: null,
+            comment: ''
+        });
+    },[onHide])
 
     const checkDay = (state) => {
         if(state){
@@ -68,6 +92,40 @@ function CreateRecordModal({show, onHide, userData, setUserData}) {
     }
     const inputComment = (e) =>{
         setAddRecordData({...addRecordData, comment: e.target.value});
+    }
+
+    const cancelAddRecord = () =>{
+        window.confirm('취소하시겠습니까?\n입력한 내용이 삭제됩니다.')&&onHide();
+    }
+    const saveAddRecord = () =>{
+        if(addRecordData['routine_id']===''){
+            alert('오늘 운동한 루틴을 선택해 주세요.');
+            return;
+        }
+        if(window.confirm('기록하시겠습니까?\n후에 수정이 어렵습니다.')){
+            let formData = new FormData();
+            const setStartTime = `${addRecordData['start_time']['year']}-${addRecordData['start_time']['month']}-${addRecordData['start_time']['date']} ${addRecordData['start_time']['hour']}:${addRecordData['start_time']['minute']}:00`;
+            const setEndTime = `${addRecordData['end_time']['year']}-${addRecordData['end_time']['month']}-${addRecordData['end_time']['date']} ${addRecordData['end_time']['hour']}:${addRecordData['end_time']['minute']}:00`;
+
+            formData.append('start_time', setStartTime);
+            formData.append('end_time', setEndTime);
+            formData.append('routine_id', addRecordData['routine_id']);
+            formData.append('member_id', localStorage.getItem('HH_member_id'));
+            formData.append('comment', addRecordData['comment']);
+            if(addRecordData['img']){
+                formData.append('img', addRecordData['img'][0]);
+            }
+    
+            axios.post(`${proxy['proxy_url']}/record/`,formData,{
+                headers:{
+                    Authorization: localStorage.getItem('HH_token')
+                }
+            }).then((res)=>{
+                window.location.reload();
+            }).catch((err)=>{
+                console.log(err);
+            })
+        }
     }
 
     return (
@@ -120,7 +178,7 @@ function CreateRecordModal({show, onHide, userData, setUserData}) {
                                 <div>today's routine</div><></>
                             </div>
                             <div className='create_record_sub_body'>
-                                <SelectRoutineBox userData={userData} setUserData={setUserData} addRecordData={addRecordData} setAddRecordData={setAddRecordData}/>
+                                <SelectRoutineBox userData={userData} addRecordData={addRecordData} setAddRecordData={setAddRecordData}/>
                             </div>
                         </div>
                         <div className='create_record_image'>
@@ -142,8 +200,8 @@ function CreateRecordModal({show, onHide, userData, setUserData}) {
                         </div>
                     </div>
                     <div className='create_record_footer'>
-                        <button>취소</button>
-                        <button>저장</button>
+                        <button onClick={()=>{cancelAddRecord()}}>취소</button>
+                        <button onClick={()=>{saveAddRecord()}}>저장</button>
                     </div>
                 </Modal.Body>
             </Modal>
