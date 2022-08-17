@@ -29,14 +29,14 @@
 .waveElement_date{
     color : #2E61D7;
 }
-
+.waveElement_detailComment{
+    margin-top : 10px;
+}
 @media only screen and (min-width: 900px) {
     .WaveElement{
         width : 450px;
     }
-    .waveElement_imgContainer{
-        height : 400px;
-    }
+
     .waveElement_img{
         display : block;
         width : 100%;
@@ -50,9 +50,7 @@
     .waveElement_content{
         font-size : 14px;
     }
-    .waveElement_imgContainer{
-        height : 350px;
-    }
+
     .waveElement_img{
         display : block;
         width : 100%;

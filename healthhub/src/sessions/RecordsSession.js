@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 function RecordSession() {
 
     const [myList,setMyList] = useState([]);
+    const [consecutiveDay,setConsecutiveDay] = useState(0);
     const token = localStorage.getItem('HH_token');
 
     const axiosRecords = () =>{
@@ -50,10 +51,14 @@ function RecordSession() {
         return count;
     }
 
+    useEffect(()=>{
+        setConsecutiveDay(getConsecutive());
+    },[])
+
     return (
         <div className = 'RecordSession'>
             <div className='recordSession_recordsState'>
-                <RecordsState entireWave = {myList.length} getConsecutive = {getConsecutive()}/>
+                <RecordsState entireWave = {myList.length} getConsecutive = {consecutiveDay}/>
             </div>
             <div className='recordSession_wavesWindow'>
                 <div className='wavesWindow_header'>
