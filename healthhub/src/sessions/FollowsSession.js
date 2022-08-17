@@ -8,37 +8,43 @@ function FollowsSession({showFollowers, userData}) {
     const [follower, setFollower] = useState([]); //팔로워 목록
     const [following, setFollowing] = useState([]); //팔로잉 목록
     const token = localStorage.getItem('HH_token');
+    console.log(userData['name']);
 
     //팔로워 목록
     const axiosFollower = () => {
-      axios.get(`${proxy['proxy_url']}/accounts/member/follow?who=follower`, {
-        headers : {
-          Authorization: token
-        }
-      })
-      .then((res) => {
-        console.log(res);
-        setFollower(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
+      if(userData['name']){
+        axios.get(`${proxy['proxy_url']}/accounts/member/follow?who=follower&name=${userData['name']}`, {
+          headers : {
+            Authorization: token
+          }
+        })
+        .then((res) => {
+          console.log(res);
+          setFollower(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+      }
+        
     }
 
     //팔로잉 목록
     const axiosFollowing = () => {
-      axios.get(`${proxy['proxy_url']}/accounts/member/follow?who=following`, {
-        headers : {
-          Authorization: token
-        }
-      })
-      .then((res) => {
-        console.log(res);
-        setFollowing(res.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
+      if(userData['name']){
+        axios.get(`${proxy['proxy_url']}/accounts/member/follow?who=following&name=${userData['name']}`, {
+          headers : {
+            Authorization: token
+          }
+        })
+        .then((res) => {
+          console.log(res);
+          setFollowing(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+      }
     } 
 
     useEffect(() => {
