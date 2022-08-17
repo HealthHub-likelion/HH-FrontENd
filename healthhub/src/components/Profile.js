@@ -58,7 +58,7 @@ function Profile({username, Tab, showFollowers, setShowFollowers, userData, setU
 
     return (
       <div className="Profile">
-        <img src={`${proxy['proxy_url']}/media/images/HH_logo.jpg`} alt='프로필 이미지'/>
+        <img src={`${proxy['proxy_url']}${userData['img']}`} alt='프로필 이미지'/>
         <div className='profile_userstate_box'>
           <div className='profile_username'>{username}</div>
           {userData.isFollow!==null&&(userData.isFollow
