@@ -23,7 +23,7 @@ function ProfileImageModal(props) {
         // 2. axios로 전송
         await axios.post(`${proxy['proxy_url']}/accounts/profileimage/upload`, {
             // 바디 부분
-            img: form_data
+            img: `images/${profileImg[0]['name']}`
         }, {
             // 헤더 부분
             headers: {
