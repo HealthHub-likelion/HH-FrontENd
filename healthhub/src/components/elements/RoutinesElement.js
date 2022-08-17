@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import '../../styles/components/elements/RoutinesElement.css'
 import RoutineBox from '../RoutineBox';
 

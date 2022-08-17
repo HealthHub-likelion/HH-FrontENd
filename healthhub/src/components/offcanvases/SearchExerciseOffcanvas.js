@@ -1,7 +1,6 @@
 import '../../styles/components/offcanvases/SearchExerciseOffcanvas.css'
 import { Offcanvas } from 'react-bootstrap';
 import { useEffect, useRef, useState } from 'react';
-import proxy from '../../security/Proxy.json'
 import axios from 'axios';
 
 function SearchExerciseOffcanvas({show, onHide, pre_modal, setProceedCreate, setProceedEdit, setSaveExercise}) {
@@ -10,7 +9,7 @@ function SearchExerciseOffcanvas({show, onHide, pre_modal, setProceedCreate, set
     const [exerciseCategory, setExerciseCategory] = useState([])
 
     useEffect(()=>{
-        axios.get(`${proxy['proxy_url']}/exercise/list/`,{
+        axios.get(`${process.env.REACT_APP_PROXY}/exercise/list/`,{
             headers:{
                 Authorization: localStorage.getItem('HH_token')
             }
@@ -90,7 +89,7 @@ function SearchExerciseOffcanvas({show, onHide, pre_modal, setProceedCreate, set
                             <div className='search_exercise_part'>
                                 {filterList[i]['part']}
                             </div>
-                            <img alt='정보' src={`${proxy['proxy_url']}/media/images/icons/HH_icon_info.png`}/>
+                            <img alt='정보' src={`${process.env.REACT_APP_PROXY}/media/images/icons/HH_icon_info.png`}/>
                         </div>
                     </div>
                 );
@@ -157,7 +156,7 @@ function SearchExerciseOffcanvas({show, onHide, pre_modal, setProceedCreate, set
                     <div className='search_exercise_inputBox'>
                         <input ref={inputExRef} value={inputExercise} placeholder='운동명을 검색해보세요.'
                                 onChange={inputName}/>
-                        <img alt='검색' src={`${proxy['proxy_url']}/media/images/icons/HH_icon_search.png`}/>
+                        <img alt='검색' src={`${process.env.REACT_APP_PROXY}/media/images/icons/HH_icon_search.png`}/>
                     </div>
                 </Offcanvas.Header>
                 <Offcanvas.Body >

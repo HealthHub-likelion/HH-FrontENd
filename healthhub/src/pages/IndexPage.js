@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import IndexContainer from "../components/background/indexBG";
 import { useEffect } from 'react';
 import axios from 'axios';
-import proxy from '../security/Proxy.json';
 import SearchUser from '../components/SearchUser';
 
 function IndexPage() {
@@ -18,7 +17,7 @@ function IndexPage() {
 
     useEffect(()=>{
         if(localStorage.getItem('HH_token')){
-            axios.get(`${proxy['proxy_url']}/accounts/member/session`, {
+            axios.get(`${process.env.REACT_APP_PROXY}/accounts/member/session`, {
                 headers:{
                     Authorization: localStorage.getItem('HH_token')
                 }

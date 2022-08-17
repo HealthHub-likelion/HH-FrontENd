@@ -1,5 +1,4 @@
 import axios from 'axios';
-import proxy from '../security/Proxy.json'
 import { useNavigate } from 'react-router-dom';
 import '../styles/sessions/FollowsSession.css'
 
@@ -45,7 +44,7 @@ function FollowList({follower, setFollower, following, setFollowing, showFollowe
   const token = localStorage.getItem('HH_token');
 
   const axiosreqFollow = (userName) =>{
-    axios.post(`${proxy['proxy_url']}/accounts/member/follow`, {
+    axios.post(`${process.env.REACT_APP_PROXY}/accounts/member/follow`, {
       //바디 부분
       name: userName
     }, {
@@ -62,7 +61,7 @@ function FollowList({follower, setFollower, following, setFollowing, showFollowe
 }
 
   const axoisreqUnFollow = (userName) => {
-    axios.post(`${proxy['proxy_url']}/accounts/member/unfollow`, {
+    axios.post(`${process.env.REACT_APP_PROXY}/accounts/member/unfollow`, {
       //바디 부분
       name: userName
     }, {
@@ -87,7 +86,7 @@ function FollowList({follower, setFollower, following, setFollowing, showFollowe
           <div className="FollowElement" key={i}>
             <div className="followImg">
               <img className="profileImg"
-              src={`${proxy['proxy_url']}`+follower['Member'][i]['img']}
+              src={`${process.env.REACT_APP_PROXY}`+follower['Member'][i]['img']}
               onClick={() => onClickProfile(follower['Member'][i]['name'])}>
               </img>
             </div>
@@ -115,7 +114,7 @@ function FollowList({follower, setFollower, following, setFollowing, showFollowe
           <div className="FollowElement" key={i}>
             <div className="followImg">
               <img className="profileImg"
-              src={`${proxy['proxy_url']}`+following['Member'][i]['img']}
+              src={`${process.env.REACT_APP_PROXY}`+following['Member'][i]['img']}
               onClick={() => onClickProfile(following['Member'][i]['name'])}>
               </img>
             </div>

@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import '../styles/components/WaveElement.css'
 import ElementProfileBox from './ElementProfileBox';
-import proxy from '../security/Proxy.json';
 import { useState } from 'react';
 
 const WaveElement = ({record_img, create_time, routine_name, comment,member_nickname,member_img}) => {
@@ -45,7 +44,7 @@ const WaveElement = ({record_img, create_time, routine_name, comment,member_nick
                     <div className='waveElement_imgContainer'>
                         <img
                             className='waveElement_img'
-                            src = {`${proxy['proxy_url']}${record_img}`}
+                            src = {`${process.env.REACT_APP_PROXY}${record_img}`}
                             alt = "records_Img"/>
                     </div> : null
                 }

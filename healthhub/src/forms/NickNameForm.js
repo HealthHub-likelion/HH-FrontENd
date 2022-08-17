@@ -1,5 +1,4 @@
 import axios from 'axios';
-import proxy from '../security/Proxy.json';
 import { useNavigate } from 'react-router';
 import { useRef, useState } from 'react';
 import '../styles/forms/NickNameForm.css';
@@ -17,7 +16,7 @@ function NickNameForm({ username }) {
     const nicknameUpdate = () => {
         const nickname = nicknameContent
 
-        axios.post(`${proxy['proxy_url']}/accounts/member/${memberID}/`, {
+        axios.post(`${process.env.REACT_APP_PROXY}/accounts/member/${memberID}/`, {
             // 바디 부분
             nickname: nickname
         }, {

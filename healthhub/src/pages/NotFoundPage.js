@@ -1,7 +1,6 @@
 import React from "react";
 import ProfileContainer from "../components/background/ProfileBG";
 import '../styles/pages/NotFoundPage.css'
-import proxy from '../security/Proxy.json'
 import axios from 'axios';
 import { useEffect, useRef, useState } from 'react';
 import { useNavigate } from "react-router-dom";
@@ -30,7 +29,7 @@ const NotFoundPage = () => {
 
     useEffect(()=>{
 
-    axios.post(`${proxy['proxy_url']}/accounts/membersearchbynickname`,{
+    axios.post(`${process.env.REACT_APP_PROXY}/accounts/membersearchbynickname`,{
         nickname : inputName
     },{
         headers:{
@@ -80,7 +79,7 @@ const NotFoundPage = () => {
                         <div className='notFound_top_searchBox'>
                             <input className='notFound_top_search_input' ref={inputRef} 
                                 value={inputName} onChange={searchName} placeholder='user name'/>
-                            <img alt='검색' src={`${proxy['proxy_url']}/media/images/HH_icon_search_name.png`}/>
+                            <img alt='검색' src={`${process.env.REACT_APP_PROXY}/media/images/HH_icon_search_name.png`}/>
                         </div>
                         {showDropDown &&
                         <div className='notFound_top_search_dropdown'>
@@ -92,7 +91,7 @@ const NotFoundPage = () => {
                                             <div className="notFound_userImgContainer">
                                                 <img
                                                     className="notFound_userImg"
-                                                    src = {`${proxy['proxy_url']}/media/${e.Member.img}`}
+                                                    src = {`${process.env.REACT_APP_PROXY}/media/${e.Member.img}`}
                                                     />
                                             </div>
                                             <div className="notFound_userName">{e.Member.name}</div>

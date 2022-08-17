@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import proxy from '../../security/Proxy.json'
 
 const SliceContainer = styled.div`
     width: 100%;
@@ -9,7 +8,7 @@ const SliceContainer = styled.div`
         rgba(6, 23, 38, 0.9),
         rgba(6, 23, 38, 0.9)
         ),
-    url(${proxy['proxy_url']}/media/images/HH_bg_slice.png);
+    url(${process.env.REACT_APP_PROXY}/media/images/HH_bg_slice.png);
     background-size: cover;
 `;
 

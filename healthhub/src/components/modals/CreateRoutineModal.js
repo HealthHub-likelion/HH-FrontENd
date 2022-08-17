@@ -4,7 +4,6 @@ import { Modal } from 'react-bootstrap';
 import { useEffect, useRef, useState } from 'react';
 import SearchExerciseOffcanvas from '../offcanvases/SearchExerciseOffcanvas';
 import axios from 'axios';
-import proxy from '../../security/Proxy.json';
 
 function CreateRoutineModal({show, onHide, createState, setCreateState, setProceedCreate}) {
     const nameRef = useRef();
@@ -75,7 +74,7 @@ function CreateRoutineModal({show, onHide, createState, setCreateState, setProce
             return;
         }
 
-        axios.post(`${proxy['proxy_url']}/exercise/routine/`,{
+        axios.post(`${process.env.REACT_APP_PROXY}/exercise/routine/`,{
             routineName: createState.create_name,
             isOpen: createState.create_isOpne?'True':'False',
             ExerciseList: createState.create_exercises

@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import UploadImage from '../UploadImage';
 import SelectRoutineBox from '../SelectRoutineBox';
 import axios from 'axios';
-import proxy from '../../security/Proxy.json';
 
 function CreateRecordModal({show, onHide, userData}) {
     const date = new Date();
@@ -116,7 +115,7 @@ function CreateRecordModal({show, onHide, userData}) {
                 formData.append('img', addRecordData['img'][0]);
             }
     
-            axios.post(`${proxy['proxy_url']}/record/`,formData,{
+            axios.post(`${process.env.REACT_APP_PROXY}/record/`,formData,{
                 headers:{
                     Authorization: localStorage.getItem('HH_token')
                 }

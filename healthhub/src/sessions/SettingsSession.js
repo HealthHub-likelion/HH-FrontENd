@@ -1,5 +1,4 @@
 import axios from "axios";
-import proxy from '../security/Proxy.json';
 import { useEffect, useState } from "react";
 import NickNameForm from "../forms/NickNameForm";
 import ProfileImageForm from "../forms/ProfileImageForm";
@@ -12,7 +11,7 @@ function SettingsSession({ username, userData }) {
     const token = localStorage.getItem('HH_token');
 
     useEffect(() => {
-        axios.get(`${proxy['proxy_url']}/accounts/getsettingoption`, {
+        axios.get(`${process.env.REACT_APP_PROXY}/accounts/getsettingoption`, {
             // 헤더 부분
             headers: {
                 Authorization: token

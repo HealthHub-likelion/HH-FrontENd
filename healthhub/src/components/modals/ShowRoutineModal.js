@@ -2,7 +2,6 @@ import '../../styles/components/modals/ShowRoutineModal.css';
 import {Modal} from 'react-bootstrap';
 import EditRoutineModal from './EditRoutineModal';
 import { useEffect, useState } from 'react';
-import proxy from '../../security/Proxy.json'
 import axios from 'axios';
 
 function ShowRoutineModal({show, onHide, clickRoutineId, userData, setUserData}) {
@@ -19,7 +18,7 @@ function ShowRoutineModal({show, onHide, clickRoutineId, userData, setUserData})
 
     useEffect(()=>{
         if(clickRoutineId!==-1 && !proceedEdit){
-            axios.get(`${proxy['proxy_url']}/exercise/routine/${clickRoutineId}/`, {
+            axios.get(`${process.env.REACT_APP_PROXY}/exercise/routine/${clickRoutineId}/`, {
                 headers:{
                     Authorization: localStorage.getItem('HH_token')
                 }
@@ -41,7 +40,7 @@ function ShowRoutineModal({show, onHide, clickRoutineId, userData, setUserData})
 
     const forkRoutine=()=>{
         if(window.confirm('루틴을 저장하시겠습니까?')){
-            axios.post(`${proxy['proxy_url']}/exercise/routine/${routineContent['id']}/fork/`,{},
+            axios.post(`${process.env.REACT_APP_PROXY}/exercise/routine/${routineContent['id']}/fork/`,{},
             {
                 headers:{
                     Authorization: localStorage.getItem('HH_token')
@@ -115,9 +114,9 @@ function ShowRoutineModal({show, onHide, clickRoutineId, userData, setUserData})
                         </div>
                         <div>
                             {userData.isFollow!==null&&
-                                <button onClick={()=>{forkRoutine()}}><img className='fork_img' alt='fork' src={`${proxy['proxy_url']}/media/images/HH_icon_fork.png`}/>Fork</button>
+                                <button onClick={()=>{forkRoutine()}}><img className='fork_img' alt='fork' src={`${process.env.REACT_APP_PROXY}/media/images/HH_icon_fork.png`}/>Fork</button>
                             }
-                            <img alt='취소' src={`${proxy['proxy_url']}/media/images/icons/HH_icon_close_black.png`} onClick={onHide}/>
+                            <img alt='취소' src={`${process.env.REACT_APP_PROXY}/media/images/icons/HH_icon_close_black.png`} onClick={onHide}/>
                         </div>
                     </div>
                     <div className='show_routine_body'>

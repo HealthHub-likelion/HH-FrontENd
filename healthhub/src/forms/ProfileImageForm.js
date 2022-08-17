@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import axios from 'axios';
-import proxy from '../security/Proxy.json';
 import ProfileImageModal from '../components/modals/ProfileImageModal';
 import '../styles/forms/ProfileImageForm.css';
 
@@ -11,7 +10,7 @@ function ProfileImageForm({ userData }) {
 
     const deleteProfileImage = () => {
         // 프로필 이미지 삭제
-        axios.post(`${proxy['proxy_url']}/accounts/profileimage/delete`, {
+        axios.post(`${process.env.REACT_APP_PROXY}/accounts/profileimage/delete`, {
             // 헤더 부분
             headers: {
                 Authorization: token

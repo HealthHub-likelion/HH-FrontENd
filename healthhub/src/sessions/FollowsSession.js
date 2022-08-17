@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import proxy from '../security/Proxy.json'
 import FollowList from '../components/FollowList';
 
 function FollowsSession({showFollowers, userData}) {
@@ -12,7 +11,7 @@ function FollowsSession({showFollowers, userData}) {
     //팔로워 목록
     const axiosFollower = () => {
       if(userData['name']){
-        axios.get(`${proxy['proxy_url']}/accounts/member/follow?who=follower&name=${userData['name']}`, {
+        axios.get(`${process.env.REACT_APP_PROXY}/accounts/member/follow?who=follower&name=${userData['name']}`, {
           headers : {
             Authorization: token
           }
@@ -30,7 +29,7 @@ function FollowsSession({showFollowers, userData}) {
     //팔로잉 목록
     const axiosFollowing = () => {
       if(userData['name']){
-        axios.get(`${proxy['proxy_url']}/accounts/member/follow?who=following&name=${userData['name']}`, {
+        axios.get(`${process.env.REACT_APP_PROXY}/accounts/member/follow?who=following&name=${userData['name']}`, {
           headers : {
             Authorization: token
           }

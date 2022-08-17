@@ -1,7 +1,6 @@
 import '../styles/forms/LoginForm.css'
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import proxy from '../security/Proxy.json'
 import axios from 'axios';
 
 function LoginForm() {
@@ -19,7 +18,7 @@ function LoginForm() {
     }
 
     const axiosLogin = () =>{
-        axios.post(`${proxy['proxy_url']}/accounts/member/session`, {
+        axios.post(`${process.env.REACT_APP_PROXY}/accounts/member/session`, {
             email: loginState['email'],
             password: loginState['password']
         }).

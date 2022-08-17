@@ -1,7 +1,6 @@
 import React from 'react';
 import WaveElement from '../components/WaveElement';
 import '../styles/sessions/FeedsSession.css'
-import proxy from '../security/Proxy.json';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
@@ -11,7 +10,7 @@ const FeedsSession = () => {
     const token = localStorage.getItem('HH_token');
 
     const axiosFeeds = () =>{
-        axios.get(`${proxy['proxy_url']}/record/followinglist/`,{
+        axios.get(`${process.env.REACT_APP_PROXY}/record/followinglist/`,{
             headers:{
                 Authorization : token
             }
