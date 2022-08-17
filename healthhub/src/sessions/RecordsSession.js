@@ -17,11 +17,11 @@ function RecordSession() {
             }
         })
         .then((res)=>{
-            console.log(res);
+            // console.log(res);
             setMyList(res.data);
         })
         .catch((err)=>{
-            console.log(err);
+            // console.log(err);
         })
     }
 

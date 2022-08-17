@@ -36,7 +36,7 @@ function Profile({username, Tab, showFollowers, setShowFollowers, userData, setU
         setUserData({...userData, isFollow:false});
       })
       .catch((err)=>{
-        console.log(err);
+        // console.log(err);
       })
     }
     const userFollowing = () =>{
@@ -51,7 +51,7 @@ function Profile({username, Tab, showFollowers, setShowFollowers, userData, setU
         setUserData({...userData, isFollow:true});
       })
       .catch((err)=>{
-        console.log(err);
+        // console.log(err);
       })
     }
 

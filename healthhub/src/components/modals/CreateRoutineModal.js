@@ -89,7 +89,7 @@ function CreateRoutineModal({show, onHide, createState, setCreateState, setProce
             onHide();
         })
         .catch((err)=>{
-            console.log(err);
+            // console.log(err);
         })
     }
 

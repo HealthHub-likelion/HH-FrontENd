@@ -27,13 +27,13 @@ function NickNameForm({ username }) {
         })
             .then((res) => {
                 // 잘 불러와졌을때
-                console.log('post', res.data);
+                // console.log('post', res.data);
                 alert('닉네임이 변경되었습니다!');
                 navigate(`/${nickname}`);
             })
             .catch((err) => {
                 // 오류 나왓을 때
-                console.log(err);
+                // console.log(err);
                 alert('서비스 에러!!!');
             })
     }

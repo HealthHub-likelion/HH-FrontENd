@@ -23,7 +23,7 @@ function InitialData({username, setUserData}) {
           setUserData(data);
         })
         .catch((err)=>{
-          console.log(err);
+          // console.log(err);
           // 후에 사용자를 못찾았다는 경고 페이지 생성
           navigate(`/NotFoundPage`);
         })

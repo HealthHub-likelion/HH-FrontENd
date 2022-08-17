@@ -27,7 +27,7 @@ function LoginForm() {
             navigate(`/${res.data.name}`);
         })
         .catch((err)=>{
-            console.log(err);
+            // console.log(err);
             alert('이메일과 비밀번호를 다시 한번 확인해주세요.');
         })
     }

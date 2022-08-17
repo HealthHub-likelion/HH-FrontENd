@@ -53,10 +53,9 @@ function FollowList({follower, setFollower, following, setFollowing, showFollowe
       }
 
     }).then((res)=>{
-        console.log(res);
     })
     .catch((err)=>{
-        console.log(err);
+        // console.log(err);
     })
 }
 
@@ -70,10 +69,9 @@ function FollowList({follower, setFollower, following, setFollowing, showFollowe
       }
     })
     .then((res) => {
-      console.log(res);
 
     }).catch((err) => {
-      console.log(err);
+      // console.log(err);
     })
   }
 

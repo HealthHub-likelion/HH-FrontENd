@@ -81,11 +81,11 @@ function SignupForm() {
                 name: nickName
             })
             .then((res)=>{
-                console.log(res);
-                console.log('닉네임 체크!')
+                // console.log(res);
+                // console.log('닉네임 체크!')
             })
             .catch((err)=>{
-                console.log(err);
+                // console.log(err);
             })
         }
         else{
@@ -100,7 +100,7 @@ function SignupForm() {
             setIsValid((prev)=>{
                 return{...prev, nicknameValid : true}
             })
-            console.log(isValid)
+            // console.log(isValid)
             return true;
         }
         else{
@@ -117,11 +117,11 @@ function SignupForm() {
                 email: email
             }).
             then((res)=>{
-                console.log(res);
-                console.log('이메일 체크!');
+                // console.log(res);
+                // console.log('이메일 체크!');
             })
             .catch((err)=>{
-                console.log(err);
+                // console.log(err);
             })
         }
         else{
@@ -153,10 +153,10 @@ function SignupForm() {
                 password: password2
             }).
             then((res)=>{
-                console.log(res);
+                // console.log(err);
             })
             .catch((err)=>{
-                console.log(err);
+                // console.log(err);
             })
             navigate(`/login`);
         }

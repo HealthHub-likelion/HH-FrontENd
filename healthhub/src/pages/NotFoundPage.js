@@ -37,11 +37,11 @@ const NotFoundPage = () => {
         }
     })
     .then((res)=>{
-        console.log(res);
+        // console.log(res);
         setUserList([res.data]);
     })
     .catch((err)=>{
-        console.log(err);
+        // console.log(err);
         setUserList([]);
     })
     },[inputName]);

@@ -1,7 +1,7 @@
 import '../styles/components/SelectRoutineBox.css'
 
 const SelectRoutineBox = ({userData, addRecordData, setAddRecordData}) => {
-    console.log(userData.routine);
+    // console.log(userData.routine);
 
     const clickRoutineBox = (id) =>{
         setAddRecordData({...addRecordData, routine_id: id});
