@@ -8,28 +8,32 @@ import InitialData from "../components/InitialData";
 
 function SettingsPage() {
   const { username } = useParams();
-  const [dataPrivate, setdataPrivate] = useState(true);
   const [userData, setUserData] = useState({});
 
   return (
-    <div className="SettingsPage">
-      <div className="settingspage_header">
-        <Header Tab={'Settings'} username={username} userData={userData}/>
-      </div>
-      <div className="settingspage_content">
-        <div className="settingspage_profile">
-          <ProfileSession username={username} userData={userData} />
+    <>
+      {/* {Object.keys(userData).length !== 0 && */}
+      <div className="SettingsPage">
+        <div className="settingspage_header">
+          <Header Tab={'Settings'} username={username} userData={userData} />
         </div>
-        <div className="settingspage_SettingsSession">
-          <SettingsSession username={username} dataPrivate={dataPrivate} setdataPrivate={setdataPrivate} userData={userData} />
+        <div className="settingspage_content">
+          <div className="settingspage_profile">
+            <ProfileSession username={username} userData={userData} />
+          </div>
+          <div className="settingspage_SettingsSession">
+            <SettingsSession username={username} userData={userData} />
+          </div>
         </div>
       </div>
-
+      {/* } */}
       <InitialData
         username={username}
         setUserData={setUserData}
       />
-    </div>
+    </>
+
+
   );
 }
 

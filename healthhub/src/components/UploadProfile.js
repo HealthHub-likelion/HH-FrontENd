@@ -6,7 +6,7 @@ const UploadProfile = ({ imageSrc, setImageSrc, profileImg, setProfileImg }) => 
 
     const handleImageUpload = (e) => {
         const fileArr = e.target.files;
-        setProfileImg({ ...profileImg, img: fileArr });
+        setProfileImg(fileArr);
 
         let file;
 
@@ -23,7 +23,7 @@ const UploadProfile = ({ imageSrc, setImageSrc, profileImg, setProfileImg }) => 
 
     const removeImage = () => {
         setImageSrc('');
-        setProfileImg({ ...profileImg, img: null });
+        setProfileImg(null);
     }
 
 

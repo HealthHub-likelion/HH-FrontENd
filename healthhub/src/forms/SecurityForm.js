@@ -2,7 +2,7 @@ import axios from 'axios';
 import proxy from '../security/Proxy.json';
 import '../styles/forms/SecurityForm.css';
 
-function SecurityForm({ dataPrivate, setdataPrivate }) {
+function SecurityForm({ isOpen, setIsOpen }) {
     const token = localStorage.getItem('HH_token');
 
     /* Security Patch */
@@ -19,13 +19,12 @@ function SecurityForm({ dataPrivate, setdataPrivate }) {
             .then((res) => {
                 // 잘 불러와졌을때
                 console.log('patch', res.data);
+                getState();
             })
             .catch((err) => {
                 // 오류 나왓을 때
                 console.log(err);
             })
-
-        getState();
     }
 
     const getState = () => {
@@ -38,7 +37,7 @@ function SecurityForm({ dataPrivate, setdataPrivate }) {
         })
             .then((res) => {
                 // 잘 불러와졌을때
-                console.log('get isOpen', res.data.status.isOpen);
+                console.log('now isOpen', res.data.status.isOpen);
             })
             .catch((err) => {
                 // 오류 나왓을 때
@@ -46,13 +45,12 @@ function SecurityForm({ dataPrivate, setdataPrivate }) {
             })
     }
 
-
     /* 버튼 활성화 변경 */
     const setPrivate = () => {
-        return dataPrivate ? 'private_button_clicked' : 'private_button';
+        return isOpen ? 'private_button' : 'private_button_clicked';
     }
     const setPublic = () => {
-        return dataPrivate ? 'public_button' : 'public_button_clicked';
+        return isOpen ? 'public_button_clicked' : 'public_button';
     }
 
     return (
@@ -61,10 +59,10 @@ function SecurityForm({ dataPrivate, setdataPrivate }) {
                 <div>Security</div>
             </div>
             <div className='securityform_button'>
-                <button className={setPrivate()} onClick={() => { setdataPrivate(true); switchSecurity(false); }}>
+                <button className={setPrivate()} onClick={() => { setIsOpen(false); switchSecurity(false); }}>
                     private
                 </button>
-                <button className={setPublic()} onClick={() => { setdataPrivate(false); switchSecurity(true); }}>
+                <button className={setPublic()} onClick={() => { setIsOpen(true); switchSecurity(true); }}>
                     public
                 </button>
             </div>
