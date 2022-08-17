@@ -17,11 +17,11 @@ function FollowsSession({showFollowers, userData}) {
           }
         })
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           setFollower(res.data);
         })
         .catch((err) => {
-          console.log(err);
+          // console.log(err);
         })
       }    
     }
@@ -35,11 +35,11 @@ function FollowsSession({showFollowers, userData}) {
           }
         })
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           setFollowing(res.data);
         })
         .catch((err) => {
-          console.log(err);
+          // console.log(err);
         })
       }
     } 

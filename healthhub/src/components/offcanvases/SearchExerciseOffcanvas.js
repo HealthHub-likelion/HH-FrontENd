@@ -18,7 +18,7 @@ function SearchExerciseOffcanvas({show, onHide, pre_modal, setProceedCreate, set
             setExerciseCategory(res.data);
         })
         .catch((err)=>{
-            console.log(err);
+            // console.log(err);
         })
     },[])
 

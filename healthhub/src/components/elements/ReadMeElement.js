@@ -39,7 +39,7 @@ function ReadMeElement({userData, setUserData}) {
                     setUserData({...userData, readMe:readmeContent});
                 })
                 .catch((err)=>{
-                    console.log(err);
+                    // console.log(err);
                 })
             }
         }

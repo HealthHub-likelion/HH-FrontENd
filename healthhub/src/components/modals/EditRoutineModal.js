@@ -49,7 +49,7 @@ function EditRoutineModal({show, onHide, exercises, proceedEdit, setProceedEdit,
                 window.location.reload();
             })
             .catch((err)=>{
-                console.log(err);
+                // console.log(err);
             })
         }
     }
@@ -66,7 +66,7 @@ function EditRoutineModal({show, onHide, exercises, proceedEdit, setProceedEdit,
                 onHide();
             })
             .catch((err)=>{
-                console.log(err);
+                // console.log(err);
             })
         }
     }

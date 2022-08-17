@@ -18,11 +18,11 @@ function ProfileImageForm({ userData }) {
         })
             .then((res) => {
                 // 잘 불러와졌을때
-                console.log(res);
+                // console.log(res);
             })
             .catch((err) => {
                 // 오류 나왓을 때
-                console.log(err);
+                // console.log(err);
             })
     }
 

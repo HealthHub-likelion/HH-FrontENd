@@ -24,16 +24,15 @@ function ProfileImageModal(props) {
         })
             .then((res) => {
                 // 잘 불러와졌을때
-                console.log(res);
                 // img 경로 추가시 수정할 부분
             })
             .catch((err) => {
                 // 오류 나왓을 때
-                console.log(err);
+                // console.log(err);
             })
 
         props.onHide()
-        console.log(props.userdata)
+        // console.log(props.userdata)
     }
 
     const removeImage = () => {

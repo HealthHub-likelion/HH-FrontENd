@@ -17,12 +17,12 @@ function SecurityForm({ isOpen, setIsOpen }) {
         })
             .then((res) => {
                 // 잘 불러와졌을때
-                console.log('patch', res.data);
+                // console.log('patch', res.data);
                 getState();
             })
             .catch((err) => {
                 // 오류 나왓을 때
-                console.log(err);
+                // console.log(err);
             })
     }
 

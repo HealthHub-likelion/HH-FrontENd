@@ -38,7 +38,7 @@ const SearchUser = () => {
         // setUserList(res.data);
     })
     .catch((err)=>{
-        console.log(err);
+        // console.log(err);
     })
     },[inputName]);
 

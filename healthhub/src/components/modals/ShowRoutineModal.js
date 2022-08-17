@@ -27,7 +27,7 @@ function ShowRoutineModal({show, onHide, clickRoutineId, userData, setUserData})
                 setRoutineContent(res.data);
             })
             .catch((err)=>{
-                console.log(err);
+                // console.log(err);
             })
         }
     },[clickRoutineId, showEdit]);
@@ -49,7 +49,7 @@ function ShowRoutineModal({show, onHide, clickRoutineId, userData, setUserData})
             .then((res)=>{
             })
             .catch((err)=>{
-                console.log(err);
+                // console.log(err);
             })
         }
     }

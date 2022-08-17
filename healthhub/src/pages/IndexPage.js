@@ -26,7 +26,7 @@ function IndexPage() {
                 navigate(`/${res.data.name}`);
             })
             .catch((err)=>{
-                console.log(err);
+                // console.log(err);
             })
         }
     },[]);

@@ -122,7 +122,7 @@ function CreateRecordModal({show, onHide, userData}) {
             }).then((res)=>{
                 window.location.reload();
             }).catch((err)=>{
-                console.log(err);
+                // console.log(err);
             })
         }
     }
