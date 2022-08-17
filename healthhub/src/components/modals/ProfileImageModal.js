@@ -7,21 +7,21 @@ import UploadProfile from '../UploadProfile';
 
 function ProfileImageModal(props) {
     const [imageSrc, setImageSrc] = useState('');   // 미리보기 데이터(base 64)
-    const [profileImg, setProfileImg] = useState({
-        img: null,
-    }); // 프로필 사진 데이터
+    const [profileImg, setProfileImg] = useState(null); // 프로필 사진 데이터
 
     const token = localStorage.getItem('HH_token');
 
-    const uploadProfileImage = () => {
+    const uploadProfileImage = async () => {
         // 1. formData 생성 후 데이터 append
         let form_data = new FormData();
-        form_data.append("images", profileImg['img']);
+        form_data.append("images", profileImg);
+        console.log('f', form_data)
         // 나머지 데이터들은 다 JSON으로 맞춰주기
-        form_data.append("data", JSON.stringify(imageSrc));
+        // form_data.append("data", JSON.stringify(imageSrc));
+        console.log(profileImg[0]['name'])
 
         // 2. axios로 전송
-        axios.post(`${proxy['proxy_url']}/accounts/profileimage/upload`, {
+        await axios.post(`${proxy['proxy_url']}/accounts/profileimage/upload`, {
             // 바디 부분
             img: form_data
         }, {
@@ -46,7 +46,7 @@ function ProfileImageModal(props) {
 
     const removeImage = () => {
         setImageSrc('');
-        setProfileImg({ ...profileImg, img: null });
+        setProfileImg(null);
         props.onHide()
     }
 
@@ -63,7 +63,7 @@ function ProfileImageModal(props) {
                         <div className='create_record_title'>
                             <UploadProfile imageSrc={imageSrc} setImageSrc={setImageSrc} profileImg={profileImg} setProfileImg={setProfileImg} />
                         </div>
-                        {profileImg['img']
+                        {profileImg
                             ? <div className='create_record_sub_body'><img alt='사진 미리보기' src={imageSrc} /></div>
                             : <div className='create_record_sub_body'>등록된 사진이 없습니다.</div>}
                     </div>
