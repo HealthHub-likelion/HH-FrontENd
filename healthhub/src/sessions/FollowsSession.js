@@ -8,7 +8,6 @@ function FollowsSession({showFollowers, userData}) {
     const [follower, setFollower] = useState([]); //팔로워 목록
     const [following, setFollowing] = useState([]); //팔로잉 목록
     const token = localStorage.getItem('HH_token');
-    console.log(userData['name']);
 
     //팔로워 목록
     const axiosFollower = () => {
@@ -25,8 +24,7 @@ function FollowsSession({showFollowers, userData}) {
         .catch((err) => {
           console.log(err);
         })
-      }
-        
+      }    
     }
 
     //팔로잉 목록
@@ -50,7 +48,7 @@ function FollowsSession({showFollowers, userData}) {
     useEffect(() => {
       axiosFollower();
       axiosFollowing();
-    }, []);
+    }, [userData]);
 
   return (
     <div className='FollowsSession'>
