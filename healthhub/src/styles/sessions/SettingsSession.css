@@ -29,6 +29,24 @@
     .settingssession_profileimage,
     .settingssession_security,
     .settingssession_status {
-        padding: 80px 80px 60px 80px;
+        padding: 80px 25px 60px 25px;
+    }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 449px) {
+    .settingssession_nickname,
+    .settingssession_profileimage,
+    .settingssession_security,
+    .settingssession_status {
+        padding: 80px 20px 60px 20px;
+    }
+}
+
+@media only screen and (min-width: 270px) and (max-width: 299px) {
+    .settingssession_nickname,
+    .settingssession_profileimage,
+    .settingssession_security,
+    .settingssession_status {
+        padding: 80px 15px 60px 15px;
     }
 }

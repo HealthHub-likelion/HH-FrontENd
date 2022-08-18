@@ -53,7 +53,7 @@ function ProfileImageForm({ userData }) {
                     onClick={() => { setShowUploadProfile(true) }}
                     className="profileimageform_button_upload"
                 >
-                    프로필 사진 업로드
+                    사진 업로드
                 </button>
                 <button
                     type="button"
