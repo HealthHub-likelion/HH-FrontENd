@@ -29,7 +29,7 @@ const NotFoundPage = () => {
 
     useEffect(()=>{
 
-    axios.post(`${proxy['proxy_url']}/accounts/membersearchbynickname`,{
+    axios.post(`${process.env.REACT_APP_PROXY}/accounts/membersearchbynickname`,{
         nickname : inputName
     },{
         headers:{

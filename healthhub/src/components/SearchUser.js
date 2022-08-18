@@ -87,7 +87,7 @@ const SearchUser = () => {
                                 <div className="notFound_userImgContainer">
                                     <img
                                         className="notFound_userImg"
-                                        src = {`${proxy['proxy_url']}/media/${e.img}`}
+                                        src = {`${process.env.REACT_APP_PROXY}/media/${e.img}`}
                                     />
                                 </div>
                                 <div className="notFound_userName">{e.name}</div>

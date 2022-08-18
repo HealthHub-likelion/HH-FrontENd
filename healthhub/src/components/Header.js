@@ -110,7 +110,7 @@ function Header({Tab, username, userData}) {
                                 <div className="header_userImgContainer">
                                     <img
                                         className="header_userImg"
-                                        src = {`${proxy['proxy_url']}/media/${e.img}`}
+                                        src = {`${process.env.REACT_APP_PROXY}/media/${e.img}`}
                                     />
                                 </div>
                                 <div className="header_userName">{e.name}</div>
