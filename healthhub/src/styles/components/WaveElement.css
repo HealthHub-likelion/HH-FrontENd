@@ -3,7 +3,7 @@
     border-radius: 5px;
 }
 .waveElement_imgContainer{
-    background-color: #264056;
+    background-color: #061726;
 }
 .waveElement_content{
     padding : 15px;
@@ -31,6 +31,9 @@
     font-size: 15px;
     text-align: center;
     margin-top : 5px;
+}
+.waveElement_routine, .waveElement_comment{
+    color: white;
 }
 
 @media only screen and (min-width: 1200px){
