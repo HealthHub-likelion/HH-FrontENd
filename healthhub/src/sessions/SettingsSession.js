@@ -6,7 +6,7 @@ import SecurityForm from "../forms/SecurityForm";
 import StatusForm from "../forms/StatusForm";
 import '../styles/sessions/SettingsSession.css';
 
-function SettingsSession({ username, userData }) {
+function SettingsSession({ username, userData, setUserData }) {
     const [isOpen, setIsOpen] = useState();
     const token = localStorage.getItem('HH_token');
 
@@ -19,7 +19,6 @@ function SettingsSession({ username, userData }) {
         })
             .then((res) => {
                 // 잘 불러와졌을때
-                // console.log('initial isOpen', res.data.status.isOpen);
                 setIsOpen(res.data.status.isOpen[0]);
             })
             .catch((err) => {
@@ -34,7 +33,7 @@ function SettingsSession({ username, userData }) {
                 <NickNameForm username={username} userData={userData} />
             </div>
             <div className="settingssession_profileimage">
-                <ProfileImageForm userData={userData} />
+                <ProfileImageForm userData={userData} setUserData={setUserData} />
             </div>
             <div className="settingssession_security">
                 <SecurityForm isOpen={isOpen} setIsOpen={setIsOpen} />
