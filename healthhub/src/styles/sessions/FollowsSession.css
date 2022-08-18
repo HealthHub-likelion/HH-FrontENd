@@ -133,17 +133,17 @@
         height: 60px;
     }
     .profileImg{
-        width: 40px;
-        height: 40px;
-        margin: 10px;
+        width: 35px;
+        height: 35px;
+        margin: 12px;
     }
     .followName{
-        font-size: 12px;
+        font-size: 11px;
         margin: auto 1px;
     }
     .followBtn{
-        width: 70px;
-        height: 26px;
+        width: 60px;
+        height: 24px;
         border-radius: 12px;
         font-size: 11px;
         margin-right: 11px;
@@ -156,19 +156,19 @@
         height: 50px;
     }
     .profileImg{
-        width: 35px;
-        height: 35px;
-        margin: 7px;
+        width: 30px;
+        height: 30px;
+        margin: 9px;
     }
     .followName{
-        font-size: 10px;
+        font-size: 9px;
         margin: auto 1px;
     }
     .followBtn{
-        width: 65px;
-        height: 24px;
+        width: 55px;
+        height: 20px;
         border-radius: 12px;
-        font-size: 10px;
-        margin-right: 10px;
+        font-size: 9px;
+        margin-right: 9px;
     }
 }
