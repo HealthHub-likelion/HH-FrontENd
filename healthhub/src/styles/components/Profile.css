@@ -261,3 +261,105 @@
         font-size: 13px;
     }
 }
+@media only screen and (min-width: 300px) and (max-width: 449px){
+    .Profile{
+        display: flex;
+        flex-direction: row;
+    }
+    .Profile > img{
+        width: 40px;
+        height: 40px;
+        margin: auto 3px;
+    }
+    .profile_userstate_box{
+        width: 100px;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 10px;
+    }
+    .profile_username{
+        font-size: 15px;
+        font-weight: 500;
+    }
+    .profileBtn_unfollow, .profileBtn_following{
+        font-size: 12px;
+        font-weight: 500;
+    }
+    .profile_follow{
+        position: absolute;
+        left: 55px;
+        top: 135px;
+        font-size: 10px;
+    }
+    .profile_add_record_box{
+        width: 100%;
+    }
+    .profile_add_record{
+        height: 25px;
+        font-size: 10px;
+        padding: 6px 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        right: 10px;
+        top: 110px;
+    }
+    .profile_button_group{
+        position: absolute;
+        left: 55px;
+        top: 135px;
+        font-size: 10px;
+    }
+}
+@media only screen and (min-width: 270px) and (max-width: 300px){
+    .Profile{
+        display: flex;
+        flex-direction: row;
+    }
+    .Profile > img{
+        width: 30px;
+        height: 30px;
+        margin: auto 3px;
+    }
+    .profile_userstate_box{
+        width: 80px;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 10px;
+    }
+    .profile_username{
+        font-size: 13px;
+        font-weight: 500;
+    }
+    .profileBtn_unfollow, .profileBtn_following{
+        font-size: 10px;
+        font-weight: 500;
+    }
+    .profile_follow{
+        position: absolute;
+        left: 45px;
+        top: 89px;
+        font-size: 10px;
+    }
+    .profile_add_record_box{
+        width: 100%;
+    }
+    .profile_add_record{
+        height: 10px;
+        font-size: 10px;
+        padding: 10px 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        right: 10px;
+        top: 80px;
+    }
+    .profile_button_group{
+        position: absolute;
+        left: 45px;
+        top: 89px;
+        font-size: 10px;
+    }
+}
