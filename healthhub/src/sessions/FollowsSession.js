@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import FollowList from '../components/FollowList';
+import '../styles/sessions/FollowsSession.css'
 
 function FollowsSession({showFollowers, userData}) {
 

@@ -17,9 +17,9 @@ function Profile({username, Tab, showFollowers, setShowFollowers, userData, setU
 
     const selectFollowState = () =>{
       if(userData.isFollow === null || userData.isOpen === true){
-        return <button className='profile_follow' onClick={()=>{navigate(`/${username}/follow`)}}>
+        return <div className='profile_follow' onClick={()=>{navigate(`/${username}/follow`)}}>
           {userData.followerCount} followers / {userData.followingCount} following
-          </button>;
+          </div>;
       }
       return <div className='profile_follow'>{userData.followerCount} followers / {userData.followingCount} following</div>;
     }
