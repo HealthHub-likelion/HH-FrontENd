@@ -3,8 +3,11 @@ import axios from 'axios';
 import { Modal } from 'react-bootstrap';
 import { useState } from 'react';
 import UploadProfile from '../UploadProfile';
+import { useNavigate } from 'react-router-dom';
 
 function ProfileImageModal(props) {
+    const navigate = useNavigate();
+
     const [imageSrc, setImageSrc] = useState('');   // 미리보기 데이터(base 64)
     const [profileImg, setProfileImg] = useState(null); // 프로필 사진 데이터
 
@@ -24,7 +27,8 @@ function ProfileImageModal(props) {
         })
             .then((res) => {
                 // 잘 불러와졌을때
-                // img 경로 추가시 수정할 부분
+                alert('프로필 이미지가 변경되었습니다.')
+                navigate(`/${props.userdata['name']}`);
             })
             .catch((err) => {
                 // 오류 나왓을 때
@@ -32,7 +36,6 @@ function ProfileImageModal(props) {
             })
 
         props.onHide()
-        // console.log(props.userdata)
     }
 
     const removeImage = () => {
