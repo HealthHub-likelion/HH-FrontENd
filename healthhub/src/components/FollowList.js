@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import '../styles/sessions/FollowsSession.css'
 
-function FollowList({follower, setFollower, following, setFollowing, showFollowers, userData}) {
+function FollowList({follower, setFollower, following, setFollowing, showFollowers, userData, setUserData}) {
 
   //페이지 이동
   const nagative = useNavigate();
@@ -14,9 +14,12 @@ function FollowList({follower, setFollower, following, setFollowing, showFollowe
   const toggleFollower = (idx) => {
     if(follower['Member'][idx]['isFollow'] === true){ // 버튼 unfollow -> follow
       axoisreqUnFollow(follower['Member'][idx]['name']);
-    } else{ // 버튼 follow -> follow
+      setUserData({...userData, followingCount: userData.followingCount-1});
+    } else{ // 버튼 follow -> unfollow
       axiosreqFollow(follower['Member'][idx]['name']);
+      setUserData({...userData, followingCount: userData.followingCount+1});
     }
+
     
     const followerObject = follower['Member'][idx];
     followerObject['isFollow'] = !follower['Member'][idx]['isFollow'];
@@ -29,8 +32,10 @@ function FollowList({follower, setFollower, following, setFollowing, showFollowe
   const toggleFollowing = (idx) => {
     if(following['Member'][idx]['isFollow'] === true){
       axoisreqUnFollow(following['Member'][idx]['name']);
+      setUserData({...userData, followerCount: userData.followerCount-1});
     } else{
       axiosreqFollow(following['Member'][idx]['name']);
+      setUserData({...userData, followerCount: userData.followerCount+1});
     }
 
     const followingObject = following['Member'][idx];
