@@ -34,11 +34,11 @@ function RecordSession() {
     }
 
     function getConsecutive(){
-        let count = 1;
+        let count = 0;
         let today = new Date();
         let getToday = new Date(today.toISOString().substring(0,10) + " 00:00:00");
-        myList.map((e)=>{
-            if(Math.ceil((new Date().getTime() - new Date(e.record_create_time.substring(0,10) + " 00:00:00").getTime())/(1000 * 3600 * 24)) === 1){
+        latest(myList).map((e)=>{
+            if(Math.ceil((getToday.getTime() - new Date(e.record_create_time.substring(0,10) + " 00:00:00").getTime())/(1000 * 3600 * 24)) === 1){
                 today.setDate(today.getDate()-1);
                 getToday = new Date(today.toISOString().substring(0,10) + " 00:00:00");
                 count += 1;
