@@ -12,15 +12,16 @@ function FollowList({follower, setFollower, following, setFollowing, showFollowe
 
   //팔로우, 언팔로우 토글
   const toggleFollower = (idx) => {
-    if(follower['Member'][idx]['isFollow'] === true){ // 버튼 unfollow -> follow
+    if(userData.followingCount > -1 && userData.followerCount > -1){
+      if(follower['Member'][idx]['isFollow'] === true){ // 버튼 unfollow -> follow
       axoisreqUnFollow(follower['Member'][idx]['name']);
       setUserData({...userData, followingCount: userData.followingCount-1});
-    } else{ // 버튼 follow -> unfollow
-      axiosreqFollow(follower['Member'][idx]['name']);
-      setUserData({...userData, followingCount: userData.followingCount+1});
+      } else{ // 버튼 follow -> unfollow
+        axiosreqFollow(follower['Member'][idx]['name']);
+        setUserData({...userData, followingCount: userData.followingCount+1});
+      }
     }
-
-    
+     
     const followerObject = follower['Member'][idx];
     followerObject['isFollow'] = !follower['Member'][idx]['isFollow'];
 
@@ -30,13 +31,15 @@ function FollowList({follower, setFollower, following, setFollowing, showFollowe
   }
 
   const toggleFollowing = (idx) => {
-    if(following['Member'][idx]['isFollow'] === true){
+    
+    if(following['Member'][idx]['isFollow'] === true && userData.followingCount > -1 && userData.followerCount > -1){
       axoisreqUnFollow(following['Member'][idx]['name']);
-      setUserData({...userData, followerCount: userData.followerCount-1});
-    } else{
-      axiosreqFollow(following['Member'][idx]['name']);
-      setUserData({...userData, followerCount: userData.followerCount+1});
-    }
+      setUserData({...userData, followingCount: userData.followingCount-1});
+    } 
+    // else{
+    //   axiosreqFollow(following['Member'][idx]['name']);
+    //   setUserData({...userData, followerCount: userData.followerCount+1});
+    // }
 
     const followingObject = following['Member'][idx];
     followingObject['isFollow'] = !following['Member'][idx]['isFollow'];
