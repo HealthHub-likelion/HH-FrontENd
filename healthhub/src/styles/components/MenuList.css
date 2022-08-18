@@ -82,3 +82,27 @@
         font-size: 14px;
     }
 }
+@media only screen and (min-width: 300px) and (max-width: 449px){
+    .menulist_button_box{
+        padding: 5px 3px;
+    }
+    .menulist_button_img{
+        height: 10px;
+    }
+    .menulist_button{
+        margin: 0 0 0 2px;
+        font-size: 14px;
+    }
+}
+@media only screen and (min-width: 270px) and (max-width: 300px){
+    .menulist_button_box{
+        padding: 5px 1px;
+    }
+    .menulist_button_img{
+        height: 7px;
+    }
+    .menulist_button{
+        margin: 0 0 0 1px;
+        font-size: 10px;
+    }
+}
