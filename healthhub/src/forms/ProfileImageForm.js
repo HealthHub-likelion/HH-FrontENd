@@ -4,7 +4,7 @@ import ProfileImageModal from '../components/modals/ProfileImageModal';
 import '../styles/forms/ProfileImageForm.css';
 import { useNavigate } from 'react-router-dom';
 
-function ProfileImageForm({ userData, setUserData }) {
+function ProfileImageForm({ userData }) {
     const navigate = useNavigate();
     const [showUploadProfile, setShowUploadProfile] = useState(false);
 
@@ -66,7 +66,6 @@ function ProfileImageForm({ userData, setUserData }) {
                     show={showUploadProfile}
                     onHide={() => { setShowUploadProfile(false) }}
                     userdata={userData}
-                    setuserdata={setUserData}
                 />
             </div>
         </div>
