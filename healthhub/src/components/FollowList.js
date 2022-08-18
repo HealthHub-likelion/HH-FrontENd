@@ -93,7 +93,7 @@ function FollowList({ follower, setFollower, following, setFollowing, showFollow
             <div className="FollowElement" key={i}>
               <div className="followImg">
                 <img className="profileImg"
-                  src={`${process.env.REACT_APP_PROXY}` + follower['Member'][i]['img']}
+                  src={`${process.env.REACT_APP_IMAGE}` + follower['Member'][i]['img']}
                   onClick={() => onClickProfile(follower['Member'][i]['name'])}>
                 </img>
               </div>
@@ -119,7 +119,7 @@ function FollowList({ follower, setFollower, following, setFollowing, showFollow
           list.push(
             <div className="FollowElement" key={i}>
               <img className="profileImg"
-                src={`${process.env.REACT_APP_PROXY}` + following['Member'][i]['img']}
+                src={`${process.env.REACT_APP_IMAGE}` + following['Member'][i]['img']}
                 onClick={() => onClickProfile(following['Member'][i]['name'])}>
               </img>
               <div className="followName"
