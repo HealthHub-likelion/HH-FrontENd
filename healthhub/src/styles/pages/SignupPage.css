@@ -28,13 +28,27 @@
         font-size: 23px;
     }
 }
-@media only screen and (min-width: 600px) and (max-width: 899px){
+
+@media only screen and (min-width: 600px) and (max-width: 900px){
     .signup_bottom{
         font-size: 22px;
     }
 }
-@media only screen and (min-width: 450px) and (max-width: 599px){
+
+@media only screen and (min-width: 450px) and (max-width: 600px){
     .signup_bottom{
         font-size: 21px;
     }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 450px){
+    .signup_bottom{
+        font-size: 20x;
+    }
+}
+
+@media only screen and (min-width: 270px) and (max-width: 300px){
+    .signup_bottom{
+        font-size: 17px;
+    }   
 }

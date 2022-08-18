@@ -123,7 +123,7 @@
         font-size: 13px;
     }
 }
-@media only screen and (min-width: 600px) and (max-width: 899px){
+@media only screen and (min-width: 600px) and (max-width: 900px){
     .signupForm_nickname{
         margin-bottom: 5px;
         width : 280px;
@@ -170,10 +170,10 @@
         font-size: 12px;
     }
 }
-@media only screen and (min-width: 450px) and (max-width: 599px){
+@media only screen and (min-width: 450px) and (max-width: 600px){
     .signupForm_nickname{
-        margin-bottom: 3px;
-        width : 250px;
+        margin-bottom: 5px;
+        width : 230px;
     }
     .signupForm_nickname> div{
         font-size: 14px;
@@ -183,8 +183,8 @@
         font-size: 14px;
     }
     .signupForm_email{
-        margin-bottom: 3px;
-        width : 250px;
+        margin-bottom: 5px;
+        width : 230px;
     }
     .signupForm_email > div{
         font-size: 14px;
@@ -197,13 +197,14 @@
         padding : 3px;
         padding-bottom: 3px;
         font-size: 14px;
-        width: 250px;
+        width: 230px;
+        margin-bottom: 5px;
     }
     .signupForm_doubleCheck{
         padding : 3px;
         padding-bottom: 3px;
         font-size: 14px;
-        width: 250px;
+        width: 230px;
     }
     .signupForm_signup{
         margin : 12px auto;
@@ -215,5 +216,105 @@
     }
     .signupForm_passwordAlert{
         font-size: 11px;
+    }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 450px){
+    .signupForm_nickname{
+        margin-bottom: 5px;
+        width : 200px;
+    }
+    .signupForm_nickname> div{
+        font-size: 14px;
+    }
+    .signupForm_nickname > input{
+        padding : 3px;
+        font-size: 14px;
+    }
+    .signupForm_email{
+        margin-bottom: 5px;
+        width : 200px;
+    }
+    .signupForm_email > div{
+        font-size: 14px;
+    }
+    .signupForm_email > input{
+        padding : 3px;
+        font-size: 14px;
+    }
+    .singupForm_password{
+        padding : 3px;
+        padding-bottom: 3px;
+        font-size: 14px;
+        width: 200px;
+        margin-bottom: 5px;
+    }
+    .signupForm_doubleCheck{
+        padding : 3px;
+        padding-bottom: 3px;
+        font-size: 14px;
+        width: 200px;
+    }
+    .signupForm_signup{
+        margin : 12px auto;
+        font-size : 17px;
+        margin-top: 22px;
+    }
+    .signupForm_passwordAlertBox{
+        padding: 2px 0 0 2px;
+    }
+    .signupForm_passwordAlert{
+        font-size: 9px;
+    }
+}
+
+@media only screen and (min-width: 270px) and (max-width: 300px){
+    .signupForm_nickname{
+        margin-bottom: 5px;
+        width : 190px;
+    }
+    .signupForm_nickname> div{
+        font-size: 14px;
+    }
+    .signupForm_nickname > input{
+        padding : 3px;
+        font-size: 14px;
+        width: 150px;
+    }
+    .signupForm_email{
+        margin-bottom: 5px;
+        width : 190px;
+    }
+    .signupForm_email > div{
+        font-size: 14px;
+    }
+    .signupForm_email > input{
+        padding : 3px;
+        font-size: 14px;
+        width: 150px;
+    }
+    .singupForm_password{
+        padding : 3px;
+        padding-bottom: 3px;
+        font-size: 14px;
+        width: 190px;
+        margin-bottom: 5px;
+    }
+    .signupForm_doubleCheck{
+        padding : 3px;
+        padding-bottom: 3px;
+        font-size: 14px;
+        width: 190px;
+    }
+    .signupForm_signup{
+        margin : 12px auto;
+        font-size : 17px;
+        margin-top: 22px;
+    }
+    .signupForm_passwordAlertBox{
+        padding: 2px 0 0 2px;
+    }
+    .signupForm_passwordAlert{
+        font-size: 7px;
     }
 }
