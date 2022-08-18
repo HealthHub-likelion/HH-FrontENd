@@ -22,7 +22,7 @@ function SettingsPage() {
               <ProfileSession username={username} userData={userData} />
             </div>
             <div className="settingspage_SettingsSession">
-              <SettingsSession username={username} userData={userData} setUserData={setUserData} />
+              <SettingsSession username={username} userData={userData} />
             </div>
           </div>
         </div>

@@ -6,7 +6,7 @@ import SecurityForm from "../forms/SecurityForm";
 import StatusForm from "../forms/StatusForm";
 import '../styles/sessions/SettingsSession.css';
 
-function SettingsSession({ username, userData, setUserData }) {
+function SettingsSession({ username, userData }) {
     const [isOpen, setIsOpen] = useState();
     const token = localStorage.getItem('HH_token');
 
@@ -33,7 +33,7 @@ function SettingsSession({ username, userData, setUserData }) {
                 <NickNameForm username={username} userData={userData} />
             </div>
             <div className="settingssession_profileimage">
-                <ProfileImageForm userData={userData} setUserData={setUserData} />
+                <ProfileImageForm userData={userData} />
             </div>
             <div className="settingssession_security">
                 <SecurityForm isOpen={isOpen} setIsOpen={setIsOpen} />
