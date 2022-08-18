@@ -126,3 +126,49 @@
         margin-right: 13px;
     }
 }
+
+@media only screen and (min-width: 300px) and (max-width: 449px){
+    .FollowElement{
+        width: 280px;
+        height: 60px;
+    }
+    .profileImg{
+        width: 40px;
+        height: 40px;
+        margin: 10px;
+    }
+    .followName{
+        font-size: 12px;
+        margin: auto 1px;
+    }
+    .followBtn{
+        width: 70px;
+        height: 26px;
+        border-radius: 12px;
+        font-size: 11px;
+        margin-right: 11px;
+    }
+}
+
+@media only screen and (min-width: 270px) and (max-width: 299px){
+    .FollowElement{
+        width: 250px;
+        height: 50px;
+    }
+    .profileImg{
+        width: 35px;
+        height: 35px;
+        margin: 7px;
+    }
+    .followName{
+        font-size: 10px;
+        margin: auto 1px;
+    }
+    .followBtn{
+        width: 65px;
+        height: 24px;
+        border-radius: 12px;
+        font-size: 10px;
+        margin-right: 10px;
+    }
+}
