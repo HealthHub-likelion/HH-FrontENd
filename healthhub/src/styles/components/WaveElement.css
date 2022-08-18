@@ -32,6 +32,11 @@
 .waveElement_detailComment{
     margin-top : 10px;
 }
+.waveElement_closeComment{
+    color : #264056;
+    text-align: center;
+    margin-top : 3px;
+}
 @media only screen and (min-width: 900px) {
     .WaveElement{
         width : 450px;
