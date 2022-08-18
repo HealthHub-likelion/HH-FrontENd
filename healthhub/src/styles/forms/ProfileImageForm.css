@@ -39,3 +39,67 @@
     margin: 5px;
     cursor: pointer;
 }
+
+@media only screen and (min-width: 600px) and (max-width: 899px) {
+    .profileimageform_title > div{
+        font-size: 22px;
+    }
+    .profileimageform_button_upload{
+        height: 35px;
+        width: 140px;
+        font-size: 13px;
+    }
+    .profileimageform_button_delete{
+        height: 35px;
+        width: 85px;
+        font-size: 13px;
+    }
+}
+
+@media only screen and (min-width: 450px) and (max-width: 599px) {
+    .profileimageform_title > div{
+        font-size: 20px;
+    }
+    .profileimageform_button_upload{
+        height: 30px;
+        width: 125px;
+        font-size: 12px;
+    }
+    .profileimageform_button_delete{
+        height: 30px;
+        width: 80px;
+        font-size: 12px;
+    }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 449px) {
+    .profileimageform_title > div{
+        font-size: 19px;
+    }
+    .profileimageform_button_upload{
+        height: 30px;
+        width: 125px;
+        font-size: 11px;
+    }
+    .profileimageform_button_delete{
+        height: 30px;
+        width: 80px;
+        font-size: 11px;
+    }
+}
+
+@media only screen and (min-width: 270px) and (max-width: 299px) {
+    .profileimageform_title > div{
+        font-size: 18px;
+    }
+    .profileimageform_button_upload{
+        height: 30px;
+        width: 125px;
+        font-size: 10px;
+    }
+    .profileimageform_button_delete{
+        height: 30px;
+        width: 80px;
+        font-size: 10px;
+    }
+}

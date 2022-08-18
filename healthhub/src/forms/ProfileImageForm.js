@@ -12,7 +12,7 @@ function ProfileImageForm({ userData }) {
 
     const deleteProfileImage = () => {
         // 프로필 이미지 삭제
-        axios.post(`${process.env.REACT_APP_CLOUD}accounts/profileimage/delete`, {},
+        axios.post(`${process.env.REACT_APP_PROXY}/accounts/profileimage/delete`, {},
             {
                 // 헤더 부분
                 headers: {
@@ -26,13 +26,12 @@ function ProfileImageForm({ userData }) {
             })
             .catch((err) => {
                 // 오류 나왓을 때
-                // console.log(err);
+                console.log(err);
             })
     }
 
     const deleteConfirm = () => {
         // 기본 이미지일 경우
-        console.log(userData);
         if (userData['img'] == '/media/images/HH_logo.jpg') {
             alert('등록된 이미지가 없습니다.')
         }
