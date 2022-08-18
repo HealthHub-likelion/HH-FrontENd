@@ -113,3 +113,47 @@
         padding-right: 5px;
     }
 }
+
+@media only screen and (min-width: 300px) and (max-width: 449px){
+    .recordSession_recordsState{
+        width: 270px;
+        height: 70px;
+    }
+    .wavesWindow_header{
+        width : 250px;
+        margin: 20px auto;
+        font-size: 12px;
+        padding: 1px;
+    }
+    .wavesWindow_content{
+        height: 600px;
+    }
+    .wavesWindow_header_title{
+        padding-left: 5px;
+    }
+    .wavesWindow_header_recordsCnt{
+        padding-right: 5px;
+    }
+}
+
+@media only screen and (min-width: 270px) and (max-width: 299px){
+    .recordSession_recordsState{
+        width: 250px;
+        height: 60px;
+    }
+    .wavesWindow_header{
+        width : 230px;
+        margin: 20px auto;
+        font-size: 10px;
+        padding: 1px;
+    }
+    .wavesWindow_content{
+        height: 600px;
+    }
+    .wavesWindow_header_title{
+        padding-left: 5px;
+    }
+    .wavesWindow_header_recordsCnt{
+        padding-right: 5px;
+    }
+}
