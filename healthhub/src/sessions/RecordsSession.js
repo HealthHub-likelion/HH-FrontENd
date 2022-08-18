@@ -53,7 +53,12 @@ function RecordSession() {
 
     useEffect(()=>{
         setConsecutiveDay(getConsecutive());
-    },[])
+    })
+
+    function latest(myList){
+        const latestList = [...myList];
+        return latestList.reverse();
+    }
 
     return (
         <div className = 'RecordSession'>
@@ -67,7 +72,7 @@ function RecordSession() {
                 </div>
                 <div className = 'wavesWindow_content'>
                     {
-                        myList.map((e,i)=>{
+                        latest(myList).map((e,i)=>{
                             return(
                                 <WaveElement key = {i}
                                 record_img = {e.record_img}

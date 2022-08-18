@@ -26,37 +26,63 @@ function Header({Tab, username, userData}) {
 
     const [inputName, setInputName] = useState('');
     const [showDropDown, setShowDropDown] = useState(false);
-    const [userList,setUserList] = useState('');
+    const [userList,setUserList] = useState([]);
 
     const searchName = (e) =>{
-      setInputName(e.target.value);
-      if(inputName!==''){
-        setShowDropDown(true);
-      }
+        setInputName(e.target.value);
     }
 
     useEffect(()=>{
-      const searchBox = document.querySelector('.header_top_search_input');
-      searchBox.addEventListener('blur', ()=>{
-        setShowDropDown(false);
-      })
-    },[])
+        if(inputName!==''){
+            setShowDropDown(true);
+        }
+        else setShowDropDown(false);
+    })
 
     useEffect(()=>{
-      axios.post(`${proxy['proxy_url']}/accounts/membersearchbynickname`,{
-        nickname : 'test',
-        headers:{
-            Authorization : token
-        }
-      })
-      .then((res)=>{
-        // console.log(res);
-        // setUserList(res.data);
-      })
-      .catch((err)=>{
-        console.log(err);
-      })
+    if(inputName !== ''){
+        axios.post(`${proxy['proxy_url']}/accounts/membersearchbykeyword`,{
+            keyword : inputName
+        },{
+            headers:{
+                Authorization: token
+            }
+        })
+        .then((res)=>{
+            if(inputName == ''){
+                setUserList([]);
+            }
+            setUserList([res.data.Member][0]);
+        })
+        .catch((err)=>{
+            console.log(err);
+            setUserList([]);
+        })
+    }
+    else{
+        setUserList([]);
+    }
     },[inputName]);
+
+    function moveToUser(userName){
+        navigate(`/${userName}`)
+        window.location.reload();
+    }
+
+    useEffect(()=>{
+        const container = document.querySelector('.header_top_search_dropdown');
+        const serarchInput = document.querySelector('.header_top_search_input');
+        document.addEventListener('mouseup', function(e) {
+            if(container !== null){
+                if (!container.contains(e.target)) {
+                    container.style.display = 'none';
+                }
+            }
+            if (serarchInput.contains(e.target)) {
+                container.style.display = 'block';
+            }
+        });
+    })
 
     const clickLogo = () =>{
       if(localStorage.getItem('HH_name')){
@@ -77,7 +103,22 @@ function Header({Tab, username, userData}) {
                 </div>
                 {showDropDown && 
                 <div className='header_top_search_dropdown'>
-                  
+                  {
+                    userList.map((e,i)=>{
+                        return(
+                            <div className="header_userList" key = {i}
+                                onClick={()=>{moveToUser(e.name)}}>  
+                                <div className="header_userImgContainer">
+                                    <img
+                                        className="header_userImg"
+                                        src = {`${proxy['proxy_url']}/media/${e.img}`}
+                                    />
+                                </div>
+                                <div className="header_userName">{e.name}</div>
+                            </div>
+                        )
+                    })
+                }
                 </div>}
                 {
                   localStorage.getItem('HH_token')&&localStorage.getItem('HH_name')&&localStorage.getItem('HH_member_id')
