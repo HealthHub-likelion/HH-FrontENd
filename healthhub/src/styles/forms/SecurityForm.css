@@ -33,3 +33,35 @@
     font-size: 14px;
     color: #E3F5FE;
 }
+
+@media only screen and (min-width: 600px) and (max-width: 899px) {
+    .securityform_title > div{
+        font-size: 22px;
+    }
+    .private_button_clicked, .public_button_clicked{
+        height: 35px;
+        width: 80px;
+        font-size: 13px;
+    }
+    .public_button, .private_button{
+        height: 35px;
+        width: 80px;
+        font-size: 13px;
+    }
+}
+
+@media only screen and (min-width: 450px) and (max-width: 599px) {
+    .securityform_title > div{
+        font-size: 20px;
+    }
+    .private_button_clicked, .public_button_clicked{
+        height: 30px;
+        width: 80px;
+        font-size: 12px;
+    }
+    .public_button, .private_button{
+        height: 30px;
+        width: 80px;
+        font-size: 12px;
+    }
+}

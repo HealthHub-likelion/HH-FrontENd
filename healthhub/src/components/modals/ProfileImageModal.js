@@ -22,7 +22,7 @@ function ProfileImageModal(props) {
             form_data.append("img", profileImg[0]);
 
             // 2. axios로 전송
-            await axios.post(`${process.env.REACT_APP_PROXY}/accounts/profileimage/upload`, form_data, {
+            await axios.post(`${process.env.REACT_APP_IMAGE}/accounts/profileimage/upload`, form_data, {
                 // 헤더 부분
                 headers: {
                     Authorization: token
