@@ -110,12 +110,10 @@ function FollowList({follower, setFollower, following, setFollowing, showFollowe
         for(let i = 0; i < following['Member'].length; i++){
         list.push(
           <div className="FollowElement" key={i}>
-            <div className="followImg">
-              <img className="profileImg"
-              src={`${process.env.REACT_APP_PROXY}`+following['Member'][i]['img']}
-              onClick={() => onClickProfile(following['Member'][i]['name'])}>
-              </img>
-            </div>
+            <img className="profileImg"
+            src={`${process.env.REACT_APP_PROXY}`+following['Member'][i]['img']}
+            onClick={() => onClickProfile(following['Member'][i]['name'])}>
+            </img>
             <div className="followName"
             onClick={() => onClickProfile(following['Member'][i]['name'])}>
             {following['Member'][i]['name']}
