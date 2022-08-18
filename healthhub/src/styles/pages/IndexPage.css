@@ -13,7 +13,7 @@
     align-items: center;
 }
 .index_header_userSearch{
-    height: 10%;
+    height: 65px;
     display : flex;
     justify-content: flex-end;
 }
@@ -70,7 +70,7 @@
         font-weight: 400;
     }
 }
-@media only screen and (min-width: 900px) and (max-width: 1199px){
+@media only screen and (min-width: 900px) and (max-width: 1200px){
     .index_top_title{
         font-size: 50px;
     }
@@ -79,7 +79,7 @@
     }
     .index_top_slogan{
         margin-top: 0px;
-        font-size: 15px;
+        font-size: 18px;
     }
     
     .index_loing_button{
@@ -90,7 +90,7 @@
         font-weight: 400;
     }
 }
-@media only screen and (min-width: 600px) and (max-width: 899px){
+@media only screen and (min-width: 600px) and (max-width: 900px){
     .index_top_title{
         font-size: 45px;
     }
@@ -98,7 +98,7 @@
         margin-right: 8px;
     }
     .index_top_slogan{
-        font-size: 13px;
+        font-size: 16px;
     }
     
     .index_loing_button{
@@ -109,22 +109,62 @@
         font-weight: 400;
     }
 }
-@media only screen and (min-width: 450px) and (max-width: 599px){
+@media only screen and (min-width: 450px) and (max-width: 600px){
     .index_top_title{
-        font-size: 45px;
+        font-size: 40px;
     }
     .index_top_title_right{
         margin-right: 6px;
     }
     .index_top_slogan{
-        font-size: 12px;
+        font-size: 14px;
     }
     
     .index_loing_button{
-        margin-right: 30px;
+        margin-right: 20px;
     }
     .index_loing_button, .index_signup_button:hover, .index_signup_button, .index_loing_button:hover{
-        font-size: 22px;
+        font-size: 23px;
+        font-weight: 400;
+    }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 450px){
+    .index_top_title{
+        font-size: 32px;
+    }
+    .index_top_title_right{
+        margin-right: 6px;
+    }
+    .index_top_slogan{
+        font-size: 11px;
+    }
+    
+    .index_loing_button{
+        margin-right: 10px;
+    }
+    .index_loing_button, .index_signup_button:hover, .index_signup_button, .index_loing_button:hover{
+        font-size: 19px;
+        font-weight: 400;
+    }
+}
+
+@media only screen and (min-width: 270px) and (max-width: 300px){
+    .index_top_title{
+        font-size: 28px;
+    }
+    .index_top_title_right{
+        margin-right: 6px;
+    }
+    .index_top_slogan{
+        font-size: 10px;
+    }
+    
+    .index_loing_button{
+        margin-right: 5px;
+    }
+    .index_loing_button, .index_signup_button:hover, .index_signup_button, .index_loing_button:hover{
+        font-size: 17px;
         font-weight: 400;
     }
 }

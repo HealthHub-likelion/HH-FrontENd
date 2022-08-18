@@ -82,15 +82,15 @@ const SearchUser = () => {
                 {
                     userList.map((e,i)=>{
                         return(
-                            <div className="notFound_userList" key = {i}
+                            <div className="SearchUser_userList" key = {i}
                                 onClick={()=>{moveToUser(e.name)}}>  
-                                <div className="notFound_userImgContainer">
+                                <div className="SearchUser_userImgContainer">
                                     <img
-                                        className="notFound_userImg"
+                                        className="SearchUser_userImg"
                                         src = {`${process.env.REACT_APP_PROXY}/media/${e.img}`}
                                     />
                                 </div>
-                                <div className="notFound_userName">{e.name}</div>
+                                <div className="SearchUser_userName">{e.name}</div>
                             </div>
                         )
                     })

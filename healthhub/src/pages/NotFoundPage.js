@@ -28,23 +28,29 @@ const NotFoundPage = () => {
     })
 
     useEffect(()=>{
-
-    axios.post(`${process.env.REACT_APP_PROXY}/accounts/membersearchbynickname`,{
-        nickname : inputName
-    },{
-        headers:{
-            Authorization: token
+        if(inputName !== ''){
+            axios.post(`${process.env.REACT_APP_PROXY}/accounts/membersearchbykeyword`,{
+                keyword : inputName
+            },{
+                headers:{
+                    Authorization: token
+                }
+            })
+            .then((res)=>{
+                if(inputName == ''){
+                    setUserList([]);
+                }
+                setUserList([res.data.Member][0]);
+            })
+            .catch((err)=>{
+                console.log(err);
+                setUserList([]);
+            })
         }
-    })
-    .then((res)=>{
-        console.log(res);
-        setUserList([res.data]);
-    })
-    .catch((err)=>{
-        console.log(err);
-        setUserList([]);
-    })
-    },[inputName]);
+        else{
+            setUserList([]);
+        }
+        },[inputName]);
 
     const clickLogo = () =>{
         if(localStorage.getItem('HH_name')){
