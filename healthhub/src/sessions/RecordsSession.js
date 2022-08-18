@@ -3,7 +3,7 @@ import RecordsState from '../components/RecordsState';
 import WaveElement from '../components/WaveElement';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import SliceContainer from '../components/background/SliceBG';
+import SmallSliceContainer from '../components/background/SmallSliceBG';
 
 function RecordSession() {
 
@@ -63,9 +63,9 @@ function RecordSession() {
     return (
         <div className = 'RecordSession'>
             <div className='recordSession_recordsState'>
-                <SliceContainer>
+                <SmallSliceContainer>
                     <RecordsState entireWave = {myList.length} getConsecutive = {consecutiveDay}/>
-                </SliceContainer>
+                </SmallSliceContainer>
             </div>
             <div className='recordSession_wavesWindow'>
                 <div className='wavesWindow_header'>

@@ -1,12 +1,38 @@
 .RecordsState{
     color : #E3F5FE;
-    width : 800px;
-    padding : 30px;
-    border-radius: 20px;
 }
 .recordsState_entirewave{
     color:#66B3F9;
 }
 .recordsState_continuewave{
     color:#2E61D7;
+}
+
+@media only screen and (min-width: 1200px){
+    .RecordsState{
+        padding : 25px;
+        font-size: 18px;
+        line-height: 30px;
+    }
+}
+@media only screen and (min-width: 900px) and (max-width: 1199px){
+    .RecordsState{
+        padding : 23px;
+        font-size: 15px;
+        line-height: 25px;
+    }
+}
+@media only screen and (min-width: 600px) and (max-width: 899px){
+    .RecordsState{
+        padding : 21px;
+        font-size: 14px;
+        line-height: 22px;
+    }
+}
+@media only screen and (min-width: 450px) and (max-width: 599px){
+    .RecordsState{
+        padding : 20px;
+        font-size: 13px;
+        line-height: 20px;
+    }
 }
