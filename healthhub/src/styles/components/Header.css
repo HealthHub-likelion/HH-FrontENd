@@ -78,7 +78,7 @@
     height: 100%;
 }
 
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 1200px){
     .header_top_box{
         margin: 20px 30px 0 0;
     }
@@ -101,8 +101,30 @@
         margin-right: 100px;
     }
 }
-
-@media only screen and (min-width: 450px) and (max-width: 899px) {
+@media only screen and (min-width: 900px) and (max-width: 1199px){
+    .header_top_box{
+        margin: 18px 28px 0 0;
+    }
+    .header_top_box > button, .header_top_box > button:hover{
+        font-size: 14px;
+    }
+    .header_logo_left{
+        margin-left: 14px;
+        font-size: 16px;
+    }
+    .header_logo_right{
+        margin-left: 3px;
+        font-size: 16px;
+    }
+    .header_bottom{
+        justify-content: flex-end;
+    }
+    .header_MenuList{
+        margin-left: 280px;
+        margin-right: 80px;
+    }
+}
+@media only screen and (min-width: 600px) and (max-width: 899px){
     .header_top_box{
         margin: 10px 20px 0 0;
     }
@@ -116,6 +138,25 @@
     .header_logo_right{
         margin-left: 3px;
         font-size: 15px;
+    }
+    .header_bottom{
+        justify-content: center;
+    }
+}
+@media only screen and (min-width: 450px) and (max-width: 599px){
+    .header_top_box{
+        margin: 8px 18px 0 0;
+    }
+    .header_top_box > button, .header_top_box > button:hover{
+        font-size: 13px;
+    }
+    .header_logo_left{
+        margin-left: 8px;
+        font-size: 14px;
+    }
+    .header_logo_right{
+        margin-left: 2px;
+        font-size: 14px;
     }
     .header_bottom{
         justify-content: center;
