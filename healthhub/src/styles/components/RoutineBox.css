@@ -1,7 +1,7 @@
 .RoutineBox{
     width: 100%;
     height: 100%;
-    padding: 15px;
+    padding: 15px 5px 15px 5px;
     display: grid;
     grid-template-columns: 1fr 1fr;
 }
@@ -83,7 +83,7 @@
     .RoutineBox{
         width: 100%;
         height: 100%;
-        padding: 15px;
+        padding: 15px 5px 15px 5px;
         display: grid;
         grid-template-columns: 1fr 1fr;
     }
@@ -163,39 +163,15 @@
 }
 
 @media only screen and (min-width: 900px) and (max-width: 1199px){
-    .RoutineBox{
-        width: 100%;
-        height: 100%;
-        padding: 15px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
-
     .routineBox{
         margin: 6px;
         height: 100px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
         padding: 10px 20px;
-        border: 2px solid #264056;
-        border-radius: 10px;
     }
     .routineBox:hover{
         margin: 6px;
         height: 100px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
         padding: 10px 20px;
-        border: 2px solid #E3F5FE;
-        border-radius: 10px;
-    }
-    .routineBox_top, .routineBox_left{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
     }
     .routineBox_left > img{
         width: 13px;
@@ -206,42 +182,21 @@
 
     .routineBox_title{
         font-size: 18px;
-        color: #E3F5FE;
-        font-weight: 600;
         margin-right: 10px;
     }
-    .routineBox_right{
-        color: #2E61D7;
-        font-size: 14px;
-    }
     .routineBox_bottom{
-        color: #66B3F9;
         font-size: 14px;
     }
 
     .routineBox_plus{
         margin: 6px;
         height: 100px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
         padding: 10px 20px;
-        border: 2px solid #264056;
-        background-color: #264056;
-        border-radius: 10px;
     }
     .routineBox_plus:hover{
         margin: 6px;
         height: 100px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
         padding: 10px 20px;
-        border: 2px solid #E3F5FE;
-        background-color: #264056;
-        border-radius: 10px;
     }
 }
 
@@ -249,36 +204,19 @@
     .RoutineBox{
         width: 100%;
         height: 100%;
-        padding: 15px;
-        display: grid;
+        padding: 15px 5px 15px 5px;
         grid-template-columns: 1fr;
     }
     
     .routineBox{
         margin: 6px;
         height: 100px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
         padding: 10px 20px;
-        border: 2px solid #264056;
-        border-radius: 10px;
     }
     .routineBox:hover{
         margin: 6px;
         height: 100px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
         padding: 10px 20px;
-        border: 2px solid #E3F5FE;
-        border-radius: 10px;
-    }
-    .routineBox_top, .routineBox_left{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
     }
     .routineBox_left > img{
         width: 13px;
@@ -289,42 +227,24 @@
     
     .routineBox_title{
         font-size: 18px;
-        color: #E3F5FE;
-        font-weight: 600;
         margin-right: 10px;
     }
     .routineBox_right{
-        color: #2E61D7;
         font-size: 16px;
     }
     .routineBox_bottom{
-        color: #66B3F9;
         font-size: 14px;
     }
     
     .routineBox_plus{
         margin: 6px;
         height: 100px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
         padding: 10px 20px;
-        border: 2px solid #264056;
-        background-color: #264056;
-        border-radius: 10px;
     }
     .routineBox_plus:hover{
         margin: 6px;
         height: 100px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
         padding: 10px 20px;
-        border: 2px solid #E3F5FE;
-        background-color: #264056;
-        border-radius: 10px;
     }
 }
 
@@ -332,36 +252,19 @@
     .RoutineBox{
         width: 100%;
         height: 100%;
-        padding: 15px;
-        display: grid;
+        padding: 15px 5px 15px 5px;
         grid-template-columns: 1fr;
     }
     
     .routineBox{
         margin: 6px;
         height: 100px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
         padding: 10px 20px;
-        border: 2px solid #264056;
-        border-radius: 10px;
     }
     .routineBox:hover{
         margin: 6px;
         height: 100px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
         padding: 10px 20px;
-        border: 2px solid #E3F5FE;
-        border-radius: 10px;
-    }
-    .routineBox_top, .routineBox_left{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
     }
     .routineBox_left > img{
         width: 13px;
@@ -372,76 +275,41 @@
     
     .routineBox_title{
         font-size: 18px;
-        color: #E3F5FE;
-        font-weight: 600;
         margin-right: 10px;
     }
     .routineBox_right{
-        color: #2E61D7;
         font-size: 12px;
     }
     .routineBox_bottom{
-        color: #66B3F9;
         font-size: 10px;
     }
     .routineBox_plus{
         margin: 6px;
         height: 100px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
         padding: 10px 20px;
-        border: 2px solid #264056;
-        background-color: #264056;
-        border-radius: 10px;
     }
     .routineBox_plus:hover{
         margin: 6px;
         height: 100px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
         padding: 10px 20px;
-        border: 2px solid #E3F5FE;
-        background-color: #264056;
-        border-radius: 10px;
     }
 }
 @media only screen and (min-width: 300px) and (max-width: 449px){
     .RoutineBox{
         width: 100%;
         height: 100%;
-        padding: 15px;
-        display: grid;
+        padding: 15px 5px 15px 5px;
         grid-template-columns: 1fr;
     }
     .routineBox{
         margin: 6px;
         height: 80px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
         padding: 10px 20px;
-        border: 2px solid #264056;
-        border-radius: 10px;
     }
     .routineBox:hover{
         margin: 6px;
         height: 80px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
         padding: 10px 20px;
-        border: 2px solid #E3F5FE;
-        border-radius: 10px;
-    }
-    .routineBox_top, .routineBox_left{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
     }
     .routineBox_left > img{
         width: 13px;
@@ -452,77 +320,43 @@
     
     .routineBox_title{
         font-size: 16px;
-        color: #E3F5FE;
         font-weight: 600;
         margin-right: 10px;
     }
     .routineBox_right{
-        color: #2E61D7;
         font-size: 10px;
     }
     .routineBox_bottom{
-        color: #66B3F9;
         font-size: 8px;
     }
     .routineBox_plus{
         margin: 6px;
         height: 80px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
         padding: 10px 20px;
-        border: 2px solid #264056;
-        background-color: #264056;
-        border-radius: 10px;
     }
     .routineBox_plus:hover{
         margin: 6px;
         height: 80px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
         padding: 10px 20px;
-        border: 2px solid #E3F5FE;
-        background-color: #264056;
-        border-radius: 10px;
     }
 }
 @media only screen and (min-width: 270px) and (max-width: 299px){
     .RoutineBox{
         width: 100%;
         height: 100%;
-        padding: 15px;
-        display: grid;
+        padding: 15px 5px 15px 5px;
         grid-template-columns: 1fr;
     }
     
     .routineBox{
         margin: 5px;
         height: 70px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
         padding: 10px 20px;
-        border: 2px solid #264056;
-        border-radius: 10px;
     }
     .routineBox:hover{
         margin: 5px;
         height: 70px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
         padding: 10px 20px;
-        border: 2px solid #E3F5FE;
-        border-radius: 10px;
-    }
-    .routineBox_top, .routineBox_left{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
     }
     .routineBox_left > img{
         width: 13px;
@@ -532,42 +366,25 @@
     }
     .routineBox_title{
         font-size: 14px;
-        color: #E3F5FE;
         font-weight: 600;
         margin-right: 10px;
     }
     .routineBox_right{
-        color: #2E61D7;
         font-size: 8px;
     }
     .routineBox_bottom{
-        color: #66B3F9;
         font-size: 6px;
     }
 
     .routineBox_plus{
         margin: 5px;
         height: 70px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
         padding: 10px 20px;
-        border: 2px solid #264056;
-        background-color: #264056;
-        border-radius: 10px;
     }
     .routineBox_plus:hover{
         margin: 5px;
         height: 70px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
         padding: 10px 20px;
-        border: 2px solid #E3F5FE;
-        background-color: #264056;
-        border-radius: 10px;
     }
 }
 
