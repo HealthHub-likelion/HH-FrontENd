@@ -25,6 +25,14 @@ function Profile({ username, Tab, showFollowers, setShowFollowers, userData, set
   }
 
   const userUnFollow = () => {
+    if (!localStorage.getItem('HH_name')) {
+      if (window.confirm('로그인되어 있지 않습니다.\n로그인 화면으로 이동하시겠습니까?')) {
+        navigate(`/`);
+        return;
+      }
+      return;
+    }
+
     axios.post(`${process.env.REACT_APP_PROXY}/accounts/member/unfollow`, {
       name: username
     }, {
@@ -40,6 +48,14 @@ function Profile({ username, Tab, showFollowers, setShowFollowers, userData, set
       })
   }
   const userFollowing = () => {
+    if (!localStorage.getItem('HH_name')) {
+      if (window.confirm('로그인되어 있지 않습니다.\n로그인 화면으로 이동하시겠습니까?')) {
+        navigate(`/`);
+        return;
+      }
+      return;
+    }
+
     axios.post(`${process.env.REACT_APP_PROXY}/accounts/member/follow`, {
       name: username
     }, {
