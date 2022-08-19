@@ -89,6 +89,8 @@ function Profile({ username, Tab, showFollowers, setShowFollowers, userData, set
           / <button className={setFollowingClass()} onClick={() => { setShowFollowers(false) }}>{userData.followingCount} following</button>
         </div>
         : selectFollowState()}
+      </div>
+      
       {userData.isFollow === null &&
         <div className='profile_add_record_box'>
           <button className='profile_add_record' onClick={() => { setShowAddRecord(true) }}>Add Record</button>
