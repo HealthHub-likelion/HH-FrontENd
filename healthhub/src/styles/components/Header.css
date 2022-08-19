@@ -228,7 +228,8 @@
 }
 @media only screen and (min-width: 600px) and (max-width: 900px){
     .header_top_box{
-        margin: 10px 20px 0 0;
+        margin: 2px 20px 0 0;
+        height: 50px;
     }
     .header_top_box > button, .header_top_box > button:hover{
         font-size: 13px;
@@ -286,6 +287,7 @@
 @media only screen and (min-width: 450px) and (max-width: 600px){
     .header_top_box{
         margin: 8px 18px 0 0;
+        height: 20px;
     }
     .header_top_box > button, .header_top_box > button:hover{
         font-size: 13px;
@@ -343,6 +345,7 @@
 @media only screen and (min-width: 300px) and (max-width: 450px){
     .header_top_box{
         margin: 10px 5px 0 0;
+        height: 18px;
     }
     .header_top_box > button, .header_top_box > button:hover{
         font-size: 12px;
@@ -414,6 +417,7 @@
 @media only screen and (min-width: 270px) and (max-width: 300px){
     .header_top_box{
         margin: 5px 5px 0 0;
+        height: 13px;
     }
     .header_top_box > button, .header_top_box > button:hover{
         font-size: 10px;
@@ -437,18 +441,18 @@
     .header_top_search_input{
         width: 100px;
         font-size: 10px;
-        font-weight: 100;
     }
     .header_top_searchBox > img{
-        height: 8px;
-        margin-left: -70px;
+        height: 10px;
+        margin-left: -24px;
     }
     .header_top_searchBox{
         margin-top : 20px;
         margin-right: 10px;
         padding: 3px 15px;
-        height: 25px;
-        width : 150px;
+        height: 18px;
+        width : 120px;
+        border-radius: 5px;
     }
     .header_top_searchBox > input{
         width: 110px;
