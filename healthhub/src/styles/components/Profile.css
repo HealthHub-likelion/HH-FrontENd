@@ -282,8 +282,11 @@
         font-weight: 500;
     }
     .profileBtn_unfollow, .profileBtn_following{
-        font-size: 12px;
-        font-weight: 500;
+        font-size: 10px;
+        font-weight: 400;
+        padding: 0px 4px;
+        border-radius: 6px;
+        border: 1px solid #2E61D7;
     }
     .profile_follow{
         position: absolute;
@@ -334,7 +337,11 @@
     }
     .profileBtn_unfollow, .profileBtn_following{
         font-size: 10px;
-        font-weight: 500;
+        font-weight: 300;
+        padding: 0px 3px;
+        border-radius: 5px;
+        border: 0.5px solid #2E61D7;
+        margin-left: 5px;
     }
     .profile_follow{
         position: absolute;
