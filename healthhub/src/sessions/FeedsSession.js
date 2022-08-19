@@ -45,7 +45,6 @@ const FeedsSession = ({userData, setUserData}) => {
         <div className='FeedsSession'>
             {
                         latest(feed_myList).map((e,i)=>{
-                            console.log(e);
                             return(
                                 <WaveElement
                                 userData={userData} 
@@ -59,6 +58,7 @@ const FeedsSession = ({userData, setUserData}) => {
                                 member_img = {e.member_img}
                                 isOpen={e.routine_isOpen}
                                 routineId = {e.routine_id}
+                                pre='wave'
                                 />
                             )
                         })
