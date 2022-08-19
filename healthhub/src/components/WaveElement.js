@@ -3,31 +3,31 @@ import '../styles/components/WaveElement.css'
 import ElementProfileBox from './ElementProfileBox';
 import { useState } from 'react';
 
-const WaveElement = ({record_img, create_time, routine_name, comment,member_nickname,member_img}) => {
+const WaveElement = ({ record_img, create_time, routine_name, comment, member_nickname, member_img }) => {
 
-    const [openComment,setOpenComment] = useState(false);
-    
-    function handleComment(comment){
-        if(comment.length > 15){
-            if(openComment){
+    const [openComment, setOpenComment] = useState(false);
+
+    function handleComment(comment) {
+        if (comment.length > 15) {
+            if (openComment) {
                 return ''
             }
-            else{
-                return comment.substr(0,15)+'...';
+            else {
+                return comment.substr(0, 15) + '...';
             }
         }
         else return comment
     }
 
-    function handleOpen(){
+    function handleOpen() {
         setOpenComment(true);
     }
-    
-    const showComment = () =>{
+
+    const showComment = () => {
         const line = comment.split('\n');
         const list = [];
 
-        for(let i = 0; i < line.length; i++){
+        for (let i = 0; i < line.length; i++) {
             list.push(
                 <div key={i}>{line[i]}</div>
             );
@@ -35,20 +35,20 @@ const WaveElement = ({record_img, create_time, routine_name, comment,member_nick
         return list;
     }
 
-    const closeComment = () =>{
+    const closeComment = () => {
         setOpenComment(false);
     }
 
     return (
         <div className='WaveElement'>
             <div className='waveElement_container'>
-                <ElementProfileBox member_nickname = {member_nickname} member_img = {member_img} />
-                {record_img !== null ? 
+                <ElementProfileBox member_nickname={member_nickname} member_img={member_img} />
+                {record_img !== null ?
                     <div className='waveElement_imgContainer'>
                         <img
                             className='waveElement_img'
-                            src = {`${process.env.REACT_APP_PROXY}${record_img}`}
-                            alt = "records_Img"/>
+                            src={`${process.env.REACT_APP_IMAGE}${record_img}`}
+                            alt="records_Img" />
                     </div> : null
                 }
                 <div className='waveElement_content'>
@@ -58,21 +58,21 @@ const WaveElement = ({record_img, create_time, routine_name, comment,member_nick
                     </div>
                     <div className='waveElement_content_secondLine'>
                         <div className='waveElement_routine'>{routine_name}</div>
-                        <div 
+                        <div
                             className='waveElement_comment'
                             onClick={handleOpen}>{handleComment(comment)}</div>
                     </div>
                     {
-                        openComment === true && comment.length > 15?
-                        <>
-                            <div className='waveElement_detailComment'>
-                                {showComment()}
-                            </div>
-                            <div 
-                                className='waveElement_closeComment'
-                                onClick={closeComment}>접기</div>
-                        </>
-                        : null
+                        openComment === true && comment.length > 15 ?
+                            <>
+                                <div className='waveElement_detailComment'>
+                                    {showComment()}
+                                </div>
+                                <div
+                                    className='waveElement_closeComment'
+                                    onClick={closeComment}>접기</div>
+                            </>
+                            : null
                     }
                 </div>
             </div>
