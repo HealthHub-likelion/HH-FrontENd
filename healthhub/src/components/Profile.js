@@ -79,7 +79,7 @@ function Profile({ username, Tab, showFollowers, setShowFollowers, userData, set
         <div className='profile_username'>{username}</div>
         {userData.isFollow !== null && (userData.isFollow
           ? <button className='profileBtn_unfollow' onClick={() => { userUnFollow() }}>unfollow</button>
-          : <button className='profileBtn_following' onClick={() => { userFollowing() }}>following</button>)
+          : <button className='profileBtn_following' onClick={() => { userFollowing() }}>follow</button>)
         }
       </div>
       {Tab === 'Follows'
