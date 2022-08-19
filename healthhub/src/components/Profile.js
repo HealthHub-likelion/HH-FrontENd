@@ -74,6 +74,7 @@ function Profile({ username, Tab, showFollowers, setShowFollowers, userData, set
   return (
     <div className="Profile">
       <img src={`${process.env.REACT_APP_IMAGE}${userData['img']}`} alt='프로필 이미지' />
+      
       <div className='profile_userstate_box'>
         <div className='profile_username'>{username}</div>
         {userData.isFollow !== null && (userData.isFollow
