@@ -44,9 +44,9 @@ function RecordSession() {
                 getToday = new Date(today.toISOString().substring(0,10) + " 00:00:00");
                 count += 1;
             }
-            else{
-                return count;
-            }
+            // else{
+            //     return count;
+            // }
         })
         return count;
     }
