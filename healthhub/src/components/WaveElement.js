@@ -2,9 +2,10 @@ import React from 'react';
 import '../styles/components/WaveElement.css'
 import ElementProfileBox from './ElementProfileBox';
 import { useState } from 'react';
+import ShowRoutineModal from '../components/modals/ShowRoutineModal';
 
-const WaveElement = ({ record_img, create_time, routine_name, comment, member_nickname, member_img }) => {
-
+const WaveElement = ({ record_img, create_time, routine_name, comment, member_nickname, member_img, userData, setUserData, isOpen, routineId }) => {
+    const [showRoutine, setShowRoutine] = useState(false);
     const [openComment, setOpenComment] = useState(false);
 
     function handleComment(comment) {
@@ -39,6 +40,14 @@ const WaveElement = ({ record_img, create_time, routine_name, comment, member_ni
         setOpenComment(false);
     }
 
+    const showModal = () =>{
+        if(isOpen || member_nickname===localStorage.getItem('HH_name')){
+            setShowRoutine(true);
+            return;
+        }
+        alert('잠겨있는 루틴입니다.');
+    }
+
     return (
         <div className='WaveElement'>
             <div className='waveElement_container'>
@@ -52,7 +61,7 @@ const WaveElement = ({ record_img, create_time, routine_name, comment, member_ni
                     </div> : null
                 }
                 <div className='waveElement_content'>
-                    <div className='waveElement_content_fistLine'>
+                    <div className='waveElement_content_fistLine' onClick={()=>{showModal()}}>
                         <div className='waveElement_today'>Today's routine</div>
                         <div className='waveElement_date'>{create_time}</div>
                     </div>
@@ -76,6 +85,14 @@ const WaveElement = ({ record_img, create_time, routine_name, comment, member_ni
                     }
                 </div>
             </div>
+
+            <ShowRoutineModal
+                show={showRoutine}
+                onHide={()=>{setShowRoutine(false)}}
+                userData = {userData}
+                setUserData = {setUserData}
+                clickRoutineId={routineId}
+            />
         </div>
     );
 };
