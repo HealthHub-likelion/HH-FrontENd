@@ -36,7 +36,8 @@ function RecordSession() {
 
     function getConsecutive(){
         let count = 0;
-        let today = new Date();
+        const offset = new Date().getTimezoneOffset() * 60000;
+        const today = new Date(Date.now() - offset);    
         let getToday = new Date(today.toISOString().substring(0,10) + " 00:00:00");
         latest(myList).map((e)=>{
             if(Math.ceil((getToday.getTime() - new Date(e.record_create_time.substring(0,10) + " 00:00:00").getTime())/(1000 * 3600 * 24)) === 1){
@@ -44,9 +45,6 @@ function RecordSession() {
                 getToday = new Date(today.toISOString().substring(0,10) + " 00:00:00");
                 count += 1;
             }
-            // else{
-            //     return count;
-            // }
         })
         return count;
     }
@@ -55,9 +53,12 @@ function RecordSession() {
         setConsecutiveDay(getConsecutive());
     })
 
-    function latest(myList){
-        const latestList = [...myList];
-        return latestList.reverse();
+    function latest(feed_myList){
+        const latestList = [...feed_myList];
+        latestList.sort((a,b)=>{
+            return b.record_id - a.record_id;
+        })
+        return latestList;
     }
 
     return (
