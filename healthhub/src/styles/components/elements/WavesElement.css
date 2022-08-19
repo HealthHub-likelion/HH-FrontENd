@@ -188,6 +188,9 @@
     .wave_date_sate_info_content{
         font-size : 14px;
     }
+    .wave_header{
+        margin: 0 40px;
+    }
 }
 
 @media only screen and (min-width: 300px) and (max-width: 375px){
@@ -225,6 +228,9 @@
     .wave_date_sate_info_content{
         font-size : 13px;
     }
+    .wave_header{
+        margin: 0 40px;
+    }
 }
 
 @media only screen and (min-width: 270px) and (max-width: 300px){
@@ -261,5 +267,8 @@
     }
     .wave_date_sate_info_content{
         font-size : 12px;
+    }
+    .wave_header{
+        margin: 0 40px;
     }
 }
