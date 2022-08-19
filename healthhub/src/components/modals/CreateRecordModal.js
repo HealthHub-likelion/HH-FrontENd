@@ -150,12 +150,14 @@ function CreateRecordModal({ show, onHide, userData }) {
                     }).catch((err) => {
                         // console.log(err);
                         alert('이미지 등록 실패!!');
+                        setLoad(false);
                     })
                     console.log(res);
                 }
             }).catch((err) => {
                 // console.log(err);
                 alert('게시물 등록 실패!!');
+                setLoad(false);
             })
         }
     }
