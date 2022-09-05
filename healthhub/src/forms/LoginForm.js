@@ -1,9 +1,11 @@
 import '../styles/forms/LoginForm.css'
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import axios from 'axios';
 
 function LoginForm() {
+    const textareaRef = useRef();
+
     const navigate = useNavigate();
     const [loginState, setLoginState] = useState({
         email: '',
@@ -32,6 +34,12 @@ function LoginForm() {
             })
     }
 
+    const goPassword = (e) => {
+        if (e.key === 'Enter') {
+            textareaRef.current.focus();
+        }
+    }
+
     const onCheckEnter = (e) => {
         if (e.key === 'Enter') {
             axiosLogin();
@@ -45,13 +53,14 @@ function LoginForm() {
                     value={loginState['email']}
                     onChange={saveEamil}
                     placeholder='이메일'
-                    onKeyDown={onCheckEnter}
+                    onKeyDown={goPassword}
                 ></input>
             </div>
             <input
                 type="password"
                 placeholder='비밀번호'
                 className='loginform_password'
+                ref={textareaRef}
                 value={loginState['password']}
                 onChange={savePwd}
                 onKeyDown={onCheckEnter}
