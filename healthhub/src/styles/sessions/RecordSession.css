@@ -29,6 +29,7 @@
 .wavesWindow_content{
     width : 100%;
     overflow: scroll;
+    height: 600px;
 }
 .wavesWindow_content::-webkit-scrollbar{
     display: none;
@@ -36,9 +37,11 @@
 .wavesWindow_header_title{
     color : #66B3F9;
     font-weight: bold;
+    padding-left: 5px;
 }
 .wavesWindow_header_recordsCnt{
     color : #2E61D7;
+    padding-right: 5px;
 }
 
 @media only screen and (min-width: 1200px){
@@ -52,15 +55,6 @@
         padding: 10px;
         font-size: 18px;
     }
-    .wavesWindow_content{
-        height: 600px;
-    }
-    .wavesWindow_header_title{
-        padding-left: 5px;
-    }
-    .wavesWindow_header_recordsCnt{
-        padding-right: 5px;
-    }
 }
 @media only screen and (min-width: 900px) and (max-width: 1199px){
     .recordSession_recordsState{
@@ -72,15 +66,6 @@
         margin: 20px 0;
         padding: 10px;
         font-size: 15px;
-    }
-    .wavesWindow_content{
-        height: 600px;
-    }
-    .wavesWindow_header_title{
-        padding-left: 5px;
-    }
-    .wavesWindow_header_recordsCnt{
-        padding-right: 5px;
     }
 }
 @media only screen and (min-width: 600px) and (max-width: 899px){
@@ -94,15 +79,6 @@
         padding: 8px;
         font-size: 14px;
     }
-    .wavesWindow_content{
-        height: 600px;
-    }
-    .wavesWindow_header_title{
-        padding-left: 5px;
-    }
-    .wavesWindow_header_recordsCnt{
-        padding-right: 5px;
-    }
 }
 @media only screen and (min-width: 450px) and (max-width: 599px){
     .recordSession_recordsState{
@@ -114,15 +90,6 @@
         margin: 20px auto;
         font-size: 13px;
         padding: 3px;
-    }
-    .wavesWindow_content{
-        height: 600px;
-    }
-    .wavesWindow_header_title{
-        padding-left: 5px;
-    }
-    .wavesWindow_header_recordsCnt{
-        padding-right: 5px;
     }
 }
 
@@ -137,15 +104,6 @@
         font-size: 12px;
         padding: 1px;
     }
-    .wavesWindow_content{
-        height: 600px;
-    }
-    .wavesWindow_header_title{
-        padding-left: 5px;
-    }
-    .wavesWindow_header_recordsCnt{
-        padding-right: 5px;
-    }
 }
 
 @media only screen and (min-width: 270px) and (max-width: 299px){
@@ -158,14 +116,5 @@
         margin: 20px auto;
         font-size: 10px;
         padding: 1px;
-    }
-    .wavesWindow_content{
-        height: 600px;
-    }
-    .wavesWindow_header_title{
-        padding-left: 5px;
-    }
-    .wavesWindow_header_recordsCnt{
-        padding-right: 5px;
     }
 }
