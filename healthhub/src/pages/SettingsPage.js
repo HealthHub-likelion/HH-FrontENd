@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useParams } from 'react-router-dom';
-import '../styles/pages/SettingsPage.css';
+import '../styles/pages/MainPage.css'
 import Header from "../components/Header";
 import ProfileSession from "../sessions/ProfileSession";
 import SettingsSession from "../sessions/SettingsSession";
@@ -13,15 +13,15 @@ function SettingsPage() {
   return (
     <>
       {Object.keys(userData).length !== 0 &&
-        <div className="SettingsPage">
-          <div className="settingspage_header">
+        <div className="MainPage">
+          <div className="mainpage_header">
             <Header Tab={'Settings'} username={username} userData={userData} />
           </div>
-          <div className="settingspage_content">
-            <div className="settingspage_profile">
+          <div className="mainpage_content">
+            <div className="mainpage_profile">
               <ProfileSession username={username} userData={userData} />
             </div>
-            <div className="settingspage_SettingsSession">
+            <div className="mainpage_session">
               <SettingsSession username={username} userData={userData} />
             </div>
           </div>

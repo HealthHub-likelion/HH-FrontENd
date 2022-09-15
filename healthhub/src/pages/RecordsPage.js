@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { useParams } from 'react-router-dom';
-import '../styles/pages/RecordsPage.css'
+import '../styles/pages/MainPage.css'
 import Header from "../components/Header";
 import ProfileSession from "../sessions/ProfileSession";
 import RecordSession from "../sessions/RecordsSession";
@@ -11,15 +11,15 @@ function RecordsPage() {
     const [userData, setUserData] = useState({});
 
     return (
-      <div className="RecordsPage">
-        <div className="recordspage_header">
+      <div className="MainPage">
+        <div className="mainpage_header">
           <Header Tab={'Records'} username={username} userData={userData}/>
         </div>
-        <div className="recordspage_content">
-          <div className="recordspage_profile">
+        <div className="mainpage_content">
+          <div className="mainpage_profile">
             <ProfileSession username={username} userData={userData}/>
           </div>
-          <div className="recordspage_RecordsSession">
+          <div className="mainpage_session">
             <RecordSession userData={userData} setUserData={setUserData}/>
           </div>
         </div>
