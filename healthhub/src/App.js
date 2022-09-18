@@ -10,6 +10,8 @@ import SignupPage from './pages/SignupPage';
 import UserPage from './pages/UserPage';
 import NotFoundPage from './pages/NotFoundPage';
 import { useMediaQuery } from 'react-responsive';
+import PopularPage from './pages/PopularPage';
+import RankingPage from './pages/RankingPage';
 
 function App() {
   const validWidth = useMediaQuery({
@@ -29,6 +31,8 @@ function App() {
         <Route path="/:username/follow" element={<FollowsPage/>}/>
         <Route path="/:username/records" element={<RecordsPage/>}/>
         <Route path="/:username/settings" element={<SettingsPage/>}/>
+        <Route path="/:username/ranking" element={<RankingPage/>}/>
+        <Route path="/:username/popular" element={<PopularPage/>}/>
         <Route path="*" element={<NotFoundPage/>}/>
       </Routes>}
       {validWidth||<div>해상도를 높여주세요.</div>}
