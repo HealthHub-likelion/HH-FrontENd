@@ -21,14 +21,6 @@
     }
     
     .routines_header{
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: center;
-        padding: 10px 20px;
-        border-bottom: 3px solid #264056;
-        color: #66B3F9;
-        font-weight: bold;
         font-size: 16px;
     }
 }
@@ -40,14 +32,6 @@
     }
     
     .routines_header{
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: center;
-        padding: 10px 20px;
-        border-bottom: 3px solid #264056;
-        color: #66B3F9;
-        font-weight: bold;
         font-size: 14px;
     }
 }

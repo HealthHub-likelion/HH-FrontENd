@@ -7,7 +7,10 @@ import ShowRoutineModal from '../components/modals/ShowRoutineModal';
 const WaveElement = ({ record_img, create_time, routine_name, comment, member_nickname, member_img, userData, setUserData, isOpen, routineId, pre }) => {
     const [showRoutine, setShowRoutine] = useState(false);
     const [openComment, setOpenComment] = useState(false);
-
+    const [like, setLike] = useState({
+        liked: false,
+        count: 0,
+    });
 
     function handleComment(comment) {
         if (comment.length > 15) {
@@ -49,6 +52,15 @@ const WaveElement = ({ record_img, create_time, routine_name, comment, member_ni
         alert('잠겨있는 루틴입니다.');
     }
 
+    {/* 좋아요 상태/횟수 변경 함수 */ }
+    const changeLike = () => {
+        setLike({
+            ...like,
+            liked: !like.liked,
+            count: like.liked === false ? like.count + 1 : like.count - 1,
+        })
+    }
+
     return (
         <div className='WaveElement'>
             <div className='waveElement_container'>
@@ -67,10 +79,21 @@ const WaveElement = ({ record_img, create_time, routine_name, comment, member_ni
                         <div className='waveElement_date'>{create_time}</div>
                     </div>
                     <div className='waveElement_content_secondLine'>
-                        <div className='waveElement_routine'  onClick={() => { showModal() }}>{routine_name}</div>
+                        <div className='waveElement_routine' onClick={() => { showModal() }}>{routine_name}</div>
                         <div
                             className='waveElement_comment'
                             onClick={handleOpen}>{handleComment(comment)}</div>
+                    </div>
+
+                    {/* 좋아요, 댓글 */}
+                    <div className='waveElement_content_thirdLine'>
+                        <div
+                            className='waveElement_like'
+                            onClick={() => { changeLike() }}>   {/* 클릭하면 변경하는 함수 실행 */}
+                            {like.liked === false
+                                ? <img src='/img/like.png' alt='좋아요' />
+                                : <img src='/img/liked.png' alt='좋아요 누름' />}{like.count}</div>
+                        <div className='waveElement_reply' onClick={() => { showModal() }}><img src='/img/reply.png' alt='댓글' />0</div>
                     </div>
                     {
                         openComment === true && comment.length > 15 ?
