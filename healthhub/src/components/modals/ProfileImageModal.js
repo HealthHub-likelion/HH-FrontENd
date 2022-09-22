@@ -8,10 +8,20 @@ import { useNavigate } from 'react-router-dom';
 function ProfileImageModal(props) {
     const navigate = useNavigate();
 
-    const [imageSrc, setImageSrc] = useState('');   // 미리보기 데이터(base 64)
-    const [profileImg, setProfileImg] = useState(null); // 프로필 사진 데이터
+    const [imageSrc, setImageSrc] = useState(`${process.env.REACT_APP_IMAGE}${props.userdata['img']}`);   // 미리보기 데이터(base 64)
+    const [profileImg, setProfileImg] = useState(props.userdata['img']); // 프로필 사진 데이터
 
     const token = localStorage.getItem('HH_token');
+
+    const initModal = () => {
+        if (profileImg == '/media/images/HH_logo.jpg') {
+            setImageSrc('');
+            setProfileImg(null);
+        } else {
+            setImageSrc(`${process.env.REACT_APP_IMAGE}${props.userdata['img']}`);
+            setProfileImg(props.userdata['img']);
+        }
+    }
 
     const uploadProfileImage = async () => {
         if (!profileImg) {
@@ -42,10 +52,11 @@ function ProfileImageModal(props) {
         }
     }
 
-    const removeImage = () => {
-        setImageSrc('');
-        setProfileImg(null);
-        props.onHide()
+    const uploadCancel = () => {
+        if (window.confirm('취소하시겠습니까?')) {
+            initModal()
+            props.onHide()
+        }
     }
 
     return (
@@ -59,7 +70,7 @@ function ProfileImageModal(props) {
                     <div className='create_record_header'>프로필 이미지</div>
                     <div className='create_record_image'>
                         <div className='create_record_title'>
-                            <UploadProfile imageSrc={imageSrc} setImageSrc={setImageSrc} profileImg={profileImg} setProfileImg={setProfileImg} />
+                            <UploadProfile imageSrc={imageSrc} setImageSrc={setImageSrc} setProfileImg={setProfileImg} />
                         </div>
                         {profileImg
                             ? <div className='create_record_sub_body'><img alt='사진 미리보기' src={imageSrc} /></div>
@@ -67,7 +78,7 @@ function ProfileImageModal(props) {
                     </div>
 
                     <div className='create_record_footer'>
-                        <button onClick={() => removeImage()}>취소</button>
+                        <button onClick={() => uploadCancel()}>취소</button>
                         <button onClick={() => { uploadProfileImage() }}>저장</button>
                     </div>
                 </Modal.Body>

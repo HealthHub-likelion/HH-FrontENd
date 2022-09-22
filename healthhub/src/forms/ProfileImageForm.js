@@ -12,7 +12,7 @@ function ProfileImageForm({ userData }) {
 
     const deleteProfileImage = () => {
         // 프로필 이미지 삭제
-        axios.post(`${process.env.REACT_APP_PROXY}/accounts/profileimage/delete`, {},
+        axios.post(`${process.env.REACT_APP_IMAGE}/accounts/profileimage/delete`, {},
             {
                 // 헤더 부분
                 headers: {

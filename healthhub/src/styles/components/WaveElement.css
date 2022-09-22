@@ -20,6 +20,10 @@
 .waveElement_content_secondLine{
     display : flex;
     justify-content: space-between;
+    padding-bottom: 10px;
+}
+.waveElement_content_thirdLine{
+    display : flex;
 }
 .waveElement_today{
     color : #66B3F9;
@@ -38,6 +42,14 @@
 }
 .waveElement_routine, .waveElement_comment{
     color: white;
+}
+.waveElement_like, .waveElement_reply{
+    margin-right: 15px;
+    color: white;
+}
+.waveElement_like > img, .waveElement_reply > img{
+    width: 20px;
+    margin-right: 6px;
 }
 
 @media only screen and (min-width: 1200px){
