@@ -127,11 +127,6 @@
     }
 }
 @media only screen and (min-width: 900px) and (max-width: 1199px){
-    .Profile{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
     .Profile > img{
         width: 200px;
         height: 200px;
@@ -139,24 +134,18 @@
     }
     .profile_userstate_box{
         margin-top: 8px;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
         padding: 0 25px;
     }
     .profile_username{
         font-size: 28px;
-        font-weight: 500;
     }
     .profileBtn_unfollow, .profileBtn_following{
         font-size: 14px;
-        font-weight: 500;
         height: 30px;
         width: 80px;
     }
     .profile_follow{
         margin-top: 7px;
-        width: 100%;
         padding-left: 25px;
         font-size: 15px;
     }
@@ -169,25 +158,18 @@
     }
     .profile_button_group{
         margin-top: 7px;
-        width: 100%;
         padding-left: 25px;
         font-size: 15px;
     }
 }
-@media only screen and (min-width: 600px) and (max-width: 899px){
+
+@media only screen and (min-width: 600px){
     .Profile{
         display: flex;
         flex-direction: row;
     }
-    .Profile > img{
-        width: 90px;
-        height: 90px;
-        margin: auto 10px;
-    }
     .profile_userstate_box{
         height: 100%;
-        width: 250px;
-        display: flex;
         flex-direction: column;
         justify-content: flex-end;
         padding-bottom: 10px;
@@ -195,6 +177,29 @@
     .profile_userstate_box > div{
         display: flex;
         justify-content: flex-start;
+    }
+    .profile_add_record_box{
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        margin-right: 20px;
+    }
+    .profile_add_record{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 899px){
+    .Profile > img{
+        width: 90px;
+        height: 90px;
+        margin: auto 10px;
+    }
+    .profile_userstate_box{
+        width: 250px;
     }
     .profile_username{
         font-size: 26px;
@@ -208,46 +213,23 @@
     .profile_follow{
         font-size: 15px;
     }
-    .profile_add_record_box{
-        flex: 1;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        margin-right: 20px;
-    }
     .profile_add_record{
         height: 40px;
         font-size: 15px;
         padding: 10px 30px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
     }
     .profile_button_group{
         font-size: 15px;
     }
 }
 @media only screen and (min-width: 450px) and (max-width: 599px){
-    .Profile{
-        display: flex;
-        flex-direction: row;
-    }
     .Profile > img{
         width: 80px;
         height: 80px;
         margin: auto 5px;
     }
     .profile_userstate_box{
-        height: 100%;
         width: 230px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        padding-bottom: 10px;
-    }
-    .profile_userstate_box > div{
-        display: flex;
-        justify-content: flex-start;
     }
     .profile_username{
         font-size: 22px;
@@ -261,46 +243,23 @@
     .profile_follow{
         font-size: 13px;
     }
-    .profile_add_record_box{
-        flex: 1;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        margin-right: 20px;
-    }
     .profile_add_record{
         height: 33px;
         font-size: 12px;
         padding: 6px 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
     }
     .profile_button_group{
         font-size: 13px;
     }
 }
 @media only screen and (min-width: 300px) and (max-width: 449px){
-    .Profile{
-        display: flex;
-        flex-direction: row;
-    }
     .Profile > img{
         width: 40px;
         height: 40px;
         margin: auto 3px;
     }
     .profile_userstate_box{
-        height: 100%;
         width: 200px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        padding-bottom: 10px;
-    }
-    .profile_userstate_box > div{
-        display: flex;
-        justify-content: flex-start;
     }
     .profile_username{
         font-size: 15px;
@@ -317,50 +276,26 @@
     .profile_follow{
         font-size: 10px;
     }
-    .profile_add_record_box{
-        flex: 1;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        margin-right: 20px;
-    }
     .profile_add_record{
         height: 25px;
         font-size: 10px;
         padding: 6px 10px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
     }
     .profile_button_group{
         font-size: 10px;
     }
 }
 @media only screen and (min-width: 270px) and (max-width: 300px){
-    .Profile{
-        display: flex;
-        flex-direction: row;
-    }
     .Profile > img{
         width: 30px;
         height: 30px;
         margin: auto 3px;
     }
     .profile_userstate_box{
-        height: 100%;
         width: 150px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        padding-bottom: 10px;
-    }
-    .profile_userstate_box > div{
-        display: flex;
-        justify-content: flex-start;
     }
     .profile_username{
         font-size: 13px;
-        font-weight: 500;
     }
     .profileBtn_unfollow, .profileBtn_following{
         font-size: 10px;
@@ -373,21 +308,11 @@
     .profile_follow{
         font-size: 10px;
     }
-    .profile_add_record_box{
-        flex: 1;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        margin-right: 20px;
-    }
     .profile_add_record{
         width: 85px;
         height: 10px;
         font-size: 10px;
         padding: 10px 12px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
     }
     .profile_button_group{
         font-size: 10px;
