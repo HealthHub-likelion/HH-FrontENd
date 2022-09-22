@@ -36,7 +36,6 @@
     .waveElement_profileImgBox{
         width : 35px;
         height: 35px;
-        border-radius: 20px;
         margin-right : 8px;
     }
 }
@@ -84,7 +83,6 @@
     .waveElement_profileImgBox{
         width : 25px;
         height: 25px;
-        border-radius: 15px;
         margin-right : 6px;
     }
 }

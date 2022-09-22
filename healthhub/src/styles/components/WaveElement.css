@@ -60,10 +60,9 @@
         object-fit: cover;
     }
 }
-@media only screen and (min-width: 900px) and (max-width: 1199px){
+@media only screen and (min-width: 600px) and (max-width: 1199px){
     .WaveElement{
         width : 450px;
-        margin: auto;
         margin-bottom: 20px;
     }
     .waveElement_content{
@@ -71,39 +70,16 @@
     }
     .waveElement_content_fistLine{
         font-size: 15px;
-        font-weight: 300;
     }
     .waveElement_img{
-        display : block;
         width: 450px;
         height: 450px;
-        object-fit: cover;
     }
 }
-@media only screen and (min-width: 600px) and (max-width: 899px){
-    .WaveElement{
-        width : 450px;
-        margin: auto;
-        margin-bottom: 20px;
-    }
-    .waveElement_content{
-        font-size : 14px;
-    }
-    .waveElement_content_fistLine{
-        font-size: 15px;
-        font-weight: 300;
-    }
-    .waveElement_img{
-        display : block;
-        width: 450px;
-        height: 450px;
-        object-fit: cover;
-    }
-}
+
 @media only screen and (min-width: 450px) and (max-width: 599px){
     .WaveElement{
         width : 400px;
-        margin: auto;
         margin-bottom: 15px;
     }
     .waveElement_content{
@@ -111,20 +87,16 @@
     }
     .waveElement_content_fistLine{
         font-size: 14px;
-        font-weight: 300;
     }
     .waveElement_img{
-        display : block;
         width: 400px;
         height: 400px;
-        object-fit: cover;
     }
 }
 
 @media only screen and (min-width: 300px) and (max-width: 449px){
     .WaveElement{
         width : 250px;
-        margin: auto;
         margin-bottom: 10px;
     }
     .waveElement_content{
@@ -132,20 +104,16 @@
     }
     .waveElement_content_fistLine{
         font-size: 12px;
-        font-weight: 300;
     }
     .waveElement_img{
-        display : block;
         width: 250px;
         height: 250px;
-        object-fit: cover;
     }
 }
 
 @media only screen and (min-width: 270px) and (max-width: 299px){
     .WaveElement{
         width : 230px;
-        margin: auto;
         margin-bottom: 15px;
     }
     .waveElement_content{
@@ -153,12 +121,9 @@
     }
     .waveElement_content_fistLine{
         font-size: 10px;
-        font-weight: 300;
     }
     .waveElement_img{
-        display : block;
         width: 230px;
         height: 230px;
-        object-fit: cover;
     }
 }
