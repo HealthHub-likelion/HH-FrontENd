@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import '../styles/pages/MainPage.css'
 import Header from "../components/Header";
 import ProfileSession from "../sessions/ProfileSession";
+import RankingSession from "../sessions/RankingSession";
 import InitialData from "../components/InitialData";
 
 function RankingPage() {
@@ -19,7 +20,9 @@ function RankingPage() {
             <ProfileSession username={username} userData={userData}/>
           </div>
           <div className="mainpage_session">
-          <div>랭킹 세션 들어갈 자리</div>
+          <div className="mainpage_ranking">
+            <RankingSession username={username} userData={userData}/>
+          </div>
           </div>
         </div>
 
