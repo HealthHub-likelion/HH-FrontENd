@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import IndexContainer from "../components/background/indexBG";
 import { useEffect } from 'react';
 import axios from 'axios';
-import SearchUser from '../components/SearchUser';
+import SearchUser2 from '../components/SearchUser2';
 
 function IndexPage() {
     const navigate = useNavigate();
@@ -43,7 +43,7 @@ function IndexPage() {
         <div className="IndexPage">
             <IndexContainer>
                 <div className = "index_header_userSearch">
-                    <SearchUser/>
+                    <SearchUser2/>
                 </div>
                 <div className="index_top">
                     <div className="index_top_title" onClick={()=>{clickLogo()}}>

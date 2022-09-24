@@ -1,0 +1,491 @@
+.SearchUser_top_box{
+    display: flex;
+    flex-direction: row;
+    height : 50%;
+    justify-content : flex-end;
+}
+.SearchUser_top_searchContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.SearchUser_top_searchBox{
+    border: 1px solid #878787;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 8px;
+    margin-top : 20px; 
+    padding: 3px 15px;
+}
+.SearchUser_top_searchBox > input{
+    background-color: transparent;
+    outline: none;
+    border: none;
+    color: rgb(186, 186, 186);
+}
+.SearchUser_dropdownBox{
+    z-index : 3;
+}
+.SearchUser_top_search_dropdown{
+    border-radius: 3px;
+    background-color: #10273B;
+    color : white;
+    margin-left: 5px;
+    overflow-y: auto;
+}
+.SearchUser_top_search_dropdown2{
+    border-radius: 3px;
+    background-color: #10273B;
+    color : white;
+    margin-left: 5px;
+    overflow-y: auto;
+}
+.SearchUser_top_search_dropdown_nouser{
+
+    border-radius: 3px;
+    background-color: #10273B;
+    color : white;
+}
+.SearchUser_userList{
+    display : flex;
+    border-bottom: 2px solid #264056;
+}
+.SearchUser_userImgContainer{
+    margin : auto 10px;
+}
+.SearchUser_userImg{
+    display : block;
+    width : 100%;
+    border-radius: 15px;
+    border : none;
+}
+.SearchUser_userName{
+    margin : auto 10px;
+    margin-left : 5px;
+}
+.SearchUser_box{
+    display: flex;
+    flex-direction: row;
+    margin: 25px 30px 0 0;
+}
+.SearchUser_logButton > button{
+    border: none;
+    background-color: transparent;
+    color: #878787;
+    vertical-align: top;
+}
+.SearchUser_logButton > button:hover{
+    border: none;
+    background-color: transparent;
+    color: #cacaca;
+}
+.SearchUser_logButton{
+    align-items: center;
+    padding-top : 24px;
+    padding-right : 10px;
+}
+.SearchUser_logo_left{
+    color: #E3F5FE;
+}
+.SearchUser_logo_right{
+    color: #66B3F9;
+}
+
+@media only screen and (min-width: 1200px){
+    .SearchUser_top_searchBox{
+        margin-right: 20px;
+        height: 35px;
+        width : 260px;
+    }
+    .SearchUser_top_searchBox > input{
+        width: 200px;
+        margin-right: 10px;
+        font-size: 15px;
+    }
+    .SearchUser_top_searchBox > img{
+        height: 15px;
+    }
+    .SearchUser_top_search_dropdown{
+        margin-right: 20px;
+        width: 248px;
+        top: 61px;
+        max-height: 160px;
+    }
+    .SearchUser_top_search_dropdown2{
+        margin-right : 20px;
+        width: 248px;
+        top: 61px;
+        max-height: 160px;
+    }
+    .SearchUser_userList{
+        height : 40px;
+    }
+    .SearchUser_userImgContainer{
+        width : 25px;
+        height : 25px;
+    }
+    .SearchUser_userImg{
+        height : 25px;
+    }
+    .SearchUser_userName{
+        font-size: 17px;
+    }
+    .SearchUser_nouser_alert{
+        font-size : 14px;
+        margin : 8px 15px;
+    }
+    .SearchUser_logo_left{
+        margin-left: 15px;
+        font-size: 18px;
+    }
+    .SearchUser_logo_right{
+        margin-left: 3px;
+        font-size: 18px;
+    }
+}
+
+@media only screen and (min-width: 900px) and (max-width: 1200px){
+    .SearchUser_top_searchBox{
+        margin-right: 15px;
+        height: 35px;
+        width : 250px;
+    }
+    .SearchUser_top_searchBox > input{
+        width: 200px;
+        margin-right: 10px;
+        font-size: 15px;
+    }
+    .SearchUser_top_searchBox > img{
+        height: 15px;
+    }
+    .SearchUser_top_search_dropdown{
+        margin-right: 20px;
+        width: 240px;
+        top: 61px;
+        max-height: 140px;
+    }
+    .SearchUser_top_search_dropdown2{
+        margin-right: 20px;
+        width: 240px;
+        top: 61px;
+        max-height: 140px;
+    }
+    .SearchUser_userList{
+        height : 35px;
+    }
+    .SearchUser_userImgContainer{
+        width : 25px;
+        height : 25px;
+    }
+    .SearchUser_userImg{
+        height : 25px;
+    }
+    .SearchUser_userName{
+        font-size: 17px;
+    }
+    .SearchUser_nouser_alert{
+        font-size : 13.5px;
+        margin : 8px 15px;
+    }
+    .SearchUser_logo_left{
+        margin-left: 14px;
+        font-size: 16px;
+    }
+    .SearchUser_logo_right{
+        margin-left: 3px;
+        font-size: 16px;
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 900px){
+    .SearchUser_top_searchBox{
+        margin-right: 20px;
+        height: 33px;
+        width : 240px;
+    }
+    .SearchUser_top_searchBox > input{
+        width: 200px;
+        margin-right: 10px;
+        font-size: 13px;
+    }
+    .SearchUser_top_searchBox > img{
+        height: 15px;
+    }
+    .SearchUser_top_search_dropdown{
+        margin-right : 20px;
+        width: 230px;
+        top: 59px;
+        max-height: 132px;
+    }
+    .SearchUser_top_search_dropdown2{
+        margin-right : 20px;
+        width: 230px;
+        top: 59px;
+        max-height: 132px;
+    }
+    .SearchUser_userList{
+        height : 33px;
+    }
+    .SearchUser_userImgContainer{
+        width : 24px;
+        height : 24px;
+    }
+    .SearchUser_userImg{
+        height : 24px;
+    }
+    .SearchUser_userName{
+        font-size: 16px;
+    }
+    .SearchUser_nouser_alert{
+        font-size : 13px;
+        margin : 8px 15px;
+    }
+    .SearchUser_logo_left{
+        margin-left: 10px;
+        font-size: 15px;
+    }
+    .SearchUser_logo_right{
+        margin-left: 3px;
+        font-size: 15px;
+    }
+}
+
+@media only screen and (min-width: 450px) and (max-width: 600px){
+    .SearchUser_top_searchBox{
+        margin-right: 15px;
+        height: 30px;
+        width : 210px;
+    }
+    .SearchUser_top_searchBox > input{
+        width: 155px;
+        margin-right: 10px;
+        font-size: 13px;
+    }
+    .SearchUser_top_searchBox > img{
+        height: 15px;
+    }
+    .SearchUser_top_search_dropdown{
+        margin-right : 20px;
+        width: 200px;
+        top: 58px;
+        margin-left: 5px;
+        max-height: 124px;
+        overflow-y: auto;
+    }
+    .SearchUser_top_search_dropdown2{
+        margin-right : 20px;
+        width: 200px;
+        top: 58px;
+        max-height: 124px;
+    }
+    .SearchUser_userList{
+        height : 31px;
+    }
+    .SearchUser_userImgContainer{
+        width : 22px;
+        height : 22px;
+        margin : auto 10px;
+    }
+    .SearchUser_userImg{
+        height : 22px;
+    }
+    .SearchUser_userName{
+        font-size: 15px;
+    }
+    .SearchUser_nouser_alert{
+        font-size : 12px;
+        margin : 6px 15px;
+    }
+    .SearchUser_box{
+        margin: 23px 25px 0 0;
+    }
+    .SearchUser_logButton{
+        padding-top : 22px;
+    }
+    .SearchUser_logo_left{
+        margin-left: 8px;
+        font-size: 17px;
+    }
+    .SearchUser_logo_right{
+        margin-left: 2px;
+        font-size: 17px;
+    }
+}
+
+@media only screen and (min-width: 350px) and (max-width: 450px){
+    .SearchUser_top_searchBox{
+        margin-right: 15px;
+        height: 25px;
+        width : 160px;
+    }
+    .SearchUser_top_searchBox > input{
+        width: 115px;
+        margin-right: 2px;
+        font-size: 12px;
+    }
+    .SearchUser_top_searchBox > img{
+        height: 12px;
+    }
+    .SearchUser_top_search_dropdown{
+        margin-right : 20px;
+        width: 150px;
+        top: 55px;
+        max-height: 120px;
+    }
+    .SearchUser_top_search_dropdown2{
+        margin-right : 20px;
+        width: 150px;
+        top: 55px;
+        max-height: 120px;
+    }
+    .SearchUser_userList{
+        height : 30px;
+    }
+    .SearchUser_userImgContainer{
+        width : 20px;
+        height : 20px;
+    }
+    .SearchUser_userImg{
+        height : 20px;
+    }
+    .SearchUser_userName{
+        font-size: 14px;
+    }
+    .SearchUser_nouser_alert{
+        font-size : 10px;
+        margin : 5px 15px;
+    }
+    .SearchUser_box{
+        margin: 19px 10px 0 0;
+    }
+    .SearchUser_logButton{
+        padding-top : 16px;
+    }
+    .SearchUser_logo_left{
+        margin-left: 3px;
+        font-size: 14px;
+    }
+    .SearchUser_logo_right{
+        margin-left: 1px;
+        font-size: 14px;
+    }
+}
+
+@media only screen and (min-width: 300px) and (max-width: 350px){
+    .SearchUser_top_searchBox{
+        margin-right : 10px;
+        height: 25px;
+        width : 140px;
+    }
+    .SearchUser_top_searchBox > input{
+        width: 105px;
+        margin-right: 2px;
+        font-size: 12px;
+    }
+    .SearchUser_top_searchBox > img{
+        height: 12px;
+    }
+    .SearchUser_top_search_dropdown{
+        margin-right : 12px;
+        width: 130px;
+        top: 55px;
+        max-height: 120px;
+    }
+    .SearchUser_top_search_dropdown2{
+        margin-right : 12px;
+        width: 130px;
+        top: 55px;
+        max-height: 120px;
+    }
+    .SearchUser_userList{
+        height : 30px;
+    }
+    .SearchUser_userImgContainer{
+        width : 18px;
+        height : 18px;
+    }
+    .SearchUser_userImg{
+        height : 20px;
+    }
+    .SearchUser_userName{
+        font-size: 12px;
+    }
+    .SearchUser_nouser_alert{
+        font-size : 10px;
+        margin : 5px 15px;
+    }
+    .SearchUser_box{
+        margin: 19px 10px 0 0;
+    }
+    .SearchUser_logButton{
+        padding-top : 18px;
+        font-size : 14px;
+    }
+    .SearchUser_logo_left{
+        font-size: 14px;
+    }
+    .SearchUser_logo_right{
+        margin-left: 1px;
+        font-size: 14px;
+    }
+}
+
+@media only screen and (min-width: 270px) and (max-width: 300px){
+    .SearchUser_top_searchBox{
+        margin-right : 10px;
+        height: 20px;
+        width : 140px;
+    }
+    .SearchUser_top_searchBox > input{
+        width: 105px;
+        margin-right: 2px;
+        font-size: 10px;
+    }
+    .SearchUser_top_searchBox > img{
+        height: 10px;
+    }
+    .SearchUser_top_search_dropdown{
+        margin-right : 12px;
+        width: 130px;
+        top: 55px;
+        max-height: 120px;
+    }
+    .SearchUser_top_search_dropdown2{
+        margin-right : 12px;
+        width: 130px;
+        top: 55px;
+        max-height: 120px;
+    }
+    .SearchUser_userList{
+        height : 30px;
+    }
+    .SearchUser_userImgContainer{
+        width : 18px;
+        height : 18px;
+    }
+    .SearchUser_userImg{
+        height : 20px;
+    }
+    .SearchUser_userName{
+        font-size: 10px;
+    }
+    .SearchUser_nouser_alert{
+        font-size : 10px;
+        margin : 5px 15px;
+    }
+    .SearchUser_box{
+        margin: 19px 10px 0 0;
+    }
+    .SearchUser_logButton{
+        padding-top : 18px;
+        font-size : 10px;
+    }
+    .SearchUser_logo_left{
+        font-size: 10px;
+    }
+    .SearchUser_logo_right{
+        margin-left: 1px;
+        font-size: 10px;
+    }
+}
