@@ -3,8 +3,10 @@ import '../styles/components/WaveElement.css'
 import ElementProfileBox from './ElementProfileBox';
 import { useState } from 'react';
 import ShowRoutineModal from '../components/modals/ShowRoutineModal';
+import ShowReplyModal from '../components/modals/ShowReplyModal';
 
-const WaveElement = ({ record_img, create_time, routine_name, comment, member_nickname, member_img, userData, setUserData, isOpen, routineId, pre }) => {
+const WaveElement = ({ record_id, record_img, create_time, routine_name, comment, member_nickname, member_img, userData, setUserData, isOpen, routineId, pre }) => {
+    const [showReply, setShowReply] = useState(false);
     const [showRoutine, setShowRoutine] = useState(false);
     const [openComment, setOpenComment] = useState(false);
     const [like, setLike] = useState({
@@ -52,6 +54,14 @@ const WaveElement = ({ record_img, create_time, routine_name, comment, member_ni
         alert('잠겨있는 루틴입니다.');
     }
 
+    const showReplyModal = () => {
+        // if (isOpen || member_nickname === localStorage.getItem('HH_name')) {
+        //     setShowReply(true);
+        //     return;
+        // }
+        setShowReply(true);
+    }
+
     {/* 좋아요 상태/횟수 변경 함수 */ }
     const changeLike = () => {
         setLike({
@@ -87,13 +97,12 @@ const WaveElement = ({ record_img, create_time, routine_name, comment, member_ni
 
                     {/* 좋아요, 댓글 */}
                     <div className='waveElement_content_thirdLine'>
-                        <div
-                            className='waveElement_like'
-                            onClick={() => { changeLike() }}>   {/* 클릭하면 변경하는 함수 실행 */}
+                        <div className='waveElement_like'>
+                            {/* 좋아요 누르면 변경 */}
                             {like.liked === false
-                                ? <img src='/img/like.png' alt='좋아요' />
-                                : <img src='/img/liked.png' alt='좋아요 누름' />}{like.count}</div>
-                        <div className='waveElement_reply' onClick={() => { showModal() }}><img src='/img/reply.png' alt='댓글' />0</div>
+                                ? <img src='/img/like.png' alt='좋아요' onClick={() => { changeLike() }} />
+                                : <img src='/img/liked.png' alt='좋아요 누름' onClick={() => { changeLike() }} />}{like.count}</div>
+                        <div className='waveElement_reply' onClick={() => { showReplyModal() }}><img src='/img/reply.png' alt='댓글' />0</div>
                     </div>
                     {
                         openComment === true && comment.length > 15 ?
@@ -116,6 +125,15 @@ const WaveElement = ({ record_img, create_time, routine_name, comment, member_ni
                 userData={userData}
                 setUserData={setUserData}
                 clickRoutineId={routineId}
+                pre={pre}
+            />
+
+            <ShowReplyModal
+                show={showReply}
+                onHide={() => { setShowReply(false) }}
+                userData={userData}
+                setUserData={setUserData}
+                record_id={record_id}
                 pre={pre}
             />
         </div>

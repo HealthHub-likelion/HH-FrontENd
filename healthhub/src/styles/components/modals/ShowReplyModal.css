@@ -1,42 +1,34 @@
-.show_reply_header{
+.show_routine_header{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
-.show_reply_header > div{
+.show_routine_header > div{
     color: #1A1A1A;
     font-weight: bold;
 }
-.show_reply_header > div > button{
+.show_routine_header > div > button{
     background-color: transparent;
     color: #2E61D7;
     border: 2px solid #2E61D7;
     font-weight: 500;
 }
-.show_reply_header > div > button:hover{
+.show_routine_header > div > button:hover{
     background-color: #2E61D7;
     color: white;
 }
-.show_reply_header > div > button:hover .fork_img{
+.show_routine_header > div > button:hover .fork_img{
     filter: brightness(2000%);
 }
-.show_reply_body{
+.show_routine_body{
     overflow: scroll;
 }
-.show_reply_body::-webkit-scrollbar{
+.show_routine_body::-webkit-scrollbar{
     display: none;
 }
 .exercise_title{
     border-bottom: 0.5px solid #dfdfdf;
-}
-.exercise_title_en{
-    color: #2E61D7;
-    font-weight: 700;
-}
-.exercise_title_kr{
-    color: #4f4f4f;
-    font-weight: 600;
 }
 .exercise_column{
     display: grid;
@@ -45,17 +37,15 @@
     border-bottom: 0.5px solid #dfdfdf;
     text-align: center;
 }
-.exercise_set_box{
-    display: grid;
-    grid-template-columns: 1fr 2fr 2fr 2fr;
-    text-align: center;
+.reply_box{
+    display: flex;
 }
-.show_reply_footer{
+.show_routine_footer{
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
-.show_reply_footer > button{
+.show_routine_footer > button{
     border: none;
     background-color: #2E61D7;
     color: #E3F5FE;
@@ -64,17 +54,17 @@
 }
 
 @media only screen and (min-width: 600px){
-    .show_reply_header{
+    .show_routine_header{
         height: 50px;
         padding: 5px 15px;
     }
-    .show_reply_header > div{
+    .show_routine_header > div{
         font-size: 25px;
     }
-    .show_reply_header > div > img{
+    .show_routine_header > div > img{
         height: 20px;
     }
-    .show_reply_header > div > button{
+    .show_routine_header > div > button{
         border-radius: 10px;
         font-size: 18px;
         font-weight: 500;
@@ -85,7 +75,7 @@
         height: 20px;
         margin: 0 6px 2px 0;
     }
-    .show_reply_body{
+    .show_routine_body{
         padding: 15px;
         max-height: 400px;
     }
@@ -105,10 +95,10 @@
     .exercise_column,  .exercise_set_box{
         padding: 5px 10px;
     }
-    .show_reply_footer{
+    .show_routine_footer{
         padding-top: 20px;
     }
-    .show_reply_footer > button{
+    .show_routine_footer > button{
         height: 40px;
         font-size: 18px;
         border-radius: 7px;
@@ -116,17 +106,17 @@
     }
 }
 @media only screen and (min-width: 450px) and (max-width: 599px){
-    .show_reply_header{
+    .show_routine_header{
         height: 40px;
         padding: 4px 12px;
     }
-    .show_reply_header > div{
+    .show_routine_header > div{
         font-size: 23px;
     }
-    .show_reply_header > div > img{
+    .show_routine_header > div > img{
         height: 18px;
     }
-    .show_reply_header > div > button{
+    .show_routine_header > div > button{
         border-radius: 8px;
         font-size: 16px;
         font-weight: 400;
@@ -137,7 +127,7 @@
         height: 18px;
         margin: 0 5px 2px 0;
     }
-    .show_reply_body{
+    .show_routine_body{
         padding: 13px;
         max-height: 350px;
     }
@@ -157,10 +147,10 @@
     .exercise_column,  .exercise_set_box{
         padding: 4px 8px;
     }
-    .show_reply_footer{
+    .show_routine_footer{
         padding-top: 15px;
     }
-    .show_reply_footer > button{
+    .show_routine_footer > button{
         height: 30px;
         font-size: 16px;
         border-radius: 6px;
@@ -171,17 +161,17 @@
     }
 }
 @media only screen and (min-width: 300px) and (max-width: 499px){
-    .show_reply_header{
+    .show_routine_header{
         height: 30px;
         padding: 3px 10px;
     }
-    .show_reply_header > div{
+    .show_routine_header > div{
         font-size: 20px;
     }
-    .show_reply_header > div > img{
+    .show_routine_header > div > img{
         height: 16px;
     }
-    .show_reply_header > div > button{
+    .show_routine_header > div > button{
         border-radius: 7px;
         font-size: 14px;
         font-weight: 400;
@@ -192,7 +182,7 @@
         height: 16px;
         margin: 0 4px 2px 0;
     }
-    .show_reply_body{
+    .show_routine_body{
         padding: 5px;
         max-height: 330px;
     }
@@ -212,10 +202,10 @@
     .exercise_column,  .exercise_set_box{
         padding: 3px 7px;
     }
-    .show_reply_footer{
+    .show_routine_footer{
         padding-top: 12px;
     }
-    .show_reply_footer > button{
+    .show_routine_footer > button{
         height: 25px;
         font-size: 14px;
         border-radius: 5px;
@@ -226,17 +216,17 @@
     }
 }
 @media only screen and (min-width: 270px) and (max-width: 299px){
-    .show_reply_header{
+    .show_routine_header{
         height: 10px;
         padding: 2px 8px;
     }
-    .show_reply_header > div{
+    .show_routine_header > div{
         font-size: 16px;
     }
-    .show_reply_header > div > img{
+    .show_routine_header > div > img{
         height: 14px;
     }
-    .show_reply_header > div > button{
+    .show_routine_header > div > button{
         border-radius: 6px;
         font-size: 12px;
         font-weight: 400;
@@ -247,7 +237,7 @@
         height: 14px;
         margin: 0 3px 1px 0;
     }
-    .show_reply_body{
+    .show_routine_body{
         padding: 3px;
         max-height: 300px;
     }
@@ -267,10 +257,10 @@
     .exercise_column,  .exercise_set_box{
         padding: 2px 6px;
     }
-    .show_reply_footer{
+    .show_routine_footer{
         padding-top: 10px;
     }
-    .show_reply_footer > button{
+    .show_routine_footer > button{
         height: 22px;
         font-size: 12px;
         border-radius: 5px;
