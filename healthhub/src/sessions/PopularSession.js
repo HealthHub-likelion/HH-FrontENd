@@ -1,14 +1,14 @@
 import React from 'react';
 import WaveElement from '../components/WaveElement';
-import '../styles/sessions/FeedsSession.css'
+import '../styles/sessions/PopularSession.css'
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-const FeedsSession = ({userData, setUserData}) => {
-
-    const [feed_myList,setMyList] = useState([]);
+const PopularSession = ({userData, setUserData}) => {
+    const [popular_myList,setMyList] = useState([]);
     const token = localStorage.getItem('HH_token');
-    const axiosFeeds = () =>{
+    
+    const axiosPopular = () =>{
         axios.get(`${process.env.REACT_APP_PROXY}/record/followinglist/`,{
             headers:{
                 Authorization : token
@@ -24,7 +24,7 @@ const FeedsSession = ({userData, setUserData}) => {
     }
 
     useEffect(()=>{
-        axiosFeeds();
+        axiosPopular();
     },[]);
 
     function getDate(create_time){
@@ -32,8 +32,8 @@ const FeedsSession = ({userData, setUserData}) => {
         return getCreate_time;
     }
 
-    function latest(feed_myList){
-        const latestList = [...feed_myList];
+    function latest(popular_myList){
+        const latestList = [...popular_myList];
         latestList.sort((a,b)=>{
             return b.record_id - a.record_id;
         })
@@ -41,9 +41,9 @@ const FeedsSession = ({userData, setUserData}) => {
     }
 
     return (
-        <div className='FeedsSession'>
-            {feed_myList.length>0?
-                latest(feed_myList).map((e,i)=>{
+        <div className='PopularSession'>
+            {popular_myList.length>0 ?
+                latest(popular_myList).map((e,i)=>{
                     return(
                         <WaveElement
                         userData={userData} 
@@ -61,10 +61,10 @@ const FeedsSession = ({userData, setUserData}) => {
                         />
                     )
                 })
-                :<div className='feed_empty'>기록을 공유할 친구를 찾아보세요!</div>
+                :<div className='popular_empty'>게시물이 비었네요...</div>
             }
         </div>
     );
 };
 
-export default FeedsSession;
+export default PopularSession;

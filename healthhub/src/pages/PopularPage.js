@@ -4,6 +4,7 @@ import '../styles/pages/MainPage.css'
 import Header from "../components/Header";
 import ProfileSession from "../sessions/ProfileSession";
 import InitialData from "../components/InitialData";
+import PopularSession from "../sessions/PopularSession"
 
 function PopularPage() {
     const {username} = useParams();
@@ -19,7 +20,7 @@ function PopularPage() {
             <ProfileSession username={username} userData={userData}/>
           </div>
           <div className="mainpage_session">
-            <div>인기게시물 세션 들어갈 자리</div>
+            <PopularSession userData={userData} setUserData={setUserData}/>
           </div>
         </div>
 
