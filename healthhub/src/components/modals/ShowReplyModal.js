@@ -109,7 +109,7 @@ function ShowReplyModal({ show, onHide, record_id, userData, setUserData, pre })
         // 댓글이 없으면 없다고 표시.
         if (reply_list.length === 0) {
             reply_list.push(
-                <div className='reply_box'>작성된 댓글이 없습니다.</div>
+                <div className='reply_box'>댓글이 없습니다.</div>
             )
         }
 
