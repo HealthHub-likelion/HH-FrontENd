@@ -135,6 +135,8 @@ const WaveElement = ({ record_id, record_img, create_time, routine_name, comment
                 setUserData={setUserData}
                 record_id={record_id}
                 pre={pre}
+                member_nickname={member_nickname}
+                member_img={member_img}
             />
         </div>
     );
