@@ -2,9 +2,10 @@ import '../../styles/components/modals/ShowReplyModal.css';
 import { Modal } from 'react-bootstrap';
 import { useRef, useEffect, useState } from 'react';
 import axios from 'axios';
+import ElementProfileBox from '../ElementProfileBox';
 import LoadingSpinner from '../LoadingSpinner';
 
-function ShowReplyModal({ show, onHide, record_id, userData, setUserData, pre }) {
+function ShowReplyModal({ show, onHide, record_id, userData, setUserData, pre, member_nickname, member_img }) {
     const [load, setLoad] = useState(false);
     const [showEdit, setShowEdit] = useState(false);
     const [routineContent, setRoutineContent] = useState({});
@@ -91,10 +92,13 @@ function ShowReplyModal({ show, onHide, record_id, userData, setUserData, pre })
                 if (replies[i].pid === record_id) {
                     reply_list.push(
                         <div key={i} className='reply_box'>
-                            <div className='exercise_title'>
-                                사용자{i + 1}
+                            <div className='reply_user'>
+                                <img
+                                    className='reply_user_img'
+                                    src={`${process.env.REACT_APP_IMAGE}${member_img}`} />
+                                <div>{member_nickname}</div>
                             </div>
-                            <div className='exercise_column'>
+                            <div className='reply_content'>
                                 {replies[i].content}
                             </div>
                             <div>
