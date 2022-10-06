@@ -10,9 +10,9 @@
 .UserSession::-webkit-scrollbar{
     display: none;
 }
-.usersession_readme, .usersession_routines{
+.usersession_readme, .usersession_routines, .usersession_graph{
     width: 100%;
-    margin: 50px 0;
+    margin: 25px 0;
 }
 .usersession_waves{
     margin-bottom: 150px;
