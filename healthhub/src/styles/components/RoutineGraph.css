@@ -1,0 +1,57 @@
+.RoutineGraph{
+    height: 270px;
+    display: flex;
+    margin: 0 5px;
+}
+.RoutineGraph > div:nth-child(1){
+    font-size: 15px;
+    width: 50px;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 2fr;
+}
+.RoutineGraph > div:nth-child(1) > div{
+    flex-grow: 1;
+    color: #B6B6B6;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 5px;
+}
+.RoutineGraph > div:nth-child(2){
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+.RoutineGraph > div:nth-child(2) > div{
+    flex-grow: 1;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1.5fr;
+}
+.column{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.lastColumn{
+    color: #B6B6B6;
+    font-size: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.line{
+    height: 50%;
+    width: 100%;
+    border-bottom: 0.5px solid #B6B6B6;
+}
+.circle{
+    border-radius: 100%;
+    width: 10px;
+    height: 10px;
+    background-color: #10273B;
+    border: 2px solid #2E61D7;
+    position: relative;
+    left: 47%;
+    bottom: 66px;
+}
