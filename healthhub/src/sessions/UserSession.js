@@ -71,7 +71,7 @@ function UserSession({ userData, setUserData }) {
     <div className="UserSession">
       {userData['isFollow'] !== null && userData['isOpen'] === false
         ? <div className='usersession_private'>
-          <img alt='잠금' src={`${process.env.REACT_APP_PROXY}/media/images/icons/HH_icon_security.png`} />
+          <img alt='잠금' src={`${process.env.REACT_APP_IMAGE}/media/images/icons/HH_icon_security.png`} />
           <div>private user</div>
         </div>
         : <>

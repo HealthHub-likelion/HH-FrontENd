@@ -9,23 +9,23 @@ function Wave({waveLevel}) {
         let bottom_value;
 
         if(waveLevel === 0){
-            background_url = `${process.env.REACT_APP_PROXY}/media/images/HH_wave_lv0.png`
+            background_url = `${process.env.REACT_APP_IMAGE}/media/images/HH_wave_lv0.png`
             bottom_value = -210;
         }
         else if(waveLevel > 0 && waveLevel <= 7){
-            background_url = `${process.env.REACT_APP_PROXY}/media/images/HH_wave_lv1_${i}.png`
+            background_url = `${process.env.REACT_APP_IMAGE}/media/images/HH_wave_lv1_${i}.png`
             bottom_value = -160;
         }
         else if(waveLevel > 7 && waveLevel <= 14){
-            background_url = `${process.env.REACT_APP_PROXY}/media/images/HH_wave_lv2_${i}.png`
+            background_url = `${process.env.REACT_APP_IMAGE}/media/images/HH_wave_lv2_${i}.png`
             bottom_value = -120;
         }
         else if(waveLevel > 14 && waveLevel <= 21){
-            background_url = `${process.env.REACT_APP_PROXY}/media/images/HH_wave_lv3_${i}.png`
+            background_url = `${process.env.REACT_APP_IMAGE}/media/images/HH_wave_lv3_${i}.png`
             bottom_value = -70;
         }
         else{
-            background_url = `${process.env.REACT_APP_PROXY}/media/images/HH_wave_lv4_${i}.png`
+            background_url = `${process.env.REACT_APP_IMAGE}/media/images/HH_wave_lv4_${i}.png`
             bottom_value = -30;
         }
 

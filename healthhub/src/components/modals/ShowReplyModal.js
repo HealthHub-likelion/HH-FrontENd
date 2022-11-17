@@ -136,7 +136,7 @@ function ShowReplyModal({ show, onHide, record_id, userData, setUserData, pre, m
                             댓글
                         </div>
                         <div>
-                            <img alt='취소' src={`${process.env.REACT_APP_PROXY}/media/images/icons/HH_icon_close_black.png`} onClick={onHide} />
+                            <img alt='취소' src={`${process.env.REACT_APP_IMAGE}/media/images/icons/HH_icon_close_black.png`} onClick={onHide} />
                         </div>
                     </div>
                     <div className='show_reply_body'>

@@ -8,7 +8,7 @@ const SmallSliceContainer = styled.div`
         rgba(6, 23, 38, 0.9),
         rgba(6, 23, 38, 0.9)
         ),
-    url(${process.env.REACT_APP_PROXY}/media/images/HH_bg_slice.png);
+    url(${process.env.REACT_APP_IMAGE}/media/images/HH_bg_slice.png);
     background-size: cover;
     border-radius: 5px;
     

@@ -60,7 +60,7 @@ function ReadMeElement({userData, setUserData}) {
                     <div onClick={()=>{cancelUpdate()}}>취소</div>
                     <div onClick={()=>{saveUpdate()}}>작성</div>
                 </div>
-                :<img key='udtImg' src={`${process.env.REACT_APP_PROXY}/media/images/icons/HH_icon_write.png`} alt='수정' onClick={()=>{showUpdate()}}/>
+                :<img key='udtImg' src={`${process.env.REACT_APP_IMAGE}/media/images/icons/HH_icon_write.png`} alt='수정' onClick={()=>{showUpdate()}}/>
             );
         }
 

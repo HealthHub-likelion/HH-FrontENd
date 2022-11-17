@@ -8,7 +8,7 @@ const IndexContainer = styled.div`
         rgba(6, 23, 38, 0.8),
         rgba(6, 23, 38, 0.8)
         ),
-    url(${process.env.REACT_APP_PROXY}/media/images/HH_bg.jpg);
+    url(${process.env.REACT_APP_IMAGE}/media/images/HH_bg.jpg);
     background-size: cover;
 `;
 

@@ -126,7 +126,7 @@ function ShowRoutineModal({ show, onHide, clickRoutineId, userData, setUserData,
                             {userData.isFollow !== null &&
                                 <button onClick={() => { forkRoutine() }}><img className='fork_img' alt='fork' src={`${process.env.REACT_APP_PROXY}/media/images/HH_icon_fork.png`} />Fork</button>
                             }
-                            <img alt='취소' src={`${process.env.REACT_APP_PROXY}/media/images/icons/HH_icon_close_black.png`} onClick={onHide} />
+                            <img alt='취소' src={`${process.env.REACT_APP_IMAGE}/media/images/icons/HH_icon_close_black.png`} onClick={onHide} />
                         </div>
                     </div>
                     <div className='show_routine_body'>

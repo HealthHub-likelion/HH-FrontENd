@@ -13,19 +13,19 @@ function MenuList({ Tab, username, userData }) {
 
     switch (type) {
       case 'My':
-        if (Tab === 'My' && userData['isFollow'] === null) returnSrc = `${process.env.REACT_APP_PROXY}/media/images/icons/HH_icon_my_clicked.png`;
-        else returnSrc = `${process.env.REACT_APP_PROXY}/media/images/icons/HH_icon_my.png`;
+        if (Tab === 'My' && userData['isFollow'] === null) returnSrc = `${process.env.REACT_APP_IMAGE}/media/images/icons/HH_icon_my_clicked.png`;
+        else returnSrc = `${process.env.REACT_APP_IMAGE}/media/images/icons/HH_icon_my.png`;
         break;
       case 'Feeds':
-        if (Tab === 'Feeds') returnSrc = `${process.env.REACT_APP_PROXY}/media/images/icons/HH_icon_feed_clicked.png`;
-        else returnSrc = `${process.env.REACT_APP_PROXY}/media/images/icons/HH_icon_feed.png`;
+        if (Tab === 'Feeds') returnSrc = `${process.env.REACT_APP_IMAGE}/media/images/icons/HH_icon_feed_clicked.png`;
+        else returnSrc = `${process.env.REACT_APP_IMAGE}/media/images/icons/HH_icon_feed.png`;
         break;
       case 'Records':
-        returnSrc = `${process.env.REACT_APP_PROXY}/media/images/icons/HH_icon_record.png`;
+        returnSrc = `${process.env.REACT_APP_IMAGE}/media/images/icons/HH_icon_record.png`;
         break;
       case 'Settings':
-        if (Tab === 'Settings') returnSrc = `${process.env.REACT_APP_PROXY}/media/images/icons/HH_icon_setting_clicked.png`;
-        else returnSrc = `${process.env.REACT_APP_PROXY}/media/images/icons/HH_icon_setting.png`;
+        if (Tab === 'Settings') returnSrc = `${process.env.REACT_APP_IMAGE}/media/images/icons/HH_icon_setting_clicked.png`;
+        else returnSrc = `${process.env.REACT_APP_IMAGE}/media/images/icons/HH_icon_setting.png`;
         break;
       default:
         returnSrc = null;

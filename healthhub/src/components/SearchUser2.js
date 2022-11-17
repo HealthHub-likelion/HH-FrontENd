@@ -129,7 +129,7 @@ const SearchUser = () => {
                 <div className='SearchUser_top_searchBox'>
                     <input className='SearchUser_top_search_input' ref={inputRef}
                         value={inputName} onChange={searchName} placeholder='user name' />
-                    <img alt='검색' src={`${process.env.REACT_APP_PROXY}/media/images/HH_icon_search_name.png`} />
+                    <img alt='검색' src={`${process.env.REACT_APP_IMAGE}/media/images/HH_icon_search_name.png`} />
                 </div>
                 
                 {/* 검색 결과창  */}

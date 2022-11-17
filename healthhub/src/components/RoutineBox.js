@@ -52,7 +52,7 @@ function RoutineBox({ userData, setUserData }) {
                                     {userData.routine[i]['routineName']}
                                 </div>
                                 {!userData.routine[i]['routineOpen']
-                                &&<img alt='공개여부' src={`${process.env.REACT_APP_PROXY}/media/images/icons/HH_icon_security.png`}/>}
+                                &&<img alt='공개여부' src={`${process.env.REACT_APP_IMAGE}/media/images/icons/HH_icon_security.png`}/>}
                             </div>
                             <div className='routineBox_right'>
                                 {userData.routine[i]['routineCount']} records
@@ -66,7 +66,7 @@ function RoutineBox({ userData, setUserData }) {
             }
         }
         if(userData['isFollow']===null){
-            list.push(<div key={-1} className='routineBox_plus' onClick={()=>{showCreateModal()}}><img alt='플러스' src={`${process.env.REACT_APP_PROXY}/media/images/icons/HH_icon_plus.png`}/></div>)
+            list.push(<div key={-1} className='routineBox_plus' onClick={()=>{showCreateModal()}}><img alt='플러스' src={`${process.env.REACT_APP_IMAGE}/media/images/icons/HH_icon_plus.png`}/></div>)
         }
 
         return list;
