@@ -9,6 +9,7 @@ import InitialData from "../components/InitialData";
 function RankingPage() {
     const {username} = useParams();
     const [userData, setUserData] = useState({});
+    const [showFollowers, setShowFollowers] = useState(true);
 
     return (
       <div className="MainPage">
@@ -21,7 +22,10 @@ function RankingPage() {
           </div>
           <div className="mainpage_session">
           <div className="mainpage_ranking">
-            <RankingSession username={username} userData={userData}/>
+            <RankingSession userData={userData}
+                            setUserData={setUserData}
+                            showFollowers={showFollowers}
+                            />
           </div>
           </div>
         </div>

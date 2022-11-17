@@ -36,7 +36,7 @@ function FollowsSession({showFollowers, userData, setUserData}) {
           }
         })
         .then((res) => {
-          // console.log(res);
+          console.log(res);
           setFollowing(res.data);
         })
         .catch((err) => {
