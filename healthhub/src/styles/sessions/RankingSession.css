@@ -9,6 +9,13 @@
     display: flex;
     justify-content: center;
 }
+
+.medal{
+    width: 100px;
+    font-size: 40px;
+    text-align: center;
+}
+
 .RankingElement{
     display: flex;
     flex-direction: row;

@@ -8,32 +8,8 @@ function RankingSession({userData}) {
   const token = localStorage.getItem('HH_token');
   const [rank, setRank] = useState([]); //랭킹 목록
 
-  //임시 데이터
-  //팔로워 목록
-  // const axiosFollower = () => {
-  //   if(userData['name']){
-  //     axios.get(`${process.env.REACT_APP_PROXY}/accounts/member/follow?who=follower&name=${userData['name']}`, {
-  //       headers : {
-  //         Authorization: token
-  //       }
-  //     })
-  //     .then((res) => {
-  //       console.log(res);
-  //       setFollower(res.data);
-  //     })
-  //     .catch((err) => {
-  //       // console.log(err);
-  //     })
-  //   }    
-  // }
-
-  // useEffect(() => {
-  //   axiosFollower();
-  // }, [userData]);
-
-  //랭크유저 목록 (Top100)
+  //랭크유저 목록
   const axiosRank = () => {
-    //if(userData['name']){
       axios.get(`${process.env.REACT_APP_PROXY}/accounts/member/ranking`, {
         headers : {
           Authorization: token
@@ -46,7 +22,6 @@ function RankingSession({userData}) {
       .catch((err) => {
         console.log(err);
       })
-    //}
   }
 
   useEffect(() => {
@@ -59,13 +34,6 @@ function RankingSession({userData}) {
       <RankingList
       rank={rank}
       setRank={setRank}
-      // showFollowers={showFollowers}
-      // follower={follower}
-      // setFollower={setFollower}
-      // following={following}
-      // setFollowing={setFollowing}
-      // userData={userData}
-      // setUserData={setUserData}
       />
     </div>
   )
