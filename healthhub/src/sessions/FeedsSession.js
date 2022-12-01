@@ -8,7 +8,7 @@ const FeedsSession = ({ userData, setUserData }) => {
 
     const [feed_myList, setMyList] = useState([]);
     const token = localStorage.getItem('HH_token');
-    
+
     const axiosFeeds = () => {
         axios.get(`${process.env.REACT_APP_PROXY}/record/followinglist/`, {
             headers: {
@@ -52,6 +52,7 @@ const FeedsSession = ({ userData, setUserData }) => {
                             key={i}
                             record_id={e.record_id}
                             record_img={e.record_img}
+                            record_like_user={e.record_like_user}
                             routine_name={e.routine_name}
                             create_time={getDate(e.record_create_time)}
                             comment={e.record_comment}
