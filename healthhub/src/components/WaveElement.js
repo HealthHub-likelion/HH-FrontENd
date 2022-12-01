@@ -4,15 +4,46 @@ import ElementProfileBox from './ElementProfileBox';
 import { useState } from 'react';
 import ShowRoutineModal from '../components/modals/ShowRoutineModal';
 import ShowReplyModal from '../components/modals/ShowReplyModal';
+import axios from 'axios';
 
-const WaveElement = ({ record_id, record_img, create_time, routine_name, comment, member_nickname, member_img, userData, setUserData, isOpen, routineId, pre }) => {
+const WaveElement = ({ record_id, record_img, record_like_user, create_time, routine_name, comment, member_nickname, member_img, userData, setUserData, isOpen, routineId, pre }) => {
     const [showReply, setShowReply] = useState(false);
     const [showRoutine, setShowRoutine] = useState(false);
     const [openComment, setOpenComment] = useState(false);
+    const userName = userData['name'];
+    const recordList = JSON.parse(localStorage.getItem('recordList'));
+    const token = localStorage.getItem('HH_token');
+    const member_id = localStorage.getItem('HH_member_id');
+
     const [like, setLike] = useState({
-        liked: false,
-        count: 0,
+        liked: record_like_user.find((id) => id == member_id) === undefined
+            ? false : true,
+        count: record_like_user.length,
     });
+    const [record, setRecord] = useState({
+        id: '',
+        reple: [],
+        liked: false,
+        whoLiked: [],
+    });
+
+    const axiosLike = () => {
+        axios.post(`${process.env.REACT_APP_PROXY}/record/${record_id}/likes/`, {
+        }, {
+            // 헤더 부분
+            headers: {
+                Authorization: token
+            }
+        })
+            .then((res) => {
+                // 잘 불러와졌을때
+                console.log(res);
+            })
+            .catch((err) => {
+                // 오류 나왓을 때
+                console.log(err);
+            })
+    }
 
     function handleComment(comment) {
         if (comment.length > 15) {
@@ -55,20 +86,27 @@ const WaveElement = ({ record_id, record_img, create_time, routine_name, comment
     }
 
     const showReplyModal = () => {
-        // if (isOpen || member_nickname === localStorage.getItem('HH_name')) {
-        //     setShowReply(true);
-        //     return;
-        // }
         setShowReply(true);
+    }
+
+    const updateList = (list) => {
+        if (list.length === 0) {
+            list.push(userName);
+        } else {
+            let idx = list.findIndex(e => e === userName);
+            idx < 0 ? list.push(userName) : list.splice(idx, 1);
+        }
+        return list;
     }
 
     {/* 좋아요 상태/횟수 변경 함수 */ }
     const changeLike = () => {
+        axiosLike();
         setLike({
             ...like,
             liked: !like.liked,
-            count: like.liked === false ? like.count + 1 : like.count - 1,
-        })
+            // count: record_like_user.length,  // 실시간 숫자 반영 연구중
+        });
     }
 
     return (
