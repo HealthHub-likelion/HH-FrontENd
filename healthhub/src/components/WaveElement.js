@@ -100,12 +100,12 @@ const WaveElement = ({ record_id, record_img, record_like_user, create_time, rou
     }
 
     {/* 좋아요 상태/횟수 변경 함수 */ }
-    const changeLike = () => {
+    const changeLike = (state) => {
         axiosLike();
         setLike({
             ...like,
-            liked: !like.liked,
-            // count: record_like_user.length,  // 실시간 숫자 반영 연구중
+            liked: state === 1 ? true : false,
+            count: state === 1 ? like.count += 1 : like.count -= 1,
         });
     }
 
@@ -138,8 +138,8 @@ const WaveElement = ({ record_id, record_img, record_like_user, create_time, rou
                         <div className='waveElement_like'>
                             {/* 좋아요 누르면 변경 */}
                             {like.liked === false
-                                ? <img src='/img/like.png' alt='좋아요' onClick={() => { changeLike() }} />
-                                : <img src='/img/liked.png' alt='좋아요 누름' onClick={() => { changeLike() }} />}{like.count}</div>
+                                ? <img src='/img/like.png' alt='좋아요' onClick={() => { changeLike(1) }} />
+                                : <img src='/img/liked.png' alt='좋아요 누름' onClick={() => { changeLike(0) }} />}{like.count}</div>
                         <div className='waveElement_reply' onClick={() => { showReplyModal() }}><img src='/img/reply.png' alt='댓글' />0</div>
                     </div>
                     {
