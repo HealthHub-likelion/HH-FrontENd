@@ -1,8 +1,14 @@
+.show_reply_content{
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+}
 .show_reply_header{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin: 10px;
 }
 .show_reply_header > div{
     color: #1A1A1A;
@@ -16,20 +22,57 @@
 }
 .reply_box{
     display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    border-bottom: 1px solid lightgray;
+}
+.reply_none{
+    text-align: center;
+    font-size: larger;
+    font-weight: bolder;
+    color: #9F9F9F;
 }
 .reply_user{
     display: flex;
 }
 .reply_user_img{
-    width: 40px;
+    width: 55px;
 }
 .reply_user > div{
     font-weight: bold;
 }
+.reply_content{
+    text-align: end;
+}
+.reply_content_date{
+    font-size: 14px;
+}
+.reply_content_date > span{
+    padding: 4px;
+    cursor: pointer;
+}
 .show_reply_footer{
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    background-color: #264056;
+    justify-content: space-around;
+    vertical-align: middle;
+}
+.show_reply_footer > textarea {
+    width: 88%;
+    height: 35px;
+    margin-bottom: 10px;
+    border: 0;
+    border-radius: 5px;
+    padding: 4px;
+    resize: none;
+}
+.show_reply_footer > button {
+    height: 35px;
+    border: 0;
+    background-color: #264056;
+}
+.posting-button > img {
+    width: 15px;
 }
 
 @media only screen and (min-width: 600px){
