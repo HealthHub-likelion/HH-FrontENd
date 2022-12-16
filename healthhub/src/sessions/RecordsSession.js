@@ -82,6 +82,7 @@ function RecordSession({ userData, setUserData }) {
                                     setUserData={setUserData}
                                     record_id={e.record_id}
                                     record_img={e.record_img}
+                                    record_like_user={e.record_like_user}
                                     routine_name={e.routine_name}
                                     create_time={getDate(e.record_create_time)}
                                     comment={e.record_comment}

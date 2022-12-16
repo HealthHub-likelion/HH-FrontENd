@@ -12,21 +12,20 @@ function SettingsPage() {
 
   return (
     <>
-      {Object.keys(userData).length !== 0 &&
-        <div className="MainPage">
-          <div className="mainpage_header">
-            <Header Tab={'Settings'} username={username} userData={userData} />
+      <div className="MainPage">
+        <div className="mainpage_header">
+          <Header Tab={'Settings'} username={username} userData={userData} />
+        </div>
+        <div className="mainpage_content">
+          <div className="mainpage_profile">
+            <ProfileSession username={username} userData={userData} />
           </div>
-          <div className="mainpage_content">
-            <div className="mainpage_profile">
-              <ProfileSession username={username} userData={userData} />
-            </div>
-            <div className="mainpage_session">
-              <SettingsSession username={username} userData={userData} />
-            </div>
+          <div className="mainpage_session">
+            <SettingsSession username={username} userData={userData} />
           </div>
         </div>
-      }
+      </div>
+
       <InitialData
         username={username}
         setUserData={setUserData}
