@@ -27,7 +27,7 @@
 | 이름 |  구현우 | 백승민 | 오세찬 | 임수연 |
 | :---: | :---: | :---: | :---: | :---: |  
 |  | <img src="https://user-images.githubusercontent.com/72565083/230766542-b2898bf8-e748-4697-9549-e6925699f9be.png" width="150"/> | <img src="https://avatars.githubusercontent.com/u/78603365?v=4" width="150"/> | <img src="https://avatars.githubusercontent.com/u/98178673?v=4" width="150"/> | <img src="https://avatars.githubusercontent.com/u/83389222?v=4" width="150"/> | 
-| 깃허브 | [@GHWooo](https://github.com/GHWooo) | [@Miniling](https://github.com/Miniling) | [@rosielsh](https://github.com/rosielsh) | [@so0y](https://github.com/so0y) |
+| 깃허브 | [@GHWooo](https://github.com/GHWooo) | [@Miniling](https://github.com/Miniling) | [@ledraco](https://github.com/ledraco) | [@so0y](https://github.com/so0y) |
 | 담당 페이지 | Index<br/>User<br/>Records | User<br/>Feeds<br/>Settings | Login<br/>Signup<br/>Popular | Follows<br/>Ranking | 
 
 <br>
